@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh">
-<head>
+<html lang="zh-CN">
+    <head>
   <!-- 元数据 -->
   <meta charset="utf-8">
-  <link rel="icon" href="/images/sitelogo.webp">
+  <link rel="icon" href="">
   <title>C++ primary（上部） | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
@@ -13,9 +13,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    
-      <meta name="description" itemprop="description" content="一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头" />
-    
+    <meta name="keywords" content="c++从入门到不入门" />
   
   <meta name="description" content="本篇博客为的是复习一遍C++的基础知识，方便从C语言更快的转型为C++语言 本文只是快速的提供模板和粗略的将部分代码一笔带过 前言中当然要感谢柳婼姐和CSDN的c++相关资料， 那么，我们进入正题： C语言向C++的进阶本文打算按照以下顺序进行讲解  1.C++ 语言的优势 2.初步的C++用法介绍 3.板子的提出 4.依据板子进行其他的讲解 5.板子中其他头文件的用法说明 6.其他不在板子内的常">
 <meta property="og:type" content="article">
@@ -24,13 +22,13 @@
 <meta property="og:site_name" content="ALgarth&#39;s blog">
 <meta property="og:description" content="本篇博客为的是复习一遍C++的基础知识，方便从C语言更快的转型为C++语言 本文只是快速的提供模板和粗略的将部分代码一笔带过 前言中当然要感谢柳婼姐和CSDN的c++相关资料， 那么，我们进入正题： C语言向C++的进阶本文打算按照以下顺序进行讲解  1.C++ 语言的优势 2.初步的C++用法介绍 3.板子的提出 4.依据板子进行其他的讲解 5.板子中其他头文件的用法说明 6.其他不在板子内的常">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://algarth.github.io/images/sitelogo.webp">
+<meta property="og:image" content="http://algarth.github.io/null">
 <meta property="article:published_time" content="2020-10-11T03:12:55.000Z">
-<meta property="article:modified_time" content="2020-10-12T10:56:37.101Z">
+<meta property="article:modified_time" content="2020-10-27T07:50:45.605Z">
 <meta property="article:author" content="ALgarth">
 <meta property="article:tag" content="c++从入门到不入门">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://algarth.github.io/images/sitelogo.webp">
+<meta name="twitter:image" content="http://algarth.github.io/null">
 <meta name="twitter:site" content="@null">
   
   <!-- 站点验证相关 -->
@@ -73,34 +71,34 @@
                         <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
                         <nav id="kratos-menu-wrap">
                             <ul id="kratos-primary-menu" class="sf-menu">
-                            
-                            
-                                <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
-                            
-                            
-                            
-                                <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
-                            
-                            
-                            
-                                <li>
-                                <a><i class="fa fa-link"></i>链接</a>
-                                <ul class="sub-menu">
+                                
                                     
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
                                     
+                                
                                     
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
                                     
-                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                
                                     
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
                                     
-                                    
-                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
-                                    
-                                    
-                                </ul>
-                                </li>
-                            
-                            
+                                
                             </ul>
                         </nav>
                     </div>
@@ -111,15 +109,18 @@
             <!-- <div class="kratos-overlay"></div> -->
             <div class="kratos-cover kratos-cover-2 text-center">
                 <div class="desc desc2 animate-box">
-                    <a href="/"><h2>ALgarth&#39;s blog</h2><br><span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span></a>
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
                 </div>
             </div>
         </div>
 
         <div id="kratos-blog-post">
             <div class="container">
-                    <div class="row">
-                        
+                <div class="row">
+                    
         <div id="main">
             <section class="col-md-8">
     <article>
@@ -144,6 +145,10 @@
             </header>
             <div class="kratos-post-content">
                 
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%90%91C-%E7%9A%84%E8%BF%9B%E9%98%B6"><span class="toc-number">1.</span> <span class="toc-text">C语言向C++的进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-C-%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">1.1.</span> <span class="toc-text">一. C++语言的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%9D%E6%AD%A5%E7%9A%84C-%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">二. 初步的C++语法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-iostream"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. iostream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-namespace"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cin%EF%BC%8Ccout"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. cin，cout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-endl"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. endl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%9D%BF%E5%AD%90%E7%9A%84%E6%8F%90%E5%87%BA"><span class="toc-number">1.3.</span> <span class="toc-text">三. 板子的提出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-bits-stdc"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. bits&#x2F;stdc++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-define"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. define</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-ios-sync-with-stdio-0"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. ios::sync_with_stdio(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B2%A1%E6%9C%89%E6%8F%90%E5%88%B0%E7%9A%84O2%E5%8A%A0%E9%80%9F"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 没有提到的O2加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-cin-tie-0"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. cin.tie(0)</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
                 <hr />
                 <p>本篇博客为的是复习一遍C++的基础知识，方便从C语言更快的转型为C++语言</p>
 <p>本文只是快速的提供模板和粗略的将部分代码一笔带过</p>
@@ -158,7 +163,6 @@
 <p>5.板子中其他头文件的用法说明</p>
 <p>6.其他不在板子内的常用函数写法和C++11</p>
 </blockquote>
-<p>[TOC]</p>
 <h2 id="一-C-语言的优势"><a href="#一-C-语言的优势" class="headerlink" title="一. C++语言的优势"></a>一. C++语言的优势</h2><p>作为一个年轻的C++入门学生，我肯定不能介绍C++语言优势介绍的很详细。但是在竞赛中，使用C++语言相对于JAVA语言和C语言的优势我还是略懂一二的</p>
 <p>1.<strong>C++语言书写方便</strong>，相对于JAVA来讲没有一般不需要在竞赛中反复写class，而且单看输入输出，节省了java中sysout的用法，同时不需要scanner</p>
 <p>2.<strong>C++语言方便C语言学习的同学上手</strong>，C++语言在当初开发的时候就是BS大神考虑增强C语言的能力开发的<em>“带类的C”</em>，C++语言对于C语言是完全兼容的</p>
@@ -301,7 +305,7 @@ C语言向C++的进阶本文打算按照以...`;
                         <a class="tag-none-link" href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" rel="tag">c++从入门到不入门</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-10-12</span>
+                    <span>最后编辑：2020-10-27</span>
                     </div>
                 </div>
             </footer>
@@ -337,7 +341,7 @@ C语言向C++的进阶本文打算按照以...`;
     </div>
     <div class="textwidget">
         
-            <p class="text-center">一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头</p>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#C%E8%AF%AD%E8%A8%80%E5%90%91C-%E7%9A%84%E8%BF%9B%E9%98%B6"><span class="toc-number">1.</span> <span class="toc-text">C语言向C++的进阶</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80-C-%E8%AF%AD%E8%A8%80%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-number">1.1.</span> <span class="toc-text">一. C++语言的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-%E5%88%9D%E6%AD%A5%E7%9A%84C-%E8%AF%AD%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.2.</span> <span class="toc-text">二. 初步的C++语法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-iostream"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. iostream</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-namespace"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. namespace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-cin%EF%BC%8Ccout"><span class="toc-number">1.2.3.</span> <span class="toc-text">3. cin，cout</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-endl"><span class="toc-number">1.2.4.</span> <span class="toc-text">4. endl</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89-%E6%9D%BF%E5%AD%90%E7%9A%84%E6%8F%90%E5%87%BA"><span class="toc-number">1.3.</span> <span class="toc-text">三. 板子的提出</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-bits-stdc"><span class="toc-number">1.3.1.</span> <span class="toc-text">1. bits&#x2F;stdc++</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-define"><span class="toc-number">1.3.2.</span> <span class="toc-text">2. define</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-ios-sync-with-stdio-0"><span class="toc-number">1.3.3.</span> <span class="toc-text">3. ios::sync_with_stdio(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E6%B2%A1%E6%9C%89%E6%8F%90%E5%88%B0%E7%9A%84O2%E5%8A%A0%E9%80%9F"><span class="toc-number">1.3.4.</span> <span class="toc-text">4. 没有提到的O2加速</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-cin-tie-0"><span class="toc-number">1.3.5.</span> <span class="toc-text">5. cin.tie(0)</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -351,7 +355,7 @@ C语言向C++的进阶本文打算按照以...`;
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.6em;">c++从入门到不入门</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a>
+        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a>
       </div>
   </aside>
 
@@ -362,6 +366,9 @@ C语言向C++的进阶本文打算按照以...`;
   <div class="tab-content">
       <ul class="list-group">
         
+        
+          
+          
         
           
           
@@ -491,7 +498,6 @@ C语言向C++的进阶本文打算按照以...`;
 
 
     <script defer src="/js/kr-dark.min.js"></script>
-
 
 
     </body>
