@@ -6,7 +6,7 @@
   <link href="http://algarth.github.io/atom.xml" rel="self"/>
   
   <link href="http://algarth.github.io/"/>
-  <updated>2020-10-27T07:55:51.238Z</updated>
+  <updated>2020-10-28T04:37:30.231Z</updated>
   <id>http://algarth.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title></title>
+    <link href="http://algarth.github.io/2020/10/28/trailer/"/>
+    <id>http://algarth.github.io/2020/10/28/trailer/</id>
+    <published>2020-10-28T04:21:52.000Z</published>
+    <updated>2020-10-28T04:37:30.231Z</updated>
+    
+    <content type="html"><![CDATA[<p>早啊，各位~</p><p>今后要推出不同专辑的时候将会采用这种形式对各位发送预告</p><p>鉴于机组的内容写得过于繁琐，接下来并不会采取一直更新机组的内容作为主线</p><p>在更新机组的同时，希望各位善用TAG进行搜索整理好的之前的文章集</p><p>下面是部分今后的计划</p><ul><li>在这10月末到11月内会更新树有关的内容和题目集</li><li>如果上述树的内容进展顺利的话，在11月下会继续更新机组的内容，当然上旬也会更新部分机组内容</li><li>在12月整个月将会更新DP的相关内容</li></ul><p>希望今后进展顺利，祝顺意。</p><p>也感谢各位一直以来的陪伴呢~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;早啊，各位~&lt;/p&gt;
+&lt;p&gt;今后要推出不同专辑的时候将会采用这种形式对各位发送预告&lt;/p&gt;
+&lt;p&gt;鉴于机组的内容写得过于繁琐，接下来并不会采取一直更新机组的内容作为主线&lt;/p&gt;
+&lt;p&gt;在更新机组的同时，希望各位善用TAG进行搜索整理好的之前的文章集&lt;/p&gt;
+&lt;p&gt;下面是部分</summary>
+      
+    
+    
+    
+    
+    <category term="trailer" scheme="http://algarth.github.io/tags/trailer/"/>
+    
+  </entry>
   
   <entry>
     <title></title>
@@ -202,13 +228,13 @@
   </entry>
   
   <entry>
-    <title>preface</title>
+    <title>萌新必读！！（持续更新）</title>
     <link href="http://algarth.github.io/2020/10/10/preface/"/>
     <id>http://algarth.github.io/2020/10/10/preface/</id>
     <published>2020-10-10T12:23:06.000Z</published>
-    <updated>2020-10-19T08:04:47.202Z</updated>
+    <updated>2020-10-28T04:37:29.070Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="这里是ALgarth小可爱呢呜呜呜"><a href="#这里是ALgarth小可爱呢呜呜呜" class="headerlink" title="这里是ALgarth小可爱呢呜呜呜"></a>这里是ALgarth小可爱呢呜呜呜</h3><p>经过了几天的整理，试验了无数的软件，翻遍了知乎，CSDN，简书的帖子，终于把基本的Github博客页面用hexo调试好了。</p><p><del>呜呜呜实在是不可思议我还活着。</del></p><p>那么先说明本博客的用法吧：</p><p>本博客为ALgarth的私人博客，打算分享主要是代码方面的学习心得，有时也可能穿插一点个人感悟和部分题解的。</p><p>当然，本人才疏学浅，如果观看博客的时候发现博客中有各种问题，可以通过各种方法私信我，如果不很着急的话，请直接发邮件，着急的话请联系QQ，当然我也是感谢指正呢 ~ ~</p><p>最后呢，附上本人的联系方式方便各位联系</p><p>邮箱：<a href="mailto:&#97;&#x6c;&#103;&#97;&#114;&#116;&#x68;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;">&#97;&#x6c;&#103;&#97;&#114;&#116;&#x68;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#x6f;&#x6d;</a><br>QQ：275834145</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="这里是ALgarth小可爱呢呜呜呜"><a href="#这里是ALgarth小可爱呢呜呜呜" class="headerlink" title="这里是ALgarth小可爱呢呜呜呜"></a>这里是ALgarth小可爱呢呜呜呜</h3><p>经过了几天的整理，试验了无数的软件，翻遍了知乎，CSDN，简书的帖子，终于把基本的Github博客页面用hexo调试好了。</p><p><del>呜呜呜实在是不可思议我还活着。</del></p><p>那么先说明本博客的用法吧：</p><p>本博客为ALgarth的私人博客，打算分享主要是代码方面的学习心得，有时也可能穿插一点个人感悟和部分题解的。</p><p>当然，本人才疏学浅，如果观看博客的时候发现博客中有各种问题，可以通过各种方法私信我，如果不很着急的话，请直接发邮件，着急的话请联系QQ，当然我也是感谢指正呢 ~ ~</p><p>最后呢，附上本人的联系方式方便各位联系</p><p>邮箱：<a href="mailto:&#97;&#108;&#x67;&#x61;&#114;&#116;&#104;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#111;&#109;">&#97;&#108;&#x67;&#x61;&#114;&#116;&#104;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#111;&#109;</a><br>QQ：275834145</p><hr><p>额外说明：</p><ul><li>不推荐使用ie或者edge浏览器进行访问，低版本可能会有兼容性问题，如置顶无法正常显示，加载重影等问题</li><li>目前发现火狐浏览器会有加载异常的BUG，图片缓冲之后会消失，这个看后续火狐版本更新</li><li>本站是使用hexo+github repo的形式建立的，github的访问速度懂的都懂，本站的图片已经压缩到100K以下了，没有本站缓存的话可能会有点慢，部分图片可能会加载不出来，<del>（不是没有图啊）</del>，希望各位保持耐心呢 ~</li><li>今后的内容发布将会采取乱序更新的形式进行，希望各位善用主界面上的档案馆按钮，通过标签选择选择适合的TAG</li></ul><hr><p>下面是部分重要TAG介绍：</p><ul><li>#计算机组成原理：这部分是唐朔飞奶奶第二版的计算机组成原理的笔记整理，会不断随着学习内容进行而更新</li><li>#update：这部分是更新内容，每次进行blog内容大型调试或者主题更新的时候都会发布update短公告进行通知</li><li>#trailer：在每次打算开坑之前会对各位发布的预告，这种预告一般会在发布正式内容后删除，因此这个TAG只能搜索到至多一次的预告</li></ul>]]></content>
     
     
       
