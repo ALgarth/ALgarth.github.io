@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>计算机组成原理笔记（第四章）（中） | ALgarth's blog</title>
+  <title>计算机组成原理（第四章下和第五章开头） | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="计算机组成原理" />
   
-  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第四章）（中）本节分为以下部分  1.分类和层次结构 2.主存 3.缓存 4.辅存  这次重点写一下汉明码和cache的部分，">
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第四章下和第五章开头）本节其实很有意思，第四章结尾和第五章开头都写得一堆很没用的东西，第四章节结尾是真的非重点，第五章开头也很">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成原理笔记（第四章）（中）">
-<meta property="og:url" content="http://algarth.github.io/2020/11/02/organization4/index.html">
+<meta property="og:title" content="计算机组成原理（第四章下和第五章开头）">
+<meta property="og:url" content="http://algarth.github.io/2020/11/25/organization5/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第四章）（中）本节分为以下部分  1.分类和层次结构 2.主存 3.缓存 4.辅存  这次重点写一下汉明码和cache的部分，">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第四章下和第五章开头）本节其实很有意思，第四章结尾和第五章开头都写得一堆很没用的东西，第四章节结尾是真的非重点，第五章开头也很">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2020-11-02T11:45:18.000Z">
-<meta property="article:modified_time" content="2020-11-25T08:18:02.286Z">
+<meta property="article:published_time" content="2020-11-25T08:26:22.000Z">
+<meta property="article:modified_time" content="2020-12-08T12:20:55.087Z">
 <meta property="article:author" content="ALgarth">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">计算机组成原理笔记（第四章）（中）</h1>
+                <h1 class="kratos-entry-title text-center">计算机组成原理（第四章下和第五章开头）</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2020-11-02
+                        <i class="fa fa-calendar"></i> 2020-11-25
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.69K
+                            ~1.92K
                         
                         字
                         
@@ -146,7 +146,7 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%89%EF%BC%88%E4%B8%AD%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第四章）（中）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%92%8CCPU%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="toc-number">1.0.1.</span> <span class="toc-text">存储器和CPU的链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%89%E6%98%8E%E7%A0%81"><span class="toc-number">1.0.2.</span> <span class="toc-text">汉明码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%AE%BF%E5%AD%98%E9%80%9F%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.3.</span> <span class="toc-text">提高访存速度的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%B8%80%EF%BC%9A%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">其一：映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BA%8C%EF%BC%9A%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">其二：替换</span></a></li></ol></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%B8%8B%E5%92%8C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%BC%80%E5%A4%B4%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第四章下和第五章开头）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BE%85%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">1. 辅存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">磁盘概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">磁盘的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E8%AE%BE%E5%A4%87%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.2.</span> <span class="toc-text">IO设备的历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A9%E6%9C%9F%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">早期阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E6%A8%A1%E5%9D%97%E5%92%8CDMA%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.2.</span> <span class="toc-text">接口模块和DMA阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%81%93%E7%BB%93%E6%9E%84%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.3.</span> <span class="toc-text">通道结构阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E5%A4%84%E7%90%86%E6%9C%BA%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.4.</span> <span class="toc-text">IO处理机阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E8%AE%BE%E5%A4%87%E4%B8%BE%E4%BE%8B%E5%92%8C%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">IO设备举例和应用</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
@@ -158,113 +158,64 @@
 <p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
 <p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
 </blockquote>
-<h1 id="计算机组成原理（第四章）（中）"><a href="#计算机组成原理（第四章）（中）" class="headerlink" title="计算机组成原理（第四章）（中）"></a>计算机组成原理（第四章）（中）</h1><p>本节分为以下部分</p>
+<h1 id="计算机组成原理（第四章下和第五章开头）"><a href="#计算机组成原理（第四章下和第五章开头）" class="headerlink" title="计算机组成原理（第四章下和第五章开头）"></a>计算机组成原理（第四章下和第五章开头）</h1><p>本节其实很有意思，第四章结尾和第五章开头都写得一堆很没用的东西，第四章节结尾是真的非重点，第五章开头也很玄幻。第四章末尾涉及到了软盘的内容，这种已经被时代淘汰的东西已经没有学习的必要了；第五章开头涉及到成像的原理，这些其实和机组不挂钩，所以这部分内容也不是重点，因此就一笔带过，直接将这两部分内容发在一起了</p>
+<p>本节内容分包括以下部分</p>
 <blockquote>
-<p>1.分类和层次结构</p>
-<p>2.主存</p>
-<p>3.缓存</p>
-<p>4.辅存</p>
+<ol>
+<li>辅存</li>
+<li>IO设备的历史</li>
+<li>IO设备举例和应用</li>
+</ol>
 </blockquote>
-<p>这次重点写一下汉明码和cache的部分，汉明码这种阳间东西，必须多说说。</p>
-<p>本部分开始前感谢CSDN blogger Yonggie的文章，这篇文章启发性很强，这次的文章中我会尽量采取一个不同而特别的方法进行介绍汉明码部分</p>
-<p>开始的部分接着上次主存来</p>
-<h3 id="存储器和CPU的链接"><a href="#存储器和CPU的链接" class="headerlink" title="存储器和CPU的链接"></a>存储器和CPU的链接</h3><p>存储器和CPU的链接其实就是在讲芯片的扩展方法，这部分其实学起来应该是很有意思的一个部分</p>
-<p>首先不按照课本定义的扩展而言，就拿老例子，那个16k * 1扩展到64k * 8来说明真正的扩展方法。</p>
-<p>扩展的时候有四种线要进行考虑</p>
+<p>那直接进入正题</p>
+<h2 id="1-辅存"><a href="#1-辅存" class="headerlink" title="1. 辅存"></a>1. 辅存</h2><p>辅存的概述其实第四章开头就阐述的差不多了，所以直接进入正题了</p>
+<p>这部分只有一个例子 - - - 磁盘，理解他就可以直接理解光盘了。</p>
+<h3 id="磁盘概述"><a href="#磁盘概述" class="headerlink" title="磁盘概述"></a>磁盘概述</h3><p>磁盘是一种目前普遍使用的存储设备，这里直接概述一下，</p>
+<p><strong>磁头</strong>是一个读取头，如果你用过老笔记本或者见过光驱的话，这部分很好理解，光盘是旋转进行读取内容的，磁盘就是一个光盘盒，是采用同样的原理进行读取的。磁头通过旋转在盘片上读取信息。通常磁盘内部并不是一层盘片，可能是多层盘片，这时磁头会通过磁头支架进行多层信息读取。</p>
+<p><strong>盘片</strong>是磁盘用于储存信息的物理介质，盘片上的信息存放方法可能是单面的或者双面的，盘面上的信息是一圈一圈存储的，存储的结构称为磁道。为了访问不同磁道上的内容，磁头可以设计为可以在旋转时可以直接访问所有磁道的，也可以是滑动磁头，从而实现多内容的访问。（被称为固定磁头和移动磁头）盘片非常容易损坏，如果积灰都会带来不可逆的损伤，因此正常磁盘（比如西数的或者希捷的），都会外包一层金属保护壳</p>
+<p>这里还要先说明，即使磁道是一个同心圆，这并不代表每一个磁道上存储信息的容量有差异，相反，每个磁道储存的信息数目反而相同</p>
+<h3 id="磁盘的参数"><a href="#磁盘的参数" class="headerlink" title="磁盘的参数"></a>磁盘的参数</h3><blockquote>
+<p>道密度：道密度是盘面上相邻两个磁道之间距离的倒数</p>
+<p>位密度：一个磁道上储存的信息和磁道物理周长（周长计算的时候直径取最小直径）的比值</p>
+<p>存储容量：每个磁道存储的信息 * 一个盘面的磁道数 * 存储信息的盘面数</p>
+<p>平均寻址时间：找到当前位置的平均时间，这个时间包括找到当前的磁道，在道上找到信息两部分</p>
+<p>数据传输率：盘片的旋转速度 * 一条磁道的容量</p>
+</blockquote>
+<p>其余参数其实还有误码率，但这其实已经考不到了</p>
+<p>截至到这儿，第四章内容结束</p>
+<p>下面是第五章内容</p>
 <blockquote>
-<p>A：地址线</p>
-<p>D：数据线</p>
-<p>CS：片选线</p>
-<p>WE：读写线</p>
+<p>第五章内容共5小节，前三小节内容比较简单，第一节是概述，我简要介绍一部分，2,3小节可能内容介绍的不多</p>
 </blockquote>
-<p>扩展的维度也就只有两个，一个是地址线的扩展，一个是数据线的扩展</p>
-<p><strong>首先我们看数据线的扩展：</strong></p>
-<p>从例子来看，要从1位扩展到8位，我们只要拿8个这种1位的芯片，每次存储数据的时候，每一位做8位中的一部分就可以了。就是下图的意思</p>
-<p><img src="/2020/11/02/organization4/%E6%95%B0%E6%8D%AE%E7%BA%BF%E6%89%A9%E5%B1%95.jpg" alt="数据线扩展"></p>
-<p>在CS线的链接上，其实丝毫不用管，每次大家一起选择就完了，那不就直接一起连上CS不就完事了吗</p>
-<p>WE其实和CS是一个意思，啥也不管就行</p>
-<p><strong>其次是地址线的扩展：</strong></p>
-<p>从例子来看，16k扩展到64k，其实就加了2根线，但是这两根线，需要选择4个芯片，那么其实两位表示4个内容，直接用二进制表示4个内容就可以了，所以加一个片选译码处理一下就行，如下图所示</p>
-<p><img src="/2020/11/02/organization4/%E5%9C%B0%E5%9D%80%E7%BA%BF%E6%89%A9%E5%B1%95.jpg" alt="地址线扩展"></p>
-<p>CS其实就需要操作一下了，CS在选择的时候是进行一种选择，所以要在片选译码之后，对于片选译码的每一种情况都进行单独连接CS。</p>
-<p>WE还是不用考虑，直接连就行</p>
-<h3 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h3><p>汉明码我一直想以一个很有意思的方法进行描述</p>
-<p>首先从一个编程的小题目的简化形式开始引入</p>
-<p>题意大致如下</p>
+<h2 id="IO设备的历史"><a href="#IO设备的历史" class="headerlink" title="IO设备的历史"></a>IO设备的历史</h2><p>IO设备的发展过程分为四个阶段，分别是</p>
 <blockquote>
-<p>现在有一瓶解药，他被洒在了一个猪喝水的桶里，这个桶里的农药，如果猪喝掉之后，在0-15min内任意一个时间点均有可能死亡。现在有1000个相似的桶，也有m只猪，在15min（原题为1h）之内，问：最少用多少只猪可以检测出来？</p>
+<p>早期阶段</p>
+<p>接口模块和DMA阶段</p>
+<p>通道结构阶段</p>
+<p>IO处理机阶段</p>
 </blockquote>
-<p>这个题的简化形式来看，一头猪只能检测两种情况，喝了毒药死或者不死可以理解为计算机中的二进制码，那么问题来了，一头猪可以检测多少桶？（假设毒药的桶恒为1）</p>
-<p>必然是2桶，喝掉一桶，根据猪的情况就可以判定那一桶有毒对吧。我们扩展一下，两头猪可以检测多少桶？</p>
-<p>4桶对吧，我们吧0-3这4个数全部二进制表示，一头喝掉第一位为1的所有桶，另一头喝掉第二位为1的。根据两头猪的4中表现就可以锁定有毒的一桶。</p>
-<p>（这里把这个题原题说完，原题是1h之内，那其实一头猪可以检测5种情况，n头猪可以检测pow（5，n）的个桶，5^5&gt;1000，所以最少5头）</p>
-<p>汉明码和这个问题有着异曲同工之处，我们有n位汉明码，n位检测pow(2,n)种情况，但是汉明码的问题在于，汉明码本身也是一个二进制，要放在数据中，因此自己会占一位空间</p>
-<p>这里开始补充说明检测和纠错：</p>
-<p><strong>一串二进制码，正常的时候出错2位即以上的概率很小，我们不妨假设只有可能出错一位，这其实和上面的农药问题一致了</strong></p>
+<h3 id="早期阶段"><a href="#早期阶段" class="headerlink" title="早期阶段"></a>早期阶段</h3><p>早期阶段的IO设备，根据基础的冯诺依曼结构，数据必须直接经过CPU，再到达主存，这种计算机简直一无是处</p>
+<p>缺点明显：每个IO都必须有一个和CPU相连的庞杂线路，且会导致更换设备困难，输入输出会穿插在CPU执行程序之间，耽误正常工作。</p>
+<h3 id="接口模块和DMA阶段"><a href="#接口模块和DMA阶段" class="headerlink" title="接口模块和DMA阶段"></a>接口模块和DMA阶段</h3><p>这是我们教材重点叙述的一段，也是后续小节介绍的重点（其实是其他的不介绍了）</p>
+<p>接口模块是独立的模块，经IO设备输入后将数据直接送给总线，非常有利于总线结构，课本描述中有两个优点：接口可以起到缓冲作用，同时可以完成串并转换</p>
+<p>DMA意为直接存储器存储，易失的内容或者重要的内容可以通过DMA方式直接进行和CPU的传输，可以理解为VIP通道</p>
+<h3 id="通道结构阶段"><a href="#通道结构阶段" class="headerlink" title="通道结构阶段"></a>通道结构阶段</h3><p>对于大型的计算机来说，设置DMA可能会面对CPU访问冲突问题，所以，大型计算机不得不为每一个IO设备增加专用的IO通道，因此称之为通道结构阶段</p>
+<h3 id="IO处理机阶段"><a href="#IO处理机阶段" class="headerlink" title="IO处理机阶段"></a>IO处理机阶段</h3><p>通过独立于CPU的独立处理机完成IO设备的协调工作</p>
+<p>后面再提两个小点儿</p>
+<ol>
+<li>IO设备的联络方式分为同步访问和异步访问两种（详细描述在第四节展开）</li>
+<li>IO设备和主机的链接方式包括辐射式和总线式两种，前者是历史的淘汰物</li>
+</ol>
+<h2 id="IO设备举例和应用"><a href="#IO设备举例和应用" class="headerlink" title="IO设备举例和应用"></a>IO设备举例和应用</h2><p>别看这个题目很大，但是其实并没有什么实质性内容</p>
+<p>IO设备一般课以划分为三大类</p>
 <blockquote>
-<p>一串二进制码，假设一共有4位，16种情况，如果其中一位出错，发生了0,1互换，他就会变成另一种操作数，为了防止这种情况，我们把其中的部分二进制码置空，这样改变一个二进制位就不会出现问题了，最小改变出错的改变量称为最小距离L</p>
-<p>检错（D）：检错指的是当发生了错误之后，可以知道发生了错误，这点是通过之前章节的奇偶校验实现的，那么我们如果知道发生了错误，但是无法锁定是哪一个位置，那么这个最大值就成为检错位数</p>
-<p>纠错（C）：跟检错差不多，但是我们能过发现是哪一位出错的，纠错的要求比较高，一般难以纠错，只能发现。即D&gt;=C</p>
+<p>人机交互设备（鼠标键盘）</p>
+<p>计算机信息存储设备（包括磁盘什么的）</p>
+<p>计算机通信设备（课本原名为机-机通信设备）（光猫什么的）</p>
 </blockquote>
-<p>而且有公式L-1=D+C</p>
-<p>再加上汉明码也会出错，因此我们采取这样的保存汉明码的方法</p>
-<p>我们在pow（2，i）的位置保存汉明码，每一个汉明码检测它自己位置上二进制为1的所有数据，而且通过奇偶校验配置汉明码位置的数据，如果奇偶校验出现了问题，只有一位错一定是汉明码出错，多位出错的话一定仅能锁定一位数据，确认出错的位置。</p>
-<p>同时可以得出汉明码的长度关系，方便今后计算</p>
-<p>pow(2,k)&gt;n+k其中，k为汉明码的个数，n为数据的个数。</p>
-<p>这个式子里，n+k就是整个数据的长度，长度刚好小于整个汉明码所能检测出的个数</p>
-<h3 id="提高访存速度的方法"><a href="#提高访存速度的方法" class="headerlink" title="提高访存速度的方法"></a>提高访存速度的方法</h3><p>其实提高访存的方法很简单，无非就是合理分配主存，多加主存扩展，迭代升级</p>
-<p>下面是专业术语</p>
-<blockquote>
-<p>单体多字：分配主存的方法，每次取主存的内容的时候连续取4块邻接的内容，同时操作，缩短了单个操作所用的时钟周期</p>
-<p>多体并行：用多个存储器，每次取内容的时候取多个存储器的内容，设计很复杂，不适合微型计算机应用</p>
-<p>高性能存储芯片：直接迭代，不跟上面的方法多bb。课本上的例子是SDRAM，RDRAM，CDRAM</p>
-</blockquote>
-<h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存部分其实讲的很草率，那我也就直接分为概述和两大重点就行了</p>
-<h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>本章的概述说过，缓存-主存层次是为了解决主存和CPU的速度问题的，但是除了目前主存速度和CPU速度严重不匹配之外，还有一个窘境，就是CPU速度的迭代速度是主存的10倍，主存根本赶不上CPU</p>
-<p>主存和cache中的内容分为地址内容和数据内容，我们把地址内容单独拿出来，剩余的数据内容分配一下，分为n个包，每个包保存的数据内容长度相同，同时，主存也按照相同的方式分配，两者的包大小相同，这样双方就可以进行交流了</p>
-<p>我们先以读数据为例</p>
-<p>CPU在读数据的时候，先询问缓存中有没有相应的主存的内容，如果有，那么直接用，没有，就从主存中拿数据，再看看cache的空间有没有满，满的话踢出去部分内容，把刚才的内容加入cache方便今后访问</p>
-<p>我们把从缓存中访问数据，称为命中，否则没有命中，因此可以用命中次数占比（命中率）进行定量衡量</p>
-<p>如果我们同时得知cache的访问速度和主存访问速度，那么我们可以算出整个程序的访问时间，这个时间称之为平均访问时间，最快的访问时间（只用cache的访问时间）和平均访问时间的比值称为访问效率</p>
-<p>当然，不是说cache越大命中率越高越好，这也不全是经济因素束缚的，缓存越大，可能有些常用的数据会被不常用的数据经常替换，而且目前的缓存命中率已经在95%以上，扩大的性价比不高</p>
-<p>那么我们看看写数据有没有什么不同</p>
-<p>写数据的时候要考虑要不要数据写入cache还是主存的问题，其实一个写入的数据，无论怎样都要写入主存，而且要把cache作为中转站，根据写入时间的不同，分为以下两种</p>
-<blockquote>
-<p>写直达法：写入cache的时候直接写入主存</p>
-<p>写回法：写入cache的时候先不写入主存，当数据被替换之后再写入主存</p>
-</blockquote>
-<p>为了改进cache，还有两种改进的方法：</p>
-<blockquote>
-<p>增加级数：使用功能两层cache，一层集成在芯片上称为片内缓存，放在外面的cache称为片外缓存</p>
-<p>统一分立：指令和数据的cache分开存放或者统一存放，有些在一个操作没结束就急着缓存下一个数据的cache（超前缓存），必须采用分立缓存</p>
-</blockquote>
-<p>其实仔细品上面的内容，很容易发现，上面有两个重点没有交代清楚</p>
-<p>1.主存和cache内容是如何映射的？</p>
-<p>2.cache上内容的替换是怎么做的？</p>
-<p>这两个问题正是后面要讲的两大重点</p>
-<h3 id="其一：映射"><a href="#其一：映射" class="headerlink" title="其一：映射"></a>其一：映射</h3><p>映射有三种方法：直接映射，全相连映射，组相连映射</p>
-<p>每种映射方法解决的核心都是同一个问题，由于cache内存和主存大小的差异引发的二者块的传送。我们不妨设cache一共可放C个快，主存可放M个（M&gt;&gt;C）</p>
-<blockquote>
-<p>直接映射：直接将M对C取模，每个M对应着取模之后位置的那个块。</p>
-<p>全相连映射：啥都不管了，莽夫流，C中的每一个块和M中的每一个块都构建映射关系</p>
-<p>组相连映射：取模+莽夫，我们先给定一个分组方式，将cache内部的块分成n组，每组包含相同的块数，之后我们将n用作直接映射的C，组外实现直接映射和主存建立联系，每一组内的块，和对应的主存内部的一组块建立全相连映射。（上述的n被称为路，二路组相连就是n=2）</p>
-</blockquote>
-<p>这三种映射方式的重点在于他们的主存地址</p>
-<p>以下是这三种情况的图：</p>
-<p>首先这三种情况中，总长度是一定的（=主存的字地址），块的大小一定，主存字块标记都是做差得到的。</p>
-<p><img src="/2020/11/02/organization4/%E7%9B%B4%E6%8E%A5.jpg" alt="直接"></p>
-<p>直接映射中，cache标记就是cache的块数对应的地址线数</p>
-<p><img src="/2020/11/02/organization4/%E5%85%A8%E7%9B%B8%E8%BF%9E.jpg" alt="全相连"></p>
-<p>全相连就不用区分了，懒人爱了</p>
-<p><img src="/2020/11/02/organization4/%E7%BB%84%E7%9B%B8%E8%BF%9E.jpg" alt="组相连"></p>
-<p>组相连的组地址是指划分了组之后剩余的cache块数对应的地址线数</p>
-<h3 id="其二：替换"><a href="#其二：替换" class="headerlink" title="其二：替换"></a>其二：替换</h3><p>替换策略一共有三种：</p>
-<blockquote>
-<p>FIFO：队列算法（先进先出）</p>
-<p>LRU：近期最少使用</p>
-<p>随机法</p>
-</blockquote>
-<p>第四章中的笔记到此结束</p>
+<p>后面课本举的例子只用简单了解一下就行，比如键盘的输入就是按下按键之后调用输入设备，以及显示存储器就是直接现实图像</p>
+<p>第三节的接口就两页，也没讲什么有用的内容，就直接略过了</p>
+<p>本部分水博客内容到此结束</p>
 <hr>
 <p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
 <p><em>图片来自网络，侵删。</em></p>
@@ -324,7 +275,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2020/11/02/organization4/",
+                text: "http://algarth.github.io/2020/11/25/organization5/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -336,8 +287,8 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2020/11/02/organization4/";
-            const title         = "「计算机组成原理笔记（第四章）（中）」";
+            const hostUrl       = "http://algarth.github.io/2020/11/25/organization5/";
+            const title         = "「计算机组成原理（第四章下和第五章开头）」";
             const excerpt       = `老规矩，上开头！！
 
 突然意识到该写一份计算机组成原理的笔记
@@ -366,7 +317,7 @@
                         <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-11-25</span>
+                    <span>最后编辑：2020-12-08</span>
                     </div>
                 </div>
             </footer>
@@ -375,13 +326,9 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" (no title)" href="/2020/10/28/trailer/">&lt; 上一篇</a>
+                    <a title=" marache-马拉车算法" href="/2020/11/08/marache/">&lt; 上一篇</a>
                 </div>
                 
-                
-                <div class="nav-next clearfix">
-                    <a title=" marache-马拉车算法" href="/2020/11/08/marache/">下一篇 &gt;</a>
-                </div>
                 
             </nav>
         
@@ -402,7 +349,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%EF%BC%89%EF%BC%88%E4%B8%AD%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第四章）（中）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%99%A8%E5%92%8CCPU%E7%9A%84%E9%93%BE%E6%8E%A5"><span class="toc-number">1.0.1.</span> <span class="toc-text">存储器和CPU的链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B1%89%E6%98%8E%E7%A0%81"><span class="toc-number">1.0.2.</span> <span class="toc-text">汉明码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E9%AB%98%E8%AE%BF%E5%AD%98%E9%80%9F%E5%BA%A6%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">1.0.3.</span> <span class="toc-text">提高访存速度的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BC%93%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">缓存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%B8%80%EF%BC%9A%E6%98%A0%E5%B0%84"><span class="toc-number">1.1.2.</span> <span class="toc-text">其一：映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BA%8C%EF%BC%9A%E6%9B%BF%E6%8D%A2"><span class="toc-number">1.1.3.</span> <span class="toc-text">其二：替换</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%9B%9B%E7%AB%A0%E4%B8%8B%E5%92%8C%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%BC%80%E5%A4%B4%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第四章下和第五章开头）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BE%85%E5%AD%98"><span class="toc-number">1.1.</span> <span class="toc-text">1. 辅存</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.1.</span> <span class="toc-text">磁盘概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E7%9A%84%E5%8F%82%E6%95%B0"><span class="toc-number">1.1.2.</span> <span class="toc-text">磁盘的参数</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E8%AE%BE%E5%A4%87%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.2.</span> <span class="toc-text">IO设备的历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A9%E6%9C%9F%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.1.</span> <span class="toc-text">早期阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A5%E5%8F%A3%E6%A8%A1%E5%9D%97%E5%92%8CDMA%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.2.</span> <span class="toc-text">接口模块和DMA阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%9A%E9%81%93%E7%BB%93%E6%9E%84%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.3.</span> <span class="toc-text">通道结构阶段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#IO%E5%A4%84%E7%90%86%E6%9C%BA%E9%98%B6%E6%AE%B5"><span class="toc-number">1.2.4.</span> <span class="toc-text">IO处理机阶段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#IO%E8%AE%BE%E5%A4%87%E4%B8%BE%E4%BE%8B%E5%92%8C%E5%BA%94%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">IO设备举例和应用</span></a></li></ol></li></ol>
         
     </div>
 </aside>
