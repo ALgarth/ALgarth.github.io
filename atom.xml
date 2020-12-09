@@ -6,7 +6,7 @@
   <link href="http://algarth.github.io/atom.xml" rel="self"/>
   
   <link href="http://algarth.github.io/"/>
-  <updated>2020-12-08T12:20:55.087Z</updated>
+  <updated>2020-12-09T06:51:45.674Z</updated>
   <id>http://algarth.github.io/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算机组成原理（第五章剩余内容）</title>
+    <link href="http://algarth.github.io/2020/12/09/organization6/"/>
+    <id>http://algarth.github.io/2020/12/09/organization6/</id>
+    <published>2020-12-09T04:35:11.000Z</published>
+    <updated>2020-12-09T06:51:45.674Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第五章剩余内容）"><a href="#计算机组成原理（第五章剩余内容）" class="headerlink" title="计算机组成原理（第五章剩余内容）"></a>计算机组成原理（第五章剩余内容）</h1><p>本节内容相对而言不算太多，及时是第五章后面三节，内容其实不过如此，下面是这次的大纲</p><blockquote><ol><li>程序查询流程</li><li>程序中断操作</li><li>DMA</li></ol></blockquote><p>这次的图片内容比较多，希望各位以图片内容为主，毕竟这一章还是更偏重与理解。</p><h2 id="程序查询流程"><a href="#程序查询流程" class="headerlink" title="程序查询流程"></a>程序查询流程</h2><p>程序进行流程查询，我们以单个程序进行查询为例</p><p><img src="/2020/12/09/organization6/%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B.jpg" alt="程序查询方式的程序流程"></p><p>单个程序查询的方式如上图所示，每次在启动IO设备之后有一个循环，持续询问IO设备是否准备好，这个过程是整个数据交换的重点</p><p>为了实现这种查询，我们定义了三种指令</p><blockquote><p>测试指令：进入询问过程之前的指令，用来查询IO设备是否准备就绪</p><p>传送指令：询问后的一种情况对应的指令，指IO准备完成之后的传送指令，他会继续测试IO设备的状态</p><p>转移指令：IO设备未准备就绪，继续跳转为测试指令进行询问IO设备状态</p></blockquote><p>这种查询也可以推广到多程序查询，如下图</p><p><img src="/2020/12/09/organization6/%E5%A4%9A%E4%B8%AAIO%E8%AE%BE%E5%A4%87%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B.jpg" alt="多个IO设备的查询流程"></p><p>当然还有几个内容要进行补充：</p><blockquote><ol><li>传送数据的时候要占用CPU的寄存器，所以传送之前会先进行CPU的数据保存，保存之后再进行IO传输，IO结束后进行</li><li>IO的准备好判定其实是进行数据寄存器是否空或者是满的判断，写入数据时，如果寄存器满，就进行传输，反之在读出数据的时候，刚好相反，判断数据寄存器是否为空</li></ol></blockquote><p>这里补上之前的一张中断宏观示意图</p><p><img src="/2020/12/09/organization6/%E4%B8%AD%E6%96%AD%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="中断示意图"></p><p>接下来，我们展开之前的那个查询电路，得到了下面这张电路图，我们根据这张图来进行后续的说明</p><p><img src="/2020/12/09/organization6/%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF.jpg" alt="程序查询方式接口电路"></p><p>这张图中，B是工作触发器，D是完成触发器，一旦工作开始，那么B进行工作，D停止工作，开启右边的4号门。完成后，D执行，B休息，7号门执行。</p><h2 id="程序中断操作"><a href="#程序中断操作" class="headerlink" title="程序中断操作"></a>程序中断操作</h2><p>我们现在简单看一下IO中断的产生过程</p><p><img src="/2020/12/09/organization6/IO%E8%AE%BE%E5%A4%87%E6%8F%92%E5%85%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="IO设备插入示意图"></p><p>当打印机进行IO设备的访问时，先进行请求CPU，CPU接受了消息，之后接着忙手头的活动，等待打印机后续请求，之后一旦收到打印机的中断请求，就进行终端，传送计算机的数据，传输完毕后，继续执行主程序，等待打印机后续的请求</p><p>接下来我们来看程序中断的接口电路</p><p>电路我们先看其中的信号发生器</p><p><img src="/2020/12/09/organization6/%E4%B8%AD%E6%96%AD%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%9B%BE.jpg" alt="中断查询部分图"></p><p>这张图表示了INTR中断请求触发器和MASK中断屏蔽触发器</p><p>这张图中，D还是上面那个完成触发器，一旦程序完成，而且屏蔽触发不进行工作，那么就进行中断请求触发器。否则。中断屏蔽触发器是用来中断当前信号发送的。</p><p>INTR的信号向上传输就会到达排队器，进行信号排队</p><p><img src="/2020/12/09/organization6/%E6%8E%92%E9%98%9F%E5%99%A8.jpg" alt="排队器"></p><p>这个排队器是一个链式结构，只要有一个INTR工作，那么就进行中断处理，当前请求INTP前面的电路依然连通，后续的电路就会断开。</p><p>通过排队器进行执行判断的过程称为<strong>中断判优</strong></p><p>如果CPU统一了中断，称为<strong>中断响应</strong></p><p>整个图片集合在一起就是下图</p><p><img src="/2020/12/09/organization6/%E4%B8%AD%E6%96%AD%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E5%85%A8%E8%B2%8C.jpg" alt="中断接口电路全貌"></p><p>中断服务也是有一定的流程的，且单重中断和多重中断的流程在细节上有所不同，话不多说，先上图</p><p><img src="/2020/12/09/organization6/%E5%8D%95%E9%87%8D%E4%B8%AD%E6%96%AD%E5%92%8C%E5%A4%9A%E9%87%8D%E4%B8%AD%E6%96%AD.jpg" alt="单重中断和多重中断"></p><p>先解释一下图片中中断周期后面的内容</p><blockquote><p>保护现场：1.保护程序的断点，2.保护程序寄存器的内容</p><p>中断服务：就是IO设备去进行IO设备自己的内容</p><p>恢复现场：取出当时保护现场得到的指令</p><p>中断返回：重新进行主程序</p></blockquote><p>这里还有一个开中断的说法，开中断是指放开原来的中断请求，等待下一个中断请求的到来</p><p>单重中断的时候等到处理完毕之后再进行开中断，多重中断为了快速处理新的中断内容，保护现场之后就要立即开中断</p><h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>计算机组成原理（第四章下和第五章开头）</title>
@@ -41,30 +69,6 @@
     
     
     <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>marache-马拉车算法</title>
-    <link href="http://algarth.github.io/2020/11/08/marache/"/>
-    <id>http://algarth.github.io/2020/11/08/marache/</id>
-    <published>2020-11-08T07:48:44.000Z</published>
-    <updated>2020-11-25T08:25:37.708Z</updated>
-    
-    <content type="html"><![CDATA[<p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p><p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p><p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p><p>这次大纲如下</p><blockquote><ol><li>求回文串的土办法</li><li>稍微优化的算法</li><li>马拉车永远的神</li></ol></blockquote><p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p><p>那我们进入正题</p><h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p><p>那如何才能求一个给定的s的回文串呢？</p><p>那我们先来最秀的算法，BF（brute force）算法！！</p><p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p><p>想都别想，直接就TLE了</p><p>肯定行不通</p><h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p><p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p><p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p><p>示例图如下：</p><p>（我是图）</p><p>这个算法有问题么？当然有。</p><p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p><p>eg. ababa处理成#a#b#a#b#a#</p><p>这个处理是很科学的方法，这里说一下依据：</p><blockquote><p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p></blockquote><p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p><p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p><p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p><h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p><p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p><p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p><p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p><p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p><p>下面要进行两种大情况和四种小情况的讨论</p><blockquote><ol><li>i&gt;maxR</li><li>i&lt;maxR</li></ol></blockquote><p>在第二种情况下包含三种小情况</p><blockquote><ol><li>p[mir]&lt;maxR-i</li><li>p[mir]==maxR-i</li><li>p[mir]&gt;maxR-i</li></ol></blockquote><p>接下来，我们按照顺序进行讨论</p><h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p><p>（我是图）</p><p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p><h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p><p>（我是图）</p><p>由于对称性，这个i的</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模&lt;/p&gt;
-&lt;p&gt;马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）&lt;/p&gt;
-&lt;p&gt;因此，马拉车是一种非常局限的算</summary>
-      
-    
-    
-    
-    
-    <category term="marache" scheme="http://algarth.github.io/tags/marache/"/>
     
   </entry>
   
