@@ -123,7 +123,7 @@
     <link href="http://algarth.github.io/2020/12/21/organization8/"/>
     <id>http://algarth.github.io/2020/12/21/organization8/</id>
     <published>2020-12-21T01:47:44.000Z</published>
-    <updated>2020-12-23T08:38:16.876Z</updated>
+    <updated>2020-12-23T08:42:11.187Z</updated>
     
     <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第六章）（下）"><a href="#计算机组成原理（第六章）（下）" class="headerlink" title="计算机组成原理（第六章）（下）"></a>计算机组成原理（第六章）（下）</h1><p>下要提的内容就少了很多，主要是浮点数的四则远算和ALU电路，后者看着难，实际比较简单，浮点数的四则远算其实就是比定点数增加了一点点儿前处理和后处理，中间内容还是一笔带过嗷</p><blockquote><p>浮点数的四则运算</p><p>ALU电路</p></blockquote>]]></content>
     
