@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>计算机组成原理笔记（第一章） | ALgarth's blog</title>
+  <title>计算机组成原理（第七章） | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -15,16 +15,16 @@
   
     <meta name="keywords" content="计算机组成原理" />
   
-  <meta name="description" content="今天突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第一章）第一章内容相对较少 主要包括以下部分  1.软硬件和语言 2.冯诺依曼机器 3.概述一些计算机技术指标  首先把一部分内容说在前面">
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第七章）第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成原理笔记（第一章）">
-<meta property="og:url" content="http://algarth.github.io/2020/10/13/organization/index.html">
+<meta property="og:title" content="计算机组成原理（第七章）">
+<meta property="og:url" content="http://algarth.github.io/2020/12/16/organization9/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="今天突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第一章）第一章内容相对较少 主要包括以下部分  1.软硬件和语言 2.冯诺依曼机器 3.概述一些计算机技术指标  首先把一部分内容说在前面">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第七章）第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2020-10-13T08:24:39.000Z">
-<meta property="article:modified_time" content="2020-10-27T07:58:28.144Z">
+<meta property="article:published_time" content="2020-12-16T08:13:56.000Z">
+<meta property="article:modified_time" content="2020-12-22T07:57:25.496Z">
 <meta property="article:author" content="ALgarth">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">计算机组成原理笔记（第一章）</h1>
+                <h1 class="kratos-entry-title text-center">计算机组成原理（第七章）</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2020-10-13
+                        <i class="fa fa-calendar"></i> 2020-12-16
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~2.61K
+                            ~2.52K
                         
                         字
                         
@@ -146,134 +146,73 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第一章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">软硬件和语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">软硬件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.2.</span> <span class="toc-text">语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">冯诺依曼机器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E7%BB%93%E6%9E%84%E7%9A%845%E6%9D%A1%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">冯诺依曼结构的5条特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">五大结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">控制器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">主存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%E4%B8%80%E4%BA%9B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">概述一些计算机技术指标</span></a></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第七章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">机器指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">操作数和操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC"><span class="toc-number">1.4.</span> <span class="toc-text">RISC</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <blockquote>
-<p>今天突然意识到该写一份计算机组成原理的笔记</p>
+                <p>老规矩，上开头！！</p>
+<blockquote>
+<p>突然意识到该写一份计算机组成原理的笔记</p>
 <p>那就写呗</p>
 <p>为的是方便我个人的复习以及对读者进行启发</p>
 <p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
 <p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
 </blockquote>
-<h1 id="计算机组成原理笔记（第一章）"><a href="#计算机组成原理笔记（第一章）" class="headerlink" title="计算机组成原理笔记（第一章）"></a>计算机组成原理笔记（第一章）</h1><p>第一章内容相对较少</p>
-<p>主要包括以下部分</p>
+<h1 id="计算机组成原理（第七章）"><a href="#计算机组成原理（第七章）" class="headerlink" title="计算机组成原理（第七章）"></a>计算机组成原理（第七章）</h1><p>第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容是在划水摸鱼，所以两章实际内容我感觉量差不多</p>
+<p> 本章的第四节是指令格式举例，这部分可以理解为一个举例，并不是那么重要，这里我也就不写了</p>
+<p>那闲话不多说，直接开始第七章</p>
+<p>本章分为以下内容</p>
 <blockquote>
-<p>1.软硬件和语言</p>
-<p>2.冯诺依曼机器</p>
-<p>3.概述一些计算机技术指标</p>
+<ol>
+<li>机器指令</li>
+<li>操作数和操作</li>
+<li>寻址方式</li>
+<li>RISC</li>
+</ol>
 </blockquote>
-<p>首先把一部分内容说在前面，方便后续的理解：</p>
-<p>假设一个C语言程序，在跑的时候会生成.c .o .exe文件，这些文件的生成过程中，我们只关心最后的.o-&gt;.exe而且只关心之间的微程序和电子硬件层面，不涉及具体的汇编语言实现，也不涉及编译原理，请自行学习其他内容。</p>
-<p>同时，机组关心如何存取指令，运算指令等等的细节，不从宏观的代码角度理解代码的编译，希望在学习之前有一定的认知</p>
-<h2 id="软硬件和语言"><a href="#软硬件和语言" class="headerlink" title="软硬件和语言"></a>软硬件和语言</h2><h3 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件</h3><p>先上定义！！</p>
+<h2 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h2><p>机器指令在第一章就学过了，这里再学的是机器指令的一般形式。</p>
+<p>每一条指令都由两部分组成，操作码和地址码。操作码通过操作码的数值表示操作，地址码不仅仅是自己的地址，比如加减法数字的地址，结果的地址，下一操作的地址等等。</p>
+<p>操作码有扩展和不扩展两种设计方法，固定操作码或不扩展操作码是指操作码的长度是一个定值，扩展操作码是是指操作码可以伸长或者缩短，指令的长度是一个定值，那么扩展码的长度改变势必同时引起指令码的改变，我们按照地址码的长度对地址码起名，产生了零地址，一地址，二地址等等的说法。计算操作码的时候，在扩展操作码上面的计算会比较复杂。</p>
+<p>这里做一个假设，假设一个简单的扩展操作码，有两种操作码长度，4个字节长的操作码，伸长之后会成为6个字节长度。假设一个四个字节的操作码，他有一个操作码是0001，那么，他就不会进行扩展成为6字节的形式，比如000001这种情况，这两个操作码还要考虑是不是一个操作码，因此计算机在处理这种指令的时候，如果存在0001，那么无论XX0001的格式有什么，我们一概不将这种内容视为操作码。计算的时候留意就行了。</p>
+<p>地址码有多重长度之分，细节如下：</p>
 <blockquote>
-<p>以下内容选自课本</p>
-<p><strong>硬件</strong>：计算机的实体部分</p>
-<p><strong>软件</strong>：由人们实现编制好的具有各类特殊功能的程序</p>
-<p><strong>固件</strong>：把软件永恒的存储在只读存储器中</p>
+<p>四地址：包括两个操作数地址，一个结果地址，一个下一条指令地址，这就可以满足一个基本的二元运算符了，使用时访问四次存储器（操作数两个，操作符一个，结果一个）</p>
+<p>三地址：把上述的狭义指令地址删除，用PC实现，剩下的就是三地址，使用时依旧访问四次存储器</p>
+<p>二地址：操作数也是结果地址，a+=b; 节省了访问次数，使用时访问三次存储器</p>
+<p>一地址：把之前的那个操作数存放在ACC里了，ACC存放操作数和结果，第二操作数自己存储，使用时访问两次存储器</p>
+<p>零地址：全存在寄存器里了，就直接不用立省100%</p>
 </blockquote>
-<p>下边先上一张框图</p>
-<ul>
-<li>硬件</li>
-<li>软件<ul>
-<li>系统软件</li>
-<li>应用软件</li>
-</ul>
-</li>
-</ul>
-<p>系统软件和应用软件进行判别相对而言比较容易。稍微介绍以下系统软件给出的例子</p>
+<h2 id="操作数和操作"><a href="#操作数和操作" class="headerlink" title="操作数和操作"></a>操作数和操作</h2><p>操作数常见的有四种：地址，数字，字符，逻辑数据（这不是懂得都懂）</p>
+<p>数据的存放方式也有多重，常见的有字节，半字，字，双字，四字</p>
+<p>操作类型包括：数据传送，逻辑操作，移位，转移（可以粗略理解为goto语句），输入输出，其他</p>
+<p>转移又分为多种：无条件转移（goto语句），条件转移（if语句实现跳转），调用与返回，陷阱和陷阱指令（系统出现意外）</p>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>寻址方式是为了确定当前指令数据位置和下一条指令的位置，前者称为指令寻址，后者称为数据寻址。</p>
+<p>指令寻址相对简单，分为顺序寻址和跳跃寻址，顺序寻址就是一条一条指令顺序进行找到地址，跳跃就是goto语句跳转到下一条指令继续进行。</p>
+<p>数据寻址才是相对重要的内容，包括以下10种基本寻址方式</p>
+<p>这里先进行基本的介绍，数据存放的地址其实一般不是数据的真实地址，在C语言中，指针的地址，就是&amp;a得到的16进制码其实并不是数据在计算机中的真实地址，我们称这种地址为形式地址，记做A，真实地址称为有效地址，记做EA（不是某EA！！）</p>
+<p>我们在指令的地址部分中加入一个寻址特征，用来指定当前指令的寻址方式</p>
 <blockquote>
-<p>语言处理系统（编译器）</p>
-<p>操作系统</p>
-<p>服务型程序（MPI）</p>
-<p>数据库管理系统</p>
-<p>网络软件</p>
+<p>立即寻址：他的寻址特征一般用#来表示，他的地址就是操作数本身，每次访问这个操作数，直接进行加减就行。这是一种很基本的寻址方式</p>
+<p>直接寻址：直接寻址的地址是就是真实的地址，即A=EA。</p>
+<p>隐含寻址：隐含寻址是指令字中给定一个操作数的地址，另一个地址是在寄存器中的，比如累加操作中直接用ACC进行保存另一个操作数的地址</p>
+<p>间接寻址：可以理解为这个形式地址指向的是一个指针的地址，通过这个指针再次指向真正的地址，当然，这个指针可以是指针的指针。（他有两个优点，1,这种操作扩展了操作数的寻址范围，2，可以用于编程。1个缺点：由于一次寻址会访问很多的地址，会导致执行时间延长）</p>
+<p>寄存器寻址：一种广泛应用的寻址方式，这里的形式地址指定的就是一个寄存器的地址，直接调用寄存器北部的数据。优点有二：1， 寄存器的访问速度快。2， 寄存器的地址短，节省了形式地址的存储空间</p>
+<p>寄存器间接寻址：通过在寄存器中存储操作数的地址，指针型访问，这种方法可以让访问存储器的次数-1</p>
+<p>基址寻址：基址寻址可以理解为两者的简单相加，EA=A+BR，BR是基址，储存在基址寄存器中，基址本身分为显式和隐式两种，前者是用户必须自己明确指明在哪个寄存器中存储了内容，后者是由计算机自行分配</p>
+<p>变址寻址：变址寻址和基址寻址是差不多的意思，变址寻址给定的是一个可变的BR记为IX，可以理解为之前的BR扩展为一个数组，方便对多个数据进行寻址</p>
+<p>相对寻址：相对寻址和基址寻址其实理解上差不太多，差异在于 ，相对寻址可以理解为一次C语言的数组寻址，每次找到的是相对于a[0]位置进行偏移的元素</p>
+<p>堆栈寻址：堆栈寻址其实是使用堆栈的方法去找操作数</p>
 </blockquote>
-<p>这部分实在是没什么好说的</p>
-<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>下面给出几种语言</p>
+<h2 id="RISC"><a href="#RISC" class="headerlink" title="RISC"></a>RISC</h2><p>RISC其实我倒很早就接触了，RISC产生有一个说法：计算机中80%的语句仅仅使用了20%的指令。这句话其实表明，我们要实现的内容很多，但是他们都可以用一小部分基本的小指令组合构成。那么我们就可以使用少部分指令完成大部分工作。</p>
+<p>相对而言，和RISC对应的就是CISC。CISC就是没有脑子的直接存放所有指令的那种，称为复杂指令系统。</p>
+<p>两者相比，RISC有以下优点</p>
 <blockquote>
-<p>高级语言：比如C语言，c++，JAVA，Python</p>
-<p>汇编语言：一种贴近机器语言的语言，内部写法是一个操作符加上一个或多个地址的格式</p>
-<p>机器语言：一大串二进制代码（计算机唯一认识的语言）</p>
+<p>充分利用VLSI的面积</p>
+<p>提高计算机运算的速度</p>
+<p>降低成本，提高可靠性</p>
+<p>支持高级语言</p>
 </blockquote>
-<p>还要注意的是，汇编语言拜托不了实际机器的指令系统，因此，汇编语言不具有通用性。</p>
-<p>下面再给出几种说法：</p>
-<blockquote>
-<p>汇编程序：将汇编语言生成机器语言</p>
-<p>编译程序：将机器语言一次性全部生成机器语言</p>
-<p>解释程序：将源程序一行一行生成机器语言，只能一行一行来，而且如果重复解释程序的，需要重新生成逐行对应的机器语言</p>
-<p>翻译程序：编译程序或解释程序。高级语言生成机器语言，是上述两者的组合产物</p>
-</blockquote>
-<p>注意：以上的程序都是软件</p>
-<p>给出一个C语言的例子便于理解</p>
-<p>一个C语言程序，生成.c文件，经过编译生成.o文件，最后连接生成.exe文件。</p>
-<p>C语言的翻译先经过一次预编译，执行内部的#include和#define，之后编译，生成一整套汇编语言.o文件，最后把.o文件进行汇编生成机器语言，形成可执行的.exe文件</p>
-<p>希望这样的解释可以方便理解上面的定义</p>
-<h2 id="冯诺依曼机器"><a href="#冯诺依曼机器" class="headerlink" title="冯诺依曼机器"></a>冯诺依曼机器</h2><h3 id="冯诺依曼结构的5条特点"><a href="#冯诺依曼结构的5条特点" class="headerlink" title="冯诺依曼结构的5条特点"></a>冯诺依曼结构的5条特点</h3><blockquote>
-<p><strong>基本框架</strong>：计算机由运算器，存储器，控制器，输入设备，输出设备5个设备组成</p>
-<p><strong>指令和数据的存放</strong>：指令和数据以同等地位存放在存储器中，都是二进制数表示，并按照地址寻访</p>
-<p><strong>指令的组成</strong>：指令由地址码和操作码组成，前者表示指令在存储器中的位置，后者表示操作的性质</p>
-<p><strong>指令的顺序</strong>：指令在存储器内顺序存放，通常指令顺序执行，特定条件下也可以改变运算顺序</p>
-<p><strong>中心</strong>：机器以运算器为中心，输入输出设备与存储器之间的数据通过运算器完成</p>
-<p>（最后一条在现在的计算机中做了更改，以存储器为中心，并将输入输出设备与运算器之间的数据通过存储器完成）</p>
-</blockquote>
-<p>而且有：</p>
-<p>1.冯诺依曼提出上述结构时正在和美国军方研究第一台计算机ENIAC，新的计算机EDVAC设计的时候才使用了。</p>
-<p>2.这个结构最重要的概念是存储程序的概念</p>
-<h3 id="五大结构"><a href="#五大结构" class="headerlink" title="五大结构"></a>五大结构</h3><p>五大结构是有一定层次和组合的。</p>
-<p>运算器和控制器集合成为CPU，CPU和存储器中的主存集合成为主机，输入输出设备合称IO或者外部设备</p>
-<p>（为了更直观希望各位画个图感受一下）</p>
-<p>以下根据大分类简介两个内容，CPU和MM（主存）</p>
-<p><del>IO内容过于简单就不说了</del></p>
-<h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><p>CPU内部的运算器主要是ALU（算术逻辑单元），这个单元和CU是CPU的核心部件，但是不代表只有这两个部件。</p>
-<h5 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h5><p>运算器中，主要有三个寄存器，ACC，MQ，X。</p>
-<p>进行加减乘除这样的双目运算的时候，单说加减，两个寄存器完全够用，例如一个存放加数1，另一个存放加数2，结果也存在第二个里面。但是由于乘除有着乘积高位和低位，除法还有取模，所以需要用到三个，这第三个就是MQ</p>
-<blockquote>
-<p>ACC用以存放被加数被减数和加减结果，乘积高位和被除数，模</p>
-<p>MQ：只存放乘法的乘积低位，乘数，商</p>
-<p>X存放加数，减数，被乘数，除数</p>
-</blockquote>
-<p>值得注意的是，本来ACC存放被操作数，但是乘法刚好反过来由X承担。</p>
-<p>当然后话是，有的机器用MDR取代X</p>
-<h5 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h5><p>控制器的运行过程包括取指（是取指令，不是寻址），分析，执行</p>
-<p>控制器上面来说，控制器包括三者组成：</p>
-<blockquote>
-<p>程序计数器（PC）：存放当前操作的地址进行计数，有新操作的时候就地址++。</p>
-<p>指令寄存器（IR）：存放当前的指令</p>
-<p>控制单元（CU）：分析指令并加以控制</p>
-</blockquote>
-<h4 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h4><p>主存的层次结构如下所示</p>
-<ul>
-<li>主存<ul>
-<li>存储体<ul>
-<li>存储单元<ul>
-<li>存储元（存储基元）</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>逻辑部件</li>
-<li>控制电路</li>
-</ul>
-</li>
-</ul>
-<p>着重看一下这个存储体，存储体是主存中可以进行存储的空间，这部分空间设计上被划分成小块，每一块是一个存储单元，每一个存储单元可以存储一长串二进制代码，每一个二进制代码称之为一个存储元</p>
-<p>存储字长 = 存储单元.length()；</p>
-<p>主存中存在两个寄存器：MAR，MDR</p>
-<blockquote>
-<p>MAR：存放预访问的存储单元地址，位数对应着存储单元的个数</p>
-<p>MDR：存放即将存入的代码和取出的代码，位数和机器字长相同</p>
-</blockquote>
-<h2 id="概述一些计算机技术指标"><a href="#概述一些计算机技术指标" class="headerlink" title="概述一些计算机技术指标"></a>概述一些计算机技术指标</h2><blockquote>
-<p>机器字长; CPU一次可以处理的位数，取决于寄存器的数目</p>
-<p>存储容量：包括主存容量和缓存容量，计算方式为存储单元数 * 存储字长（习惯上用K，M，KB，MB进行表示）</p>
-<p>运算速度：运算速度的单位是MIPS，（百万条指令每秒），因为频率的单位Hz本身蕴含的含义就是秒的倒数，所以可以直接理解为ps，计算的时候直接计算就完事儿了。</p>
-<p>运算速度的另一种表示：CPI（时钟频率），时钟频率是机器主频的倒数，计算的时候综合所有的指令时间占比进行比例乘积相加就行，他和上面的那个MIPS的关系为MIPS*CPI=主频，这个式子计算的时候务必保证单位要统一，如果单位带有百万条的M的话可能hi更好计算</p>
-</blockquote>
-<p>这里就不放例题了，等到做题的时候自己看看就行</p>
-<p>第一章内容到此结束。</p>
+<p>第七章内容到此结束。</p>
 <hr>
 <p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
 <p><em>图片来自网络，侵删。</em></p>
@@ -333,7 +272,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2020/10/13/organization/",
+                text: "http://algarth.github.io/2020/12/16/organization9/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -345,14 +284,15 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2020/10/13/organization/";
-            const title         = "「计算机组成原理笔记（第一章）」";
-            const excerpt       = `
-今天突然意识到该写一份计算机组成原理的笔记
+            const hostUrl       = "http://algarth.github.io/2020/12/16/organization9/";
+            const title         = "「计算机组成原理（第七章）」";
+            const excerpt       = `老规矩，上开头！！
+
+突然意识到该写一份计算机组成原理的笔记
 那就写呗
 为的是方便我个人的复习以及对读者进行启发
 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
-内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MO...`;
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -374,7 +314,7 @@
                         <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-10-27</span>
+                    <span>最后编辑：2020-12-22</span>
                     </div>
                 </div>
             </footer>
@@ -383,12 +323,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" priority" href="/2020/10/12/priority/">&lt; 上一篇</a>
+                    <a title=" 计算机组成原理（第五章剩余内容）" href="/2020/12/09/organization6/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 计算机组成原理笔记（第二章）" href="/2020/10/19/organization1/">下一篇 &gt;</a>
+                    <a title=" 计算机组成原理（第六章）（上）" href="/2020/12/20/organization7/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -410,7 +350,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第一章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">软硬件和语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">软硬件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.2.</span> <span class="toc-text">语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">冯诺依曼机器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E7%BB%93%E6%9E%84%E7%9A%845%E6%9D%A1%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">冯诺依曼结构的5条特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">五大结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">控制器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">主存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%E4%B8%80%E4%BA%9B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">概述一些计算机技术指标</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第七章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">机器指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">操作数和操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC"><span class="toc-number">1.4.</span> <span class="toc-text">RISC</span></a></li></ol></li></ol>
         
     </div>
 </aside>

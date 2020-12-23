@@ -24,7 +24,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
 <meta property="article:published_time" content="2020-12-09T04:35:11.000Z">
-<meta property="article:modified_time" content="2020-12-09T06:51:45.674Z">
+<meta property="article:modified_time" content="2020-12-20T02:12:37.986Z">
 <meta property="article:author" content="ALgarth">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
@@ -136,7 +136,7 @@
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.50K
+                            ~2.46K
                         
                         字
                         
@@ -216,7 +216,46 @@
 </blockquote>
 <p>这里还有一个开中断的说法，开中断是指放开原来的中断请求，等待下一个中断请求的到来</p>
 <p>单重中断的时候等到处理完毕之后再进行开中断，多重中断为了快速处理新的中断内容，保护现场之后就要立即开中断</p>
-<h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><hr>
+<h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><p>DMA方式是对某磁轭紧急IO设备采取的直接和主存相连的模式，他的调用和一般的IO设备不同，为的是解决某些紧急的IO设备急需访问CPU的情况。</p>
+<p>DMA和主存交换数据的时候一般有以下三种</p>
+<blockquote>
+<ol>
+<li>停止CPU访问主存：当DMA接口访问的时候，直接暂停CPU的工作，进行DMA接口的工作，没有什么规律可言，就是动态分配</li>
+<li>周期挪用：每次DMA进行请求的时候，主存结束当前周期之后，将新的1个或几个周期分配给DMA接口使用这种设计比较合理，因此被大多数设备采用</li>
+<li>DMA和CPU交替访问：直接将DMA和CPU的工作分开，一部分周期直接永久分配给DMA设备，两者的交替进行</li>
+</ol>
+</blockquote>
+<p>下面我们来看一下DMA的接口</p>
+<p><img src="/2020/12/09/organization6/DMA%E6%8E%A5%E5%8F%A3.jpg" alt="DMA接口"></p>
+<p>DMA接口内部就是由这六者组成的</p>
+<blockquote>
+<p>AR：（主存）地址寄存器，负责地址查找，传送开始的时候，CPU将地址传送给AR，AR接受了地址之后通过++运算，不断访问后续的地址位置</p>
+<p>WC：字计数器，就是记录要传送多少个字，传送数据够了就调用终止信号终止传送。</p>
+<p>DAR：（设备）地址寄存器，存储要调用设备哪一个位置的存储器</p>
+<p>BR：数据暂存寄存器</p>
+<p>DMA控制逻辑：就是直接进行DMA控制的，和CPU交换控制信号的元件</p>
+<p>中断机构：中断机构就是调用DMA上面的中断服务的机构，一旦WC计数器中的值归零后，这代表着数据传送完毕，中断机构就找CPU进行中断请求</p>
+</blockquote>
+<p>DMA接口的工作过程分为大致三个阶段</p>
+<blockquote>
+<p>预处理阶段：这个阶段主要进行预处理，包括CPU传送地址给DMA的AR，初始化WC的值等等</p>
+<p>数据传送：就是主要进程</p>
+<p>后处理：CPU处理最后的中断进程，终止和DMA接口的链接</p>
+</blockquote>
+<p>下面来看DMA的链接方式：</p>
+<p>DMA的链接方式分为DMA之间的链接和DMA与设备的链接</p>
+<p>DMA直接的链接包括</p>
+<blockquote>
+<p>具有公共请求线的链接：就是第三章总线那里的总线方式，省线材，但是具有设备具有优先顺序</p>
+<p>独立的DMA请求：第三章的独立请求，没有优先顺序，但是耗线材</p>
+</blockquote>
+<p>DMA和设备的链接</p>
+<blockquote>
+<p>选择型DMA接口：对于多个设备进行选择处理，选择一个设备进行链接，这种DMA的接口虽说是链接了很多的设备，但是其实在同一时间只能使用一个设备进行DMA的传输。</p>
+<p>多路型DMA接口：多路型的DMA接口实现了多个设备同时使用DMA进行传送的需求，只是设计复杂，稍微贵点儿</p>
+</blockquote>
+<p>那第五章到此结束</p>
+<hr>
 <p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
 <p><em>图片来自网络，侵删。</em></p>
 <p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
@@ -317,7 +356,7 @@
                         <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-12-09</span>
+                    <span>最后编辑：2020-12-20</span>
                     </div>
                 </div>
             </footer>
@@ -329,6 +368,10 @@
                     <a title=" 计算机组成原理（第四章下和第五章开头）" href="/2020/11/25/organization5/">&lt; 上一篇</a>
                 </div>
                 
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理（第七章）" href="/2020/12/16/organization9/">下一篇 &gt;</a>
+                </div>
                 
             </nav>
         
@@ -363,7 +406,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/trailer/" style="font-size: 0.6em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a>
+        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/trailer/" style="font-size: 0.6em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a>
       </div>
   </aside>
 
@@ -377,19 +420,7 @@
         
           
           
-            <a class="list-group-item" href="/2020/12/09/organization6/"><i class="fa  fa-book"></i> 计算机组成原理（第五章剩余内容）</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2020/11/25/organization5/"><i class="fa  fa-book"></i> 计算机组成原理（第四章下和第五章开头）</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2020/11/02/organization4/"><i class="fa  fa-book"></i> 计算机组成原理笔记（第四章）（中）</a>
+            <a class="list-group-item" href="/2020/12/31/organization-ex/"><i class="fa  fa-book"></i> 计算机组成原理汇总篇</a>
             
           
         
@@ -398,19 +429,40 @@
         
           
           
-            <a class="list-group-item" href="/2020/10/27/organization3/"><i class="fa  fa-book"></i> 计算机组成原理笔记（第四章）（上）</a>
+            <a class="list-group-item" href="/2020/12/21/organization10/"><i class="fa  fa-book"></i> 计算机组成原理（第八章）</a>
             
           
         
           
           
-        
-          
-          
-            <a class="list-group-item" href="/2020/10/20/organization2/"><i class="fa  fa-book"></i> 计算机组成原理笔记（第三章）</a>
+            <a class="list-group-item" href="/2020/12/21/organization8/"><i class="fa  fa-book"></i> organization8</a>
             
           
         
+          
+          
+            <a class="list-group-item" href="/2020/12/20/organization7/"><i class="fa  fa-book"></i> 计算机组成原理（第六章）（上）</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2020/12/16/organization9/"><i class="fa  fa-book"></i> 计算机组成原理（第七章）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
           
             
           
