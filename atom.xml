@@ -42,44 +42,6 @@
   </entry>
   
   <entry>
-    <title>数据库系统概论（第一章）</title>
-    <link href="http://algarth.github.io/2021/03/01/database1/"/>
-    <id>http://algarth.github.io/2021/03/01/database1/</id>
-    <published>2021-03-01T00:41:33.000Z</published>
-    <updated>2021-03-01T00:44:07.943Z</updated>
-    
-    
-    
-    
-    
-    <category term="database" scheme="http://algarth.github.io/tags/database/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>算法竞赛从入门到进阶（8）</title>
-    <link href="http://algarth.github.io/2021/02/09/jingsai8/"/>
-    <id>http://algarth.github.io/2021/02/09/jingsai8/</id>
-    <published>2021-02-09T02:21:02.000Z</published>
-    <updated>2021-02-09T02:54:36.595Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="8-1-高精度计算"><a href="#8-1-高精度计算" class="headerlink" title="8.1 高精度计算"></a>8.1 高精度计算</h1><p>高精度的加减乘除一般可以使用java的大数据模板</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigInteger</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">        Scanner imput = <span class="function">nnew <span class="title">Scanner</span><span class="params">(System.in)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(input.hasNext())&#123;</span><br><span class="line">            BigInteger ans = BigInteger.ONE;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">                ans = ans.multiply(BigInteger.valueOf(i));</span><br><span class="line">            &#125;</span><br><span class="line">            Sysout(ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="8-2-数论"><a href="#8-2-数论" class="headerlink" title="8.2 数论"></a>8.2 数论</h1><h3 id="1-模运算"><a href="#1-模运算" class="headerlink" title="1 模运算"></a>1 模运算</h3><p>加减法和乘法取模的运算是一致，除法运算是使用逆元的，这个懂得都懂</p><h3 id="2-快速幂"><a href="#2-快速幂" class="headerlink" title="2 快速幂"></a>2 快速幂</h3><p>快速幂进行运算的时候直接根据指数的二进制编码进行运算</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(ans*a)%M;</span><br><span class="line">        a=(a*a)%M;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>矩阵的快速幂和上面的快速幂一致，就是在进行快速幂计算的时候初始化改为单位矩阵，乘法采用矩阵的乘法即可</p><h3 id="3gcd"><a href="#3gcd" class="headerlink" title="3gcd"></a>3gcd</h3>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h1 id=&quot;8-1-高精度计算&quot;&gt;&lt;a href=&quot;#8-1-高精度计算&quot; class=&quot;headerlink&quot; title=&quot;8.1 高精度计算&quot;&gt;&lt;/a&gt;8.1 高精度计算&lt;/h1&gt;&lt;p&gt;高精度的加减乘除一般可以使用java的大数据模板&lt;/p&gt;
-&lt;figure class</summary>
-      
-    
-    
-    
-    
-    <category term="竞赛" scheme="http://algarth.github.io/tags/%E7%AB%9E%E8%B5%9B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>计算机组成原理汇总篇</title>
     <link href="http://algarth.github.io/2020/12/31/organization-ex/"/>
     <id>http://algarth.github.io/2020/12/31/organization-ex/</id>
