@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>动态规划笔记1 | ALgarth's blog</title>
+  <title>marache-马拉车算法 | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="dp" />
+    <meta name="keywords" content="marache" />
   
-  <meta name="description" content="动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。 这次动归打算按照下文顺序讲解   记忆化搜索和动归的几个要素  背包九讲  xxxx    这部分还是感谢对我帮助最大的雨巨和罗勇军老师。 剧透一下：动归是从中间开始的贪心 记忆化搜索和动归的几个要素记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子 1234">
+  <meta name="description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="动态规划笔记1">
-<meta property="og:url" content="http://algarth.github.io/2020/10/31/dp1/index.html">
+<meta property="og:title" content="marache-马拉车算法">
+<meta property="og:url" content="http://algarth.github.io/2020/11/08/blog-6/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。 这次动归打算按照下文顺序讲解   记忆化搜索和动归的几个要素  背包九讲  xxxx    这部分还是感谢对我帮助最大的雨巨和罗勇军老师。 剧透一下：动归是从中间开始的贪心 记忆化搜索和动归的几个要素记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子 1234">
+<meta property="og:description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2020-10-31T06:52:56.000Z">
-<meta property="article:modified_time" content="2020-10-31T07:28:23.185Z">
+<meta property="article:published_time" content="2020-11-08T07:48:44.000Z">
+<meta property="article:modified_time" content="2020-11-25T08:25:37.708Z">
 <meta property="article:author" content="ALgarth">
-<meta property="article:tag" content="dp">
+<meta property="article:tag" content="marache">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://algarth.github.io/null">
 <meta name="twitter:site" content="@null">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">动态规划笔记1</h1>
+                <h1 class="kratos-entry-title text-center">marache-马拉车算法</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2020-10-31
+                        <i class="fa fa-calendar"></i> 2020-11-08
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.99K
+                            ~1.67K
                         
                         字
                         
@@ -145,60 +145,76 @@
             </header>
             <div class="kratos-post-content">
                 
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
                 <hr />
-                <h1 id="动态规划笔记"><a href="#动态规划笔记" class="headerlink" title="动态规划笔记"></a>动态规划笔记</h1><p>动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。</p>
-<p>这次动归打算按照下文顺序讲解</p>
+                <p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p>
+<p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p>
+<p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p>
+<p>这次大纲如下</p>
 <blockquote>
 <ol>
-<li><p>记忆化搜索和动归的几个要素</p>
-</li>
-<li><p>背包九讲</p>
-</li>
-<li><p>xxxx</p>
-</li>
+<li>求回文串的土办法</li>
+<li>稍微优化的算法</li>
+<li>马拉车永远的神</li>
 </ol>
 </blockquote>
-<p>这部分还是感谢对我帮助最大的雨巨和罗勇军老师。</p>
-<p>剧透一下：动归是从中间开始的贪心</p>
-<h2 id="记忆化搜索和动归的几个要素"><a href="#记忆化搜索和动归的几个要素" class="headerlink" title="记忆化搜索和动归的几个要素"></a>记忆化搜索和动归的几个要素</h2><p>记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> book[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">peng</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(book[num]!=<span class="number">-1</span>) <span class="keyword">return</span> book[num];</span><br><span class="line">	<span class="keyword">return</span> num*peng(num<span class="number">-1</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	fill(book,book+<span class="number">10010</span>,<span class="number">-1</span>);</span><br><span class="line">	book[<span class="number">1</span>]=<span class="number">1</span>;book[<span class="number">0</span>]=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;peng(n)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//求n的阶乘 </span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这是一个简单的求n阶乘的式子，中间的peng函数就是求阶乘的，用的递归的方法，中间一个有意思的点在于，输入的n可能有很多组，可是多次访问，直接从自己向下乘到1实在耗时太多，因此我们使用一个数组，保存这个乘积的内容，从而方便访问。</p>
-<p>假设一个peng（i）已经计算了，那么计算peng（i+1）的时候，应用之前的peng（i）就可以很快计算，这里好像相当于peng函数本身是一个数组，时间复杂度上来说，这里拿函数当数组的时间复杂度和用一个数组直接访问上可以忽略不计。</p>
-<p>这里举一个记忆化搜索的例子，滑雪（洛谷P1434）</p>
+<p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p>
+<p>那我们进入正题</p>
+<h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p>
+<p>那如何才能求一个给定的s的回文串呢？</p>
+<p>那我们先来最秀的算法，BF（brute force）算法！！</p>
+<p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p>
+<p>想都别想，直接就TLE了</p>
+<p>肯定行不通</p>
+<h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p>
+<p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p>
+<p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p>
+<p>示例图如下：</p>
+<p>（我是图）</p>
+<p>这个算法有问题么？当然有。</p>
+<p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p>
+<p>eg. ababa处理成#a#b#a#b#a#</p>
+<p>这个处理是很科学的方法，这里说一下依据：</p>
 <blockquote>
-<p>Michael  喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1   2   3   4   5</span><br><span class="line">16  17  18  19  6</span><br><span class="line">15  24  25  20  7</span><br><span class="line">14  23  22  21  8</span><br><span class="line">13  12  11  10  9</span><br></pre></td></tr></table></figure>
-
-<p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度会减小。在上面的例子中，一条可行的滑坡为 24－17－16－1（从 24 开始，在 1 结束）。当然    25－24－23－…－3－2－1 更长。事实上，这是最长的一条。</p>
+<p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p>
 </blockquote>
-<p>这个题就可以仿照上面的方法，建一个二维数组，第一行if语句的方法进行记忆化搜索</p>
-<p>下面看动归的几个部分</p>
-<p>动归的要素</p>
+<p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p>
+<p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p>
+<p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p>
+<h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p>
+<p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p>
+<p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p>
+<p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p>
+<p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p>
+<p>下面要进行两种大情况和四种小情况的讨论</p>
 <blockquote>
 <ol>
-<li>连续的过程（要求）</li>
-<li>初始状态（初始化）</li>
-<li>状态转移方程（又称转移方程或状态方程）</li>
+<li>i&gt;maxR</li>
+<li>i&lt;maxR</li>
 </ol>
 </blockquote>
-<p>最重要的是一个状态转移方程。</p>
-<p>假设上楼梯问题，每一层楼梯，都有上一层和两层两种走法，求上到某一层n有多少种方法</p>
-<p>这个最简单的方法就是你会发现这个值其实就是一个斐波那契数列，写一个fib就解决了</p>
-<p>如果采用模拟的方法，这其实是个动归问题，满足连续要求，在每一层的时候，取决于上一次上一层还是两层，所以在写函数f的时候，就有了状态转移方程f(i)={f(i-1)+f(i-2)}。<del>（别写成中括号，初学的时候我写了好几次）</del></p>
-<p>初始化就直接初始化f(2),f(1),f(0)就可以了</p>
-<p>记忆化搜索都可以很好的写出这个题了</p>
-<h2 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h2><h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><p>01背包是最简单的，也是入门一坑。</p>
-<p>一个背包，n个数据，每个表示一个物品，物品有重量cost[i] (简称c)，有价值value[i] (简称v)。背包是有一定空间w，求最大捡拾物品得到的重量。</p>
-<p>搜索算法是阶乘的复杂度，到了11！之后直接TLE。</p>
-<p>首先介绍基本背包写法，二维数组01背包</p>
-<p>写一个二维数组，这个数组是n*w的，第一个物品直接放，表示占用ci的空间，后面的物品都有两种情况，在前面所有物品的前提下放，在没有物品的前提下放，如果放不下，就不用写了。</p>
-<p>二维数组初始化为0，动归得到最后一行的时候，倒叙访问一遍，输出最大值</p>
-<p>（敷衍qzz一会儿啊，图不放了）</p>
-<p>节省空间的办法很简单</p>
-<p>第一种：开一个维数为2的数组，每次从一个层转移到另一层，最后输出最后转移的一层就行，这种方法的弊端就是难以判定最后一行是哪一个，而且代码看起来复杂</p>
-<p>第二种：就地滚动，就一个一位数组，内部循环的时候倒叙循环，防止一个物品放入多次，从而一个数组搞定</p>
-<p>很多题目就地滚动就行了，但是正常的二维数组在后面的背包种类中会用到</p>
+<p>在第二种情况下包含三种小情况</p>
+<blockquote>
+<ol>
+<li>p[mir]&lt;maxR-i</li>
+<li>p[mir]==maxR-i</li>
+<li>p[mir]&gt;maxR-i</li>
+</ol>
+</blockquote>
+<p>接下来，我们按照顺序进行讨论</p>
+<h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p>
+<p>（我是图）</p>
+<p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p>
+<h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p>
+<p>（我是图）</p>
+<p>由于对称性，这个i的</p>
+<hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
 
             </div>
             
@@ -254,7 +270,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2020/10/31/dp1/",
+                text: "http://algarth.github.io/2020/11/08/blog-6/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -266,22 +282,11 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2020/10/31/dp1/";
-            const title         = "「动态规划笔记1」";
-            const excerpt       = `动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。
-这次动归打算按照下文顺序讲解
-
-
-记忆化搜索和动归的几个要素
-
-背包九讲
-
-xxxx
-
-
-
-这部分还是感谢对我帮助最大的雨巨和罗勇军老师。
-剧透一下：动...`;
+            const hostUrl       = "http://algarth.github.io/2020/11/08/blog-6/";
+            const title         = "「marache-马拉车算法」";
+            const excerpt       = `这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模
+马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）
+因此，马拉车是一种...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -300,10 +305,10 @@ xxxx
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/dp/" rel="tag">dp</a>
+                        <a class="tag-none-link" href="/tags/marache/" rel="tag">marache</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-10-31</span>
+                    <span>最后编辑：2020-11-25</span>
                     </div>
                 </div>
             </footer>
@@ -312,12 +317,12 @@ xxxx
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 计算机组成原理笔记（第四章）（上）" href="/2020/10/27/blog-7/">&lt; 上一篇</a>
+                    <a title=" (no title)" href="/2020/10/27/blog-4/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 计算机组成原理笔记（第四章）（中）" href="/2020/11/02/blog-8/">下一篇 &gt;</a>
+                    <a title=" (no title)" href="/2021/10/19/blog-5/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -339,7 +344,7 @@ xxxx
     </div>
     <div class="textwidget">
         
-            <p class="text-center">一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头</p>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
         
     </div>
 </aside>
@@ -353,7 +358,7 @@ xxxx
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.8em;">c++从入门到不入门</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/trailer/" style="font-size: 0.8em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a>
       </div>
   </aside>
 
@@ -367,19 +372,13 @@ xxxx
         
           
           
-            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
-            
+        
+          
           
         
           
           
-            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            <a class="list-group-item" href="/2020/11/08/blog-6/"><i class="fa  fa-book"></i> marache-马拉车算法</a>
             
           
         
@@ -388,41 +387,28 @@ xxxx
         
           
           
-        
-          
-          
-            <a class="list-group-item" href="/2020/11/25/blog-9/"><i class="fa  fa-book"></i> 计算机组成原理（第四章下和第五章开头）</a>
+            <a class="list-group-item" href="/2020/10/12/blog-3/"><i class="fa  fa-book"></i> priority</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2020/11/08/marache/"><i class="fa  fa-book"></i> marache-马拉车算法</a>
+            <a class="list-group-item" href="/2020/10/11/blog-2/"><i class="fa  fa-book"></i> c++primary（下部）</a>
             
           
         
           
+          
+            <a class="list-group-item" href="/2020/10/11/blog-1/"><i class="fa  fa-book"></i> C++ primary（上部）</a>
             
           
+        
+          
+          
+            <a class="list-group-item" href="/2020/10/10/blog/"><i class="fa  fa-book"></i> 必读前言（持续更新）</a>
             
           
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
+        
       </ul>
   </div>
   </aside>

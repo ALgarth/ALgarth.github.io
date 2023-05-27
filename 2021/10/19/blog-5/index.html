@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>marache-马拉车算法 | ALgarth's blog</title>
+  <title>ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="marache" />
+    <meta name="keywords" content="trailer" />
   
-  <meta name="description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+  <meta name="description" content="没想到我还能想起来自己还有这个博客。。。 这个博客记录了我犯错的过程 当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性 最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之前的博文。 后期可能会在博客定期分享一部分我觉得可以开源的技术和故事 当电子小说看就行，嗯">
 <meta property="og:type" content="article">
-<meta property="og:title" content="marache-马拉车算法">
-<meta property="og:url" content="http://algarth.github.io/2020/11/08/marache/index.html">
+<meta property="og:title" content="ALgarth&#39;s blog">
+<meta property="og:url" content="http://algarth.github.io/2021/10/19/blog-5/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+<meta property="og:description" content="没想到我还能想起来自己还有这个博客。。。 这个博客记录了我犯错的过程 当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性 最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之前的博文。 后期可能会在博客定期分享一部分我觉得可以开源的技术和故事 当电子小说看就行，嗯">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2020-11-08T07:48:44.000Z">
-<meta property="article:modified_time" content="2020-11-25T08:25:37.708Z">
+<meta property="article:published_time" content="2021-10-19T08:45:52.000Z">
+<meta property="article:modified_time" content="2021-10-19T08:48:06.982Z">
 <meta property="article:author" content="ALgarth">
-<meta property="article:tag" content="marache">
+<meta property="article:tag" content="trailer">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://algarth.github.io/null">
 <meta name="twitter:site" content="@null">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">marache-马拉车算法</h1>
+                <h1 class="kratos-entry-title text-center"></h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2020-11-08
+                        <i class="fa fa-calendar"></i> 2021-10-19
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.67K
+                            162
                         
                         字
                         
@@ -145,76 +145,13 @@
             </header>
             <div class="kratos-post-content">
                 
-                    <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
-                    </div>
-                
                 <hr />
-                <p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p>
-<p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p>
-<p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p>
-<p>这次大纲如下</p>
-<blockquote>
-<ol>
-<li>求回文串的土办法</li>
-<li>稍微优化的算法</li>
-<li>马拉车永远的神</li>
-</ol>
-</blockquote>
-<p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p>
-<p>那我们进入正题</p>
-<h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p>
-<p>那如何才能求一个给定的s的回文串呢？</p>
-<p>那我们先来最秀的算法，BF（brute force）算法！！</p>
-<p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p>
-<p>想都别想，直接就TLE了</p>
-<p>肯定行不通</p>
-<h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p>
-<p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p>
-<p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p>
-<p>示例图如下：</p>
-<p>（我是图）</p>
-<p>这个算法有问题么？当然有。</p>
-<p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p>
-<p>eg. ababa处理成#a#b#a#b#a#</p>
-<p>这个处理是很科学的方法，这里说一下依据：</p>
-<blockquote>
-<p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p>
-</blockquote>
-<p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p>
-<p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p>
-<p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p>
-<h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p>
-<p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p>
-<p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p>
-<p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p>
-<p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p>
-<p>下面要进行两种大情况和四种小情况的讨论</p>
-<blockquote>
-<ol>
-<li>i&gt;maxR</li>
-<li>i&lt;maxR</li>
-</ol>
-</blockquote>
-<p>在第二种情况下包含三种小情况</p>
-<blockquote>
-<ol>
-<li>p[mir]&lt;maxR-i</li>
-<li>p[mir]==maxR-i</li>
-<li>p[mir]&gt;maxR-i</li>
-</ol>
-</blockquote>
-<p>接下来，我们按照顺序进行讨论</p>
-<h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p>
-<p>（我是图）</p>
-<p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p>
-<h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p>
-<p>（我是图）</p>
-<p>由于对称性，这个i的</p>
-<hr>
-<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
-<p><em>图片来自网络，侵删。</em></p>
-<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
+                <p>没想到我还能想起来自己还有这个博客。。。</p>
+<p>这个博客记录了我犯错的过程</p>
+<p>当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性</p>
+<p>最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之前的博文。</p>
+<p>后期可能会在博客定期分享一部分我觉得可以开源的技术和故事</p>
+<p>当电子小说看就行，嗯</p>
 
             </div>
             
@@ -270,7 +207,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2020/11/08/marache/",
+                text: "http://algarth.github.io/2021/10/19/blog-5/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -282,11 +219,12 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2020/11/08/marache/";
-            const title         = "「marache-马拉车算法」";
-            const excerpt       = `这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模
-马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）
-因此，马拉车是一种...`;
+            const hostUrl       = "http://algarth.github.io/2021/10/19/blog-5/";
+            const title         = "「」";
+            const excerpt       = `没想到我还能想起来自己还有这个博客。。。
+这个博客记录了我犯错的过程
+当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性
+最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之前...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -305,10 +243,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/marache/" rel="tag">marache</a>
+                        <a class="tag-none-link" href="/tags/trailer/" rel="tag">trailer</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-11-25</span>
+                    <span>最后编辑：2021-10-19</span>
                     </div>
                 </div>
             </footer>
@@ -317,12 +255,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 计算机组成原理笔记（第四章）（中）" href="/2020/11/02/blog-8/">&lt; 上一篇</a>
+                    <a title=" marache-马拉车算法" href="/2020/11/08/blog-6/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 计算机组成原理（第四章下和第五章开头）" href="/2020/11/25/blog-9/">下一篇 &gt;</a>
+                    <a title=" (no title)" href="/2023/05/27/blog-7/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -344,7 +282,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+            <p class="text-center">一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头</p>
         
     </div>
 </aside>
@@ -358,7 +296,7 @@
   <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
     <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
       <div class="tag-clouds">
-        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+        <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.8em;">c++从入门到不入门</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/trailer/" style="font-size: 0.8em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a>
       </div>
   </aside>
 
@@ -372,19 +310,13 @@
         
           
           
-            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
-            
+        
+          
           
         
           
           
-            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
-            
-          
-        
-          
-          
-            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            <a class="list-group-item" href="/2020/11/08/blog-6/"><i class="fa  fa-book"></i> marache-马拉车算法</a>
             
           
         
@@ -393,41 +325,28 @@
         
           
           
-        
-          
-          
-            <a class="list-group-item" href="/2020/11/25/blog-9/"><i class="fa  fa-book"></i> 计算机组成原理（第四章下和第五章开头）</a>
+            <a class="list-group-item" href="/2020/10/12/blog-3/"><i class="fa  fa-book"></i> priority</a>
             
           
         
           
           
-            <a class="list-group-item" href="/2020/11/08/marache/"><i class="fa  fa-book"></i> marache-马拉车算法</a>
+            <a class="list-group-item" href="/2020/10/11/blog-2/"><i class="fa  fa-book"></i> c++primary（下部）</a>
             
           
         
           
+          
+            <a class="list-group-item" href="/2020/10/11/blog-1/"><i class="fa  fa-book"></i> C++ primary（上部）</a>
             
           
+        
+          
+          
+            <a class="list-group-item" href="/2020/10/10/blog/"><i class="fa  fa-book"></i> 必读前言（持续更新）</a>
             
           
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
-          
-            
+        
       </ul>
   </div>
   </aside>
