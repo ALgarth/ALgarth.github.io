@@ -6,7 +6,7 @@
   <link href="http://algarth.github.io/atom.xml" rel="self"/>
   
   <link href="http://algarth.github.io/"/>
-  <updated>2023-05-27T09:09:11.262Z</updated>
+  <updated>2023-05-27T11:54:05.914Z</updated>
   <id>http://algarth.github.io/</id>
   
   <author>
@@ -21,18 +21,17 @@
     <link href="http://algarth.github.io/2023/05/27/blog-7/"/>
     <id>http://algarth.github.io/2023/05/27/blog-7/</id>
     <published>2023-05-27T09:03:32.000Z</published>
-    <updated>2023-05-27T09:09:11.262Z</updated>
+    <updated>2023-05-27T11:54:05.914Z</updated>
     
-    <content type="html"><![CDATA[<p>一晃23年了，我才因为某种原因打算重新整理一下博客</p><p>博客中之前关于计组的笔记，我害怕中间的内容有差错，并且收拾博客的话确实要整理一下命名问题</p><p>就全部删除了，有需要的话可以私我</p><p>另外博客搬迁回Github了</p><p>后续博客的设计方向还不是很明朗，有其余设计想法的时候我回通知的</p>]]></content>
+    <content type="html"><![CDATA[<p>一晃23年了，我才因为某种原因打算重新整理一下博客</p><p>博客中之前关于计组的笔记，我害怕中间的内容有差错，并且做了一下归档工作</p><p>之前的笔记就全部删除了，有需要的话可以私我</p><p>另外博客搬迁回Github了，由于静态博客配置评论会有较高的维护成本，评论功能目前仍未启用</p><p>后续博客的设计方向还不是很明确，有新设计想法的时候我会贴公告的</p>]]></content>
     
     
       
       
     <summary type="html">&lt;p&gt;一晃23年了，我才因为某种原因打算重新整理一下博客&lt;/p&gt;
-&lt;p&gt;博客中之前关于计组的笔记，我害怕中间的内容有差错，并且收拾博客的话确实要整理一下命名问题&lt;/p&gt;
-&lt;p&gt;就全部删除了，有需要的话可以私我&lt;/p&gt;
-&lt;p&gt;另外博客搬迁回Github了&lt;/p&gt;
-&lt;p&gt;后续博客的设</summary>
+&lt;p&gt;博客中之前关于计组的笔记，我害怕中间的内容有差错，并且做了一下归档工作&lt;/p&gt;
+&lt;p&gt;之前的笔记就全部删除了，有需要的话可以私我&lt;/p&gt;
+&lt;p&gt;另外博客搬迁回Github了，由于静态博客配置评论会有较高的维护</summary>
       
     
     
