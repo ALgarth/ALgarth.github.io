@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>marache-马拉车算法 | ALgarth's blog</title>
+  <title>计算机组成原理笔记（第一章） | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="marache" />
+    <meta name="keywords" content="计算机组成原理" />
   
-  <meta name="description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+  <meta name="description" content="今天突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第一章）第一章内容相对较少 主要包括以下部分  1.软硬件和语言 2.冯诺依曼机器 3.概述一些计算机技术指标  首先把一部分内容说在前面">
 <meta property="og:type" content="article">
-<meta property="og:title" content="marache-马拉车算法">
-<meta property="og:url" content="http://algarth.github.io/2020/11/08/marache/index.html">
+<meta property="og:title" content="计算机组成原理笔记（第一章）">
+<meta property="og:url" content="http://algarth.github.io/2020/10/13/blog-4/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+<meta property="og:description" content="今天突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第一章）第一章内容相对较少 主要包括以下部分  1.软硬件和语言 2.冯诺依曼机器 3.概述一些计算机技术指标  首先把一部分内容说在前面">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2020-11-08T07:48:44.000Z">
-<meta property="article:modified_time" content="2020-11-25T08:25:37.708Z">
+<meta property="article:published_time" content="2020-10-13T08:24:39.000Z">
+<meta property="article:modified_time" content="2020-12-28T05:17:01.687Z">
 <meta property="article:author" content="ALgarth">
-<meta property="article:tag" content="marache">
+<meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://algarth.github.io/null">
 <meta name="twitter:site" content="@null">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">marache-马拉车算法</h1>
+                <h1 class="kratos-entry-title text-center">计算机组成原理笔记（第一章）</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2020-11-08
+                        <i class="fa fa-calendar"></i> 2020-10-13
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~1.67K
+                            ~2.61K
                         
                         字
                         
@@ -146,71 +146,134 @@
             <div class="kratos-post-content">
                 
                     <div class="kratos-post-inner-toc">
-                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第一章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">软硬件和语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">软硬件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.2.</span> <span class="toc-text">语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">冯诺依曼机器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E7%BB%93%E6%9E%84%E7%9A%845%E6%9D%A1%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">冯诺依曼结构的5条特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">五大结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">控制器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">主存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%E4%B8%80%E4%BA%9B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">概述一些计算机技术指标</span></a></li></ol></li></ol>
                     </div>
                 
                 <hr />
-                <p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p>
-<p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p>
-<p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p>
-<p>这次大纲如下</p>
-<blockquote>
-<ol>
-<li>求回文串的土办法</li>
-<li>稍微优化的算法</li>
-<li>马拉车永远的神</li>
-</ol>
+                <blockquote>
+<p>今天突然意识到该写一份计算机组成原理的笔记</p>
+<p>那就写呗</p>
+<p>为的是方便我个人的复习以及对读者进行启发</p>
+<p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
+<p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
 </blockquote>
-<p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p>
-<p>那我们进入正题</p>
-<h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p>
-<p>那如何才能求一个给定的s的回文串呢？</p>
-<p>那我们先来最秀的算法，BF（brute force）算法！！</p>
-<p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p>
-<p>想都别想，直接就TLE了</p>
-<p>肯定行不通</p>
-<h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p>
-<p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p>
-<p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p>
-<p>示例图如下：</p>
-<p>（我是图）</p>
-<p>这个算法有问题么？当然有。</p>
-<p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p>
-<p>eg. ababa处理成#a#b#a#b#a#</p>
-<p>这个处理是很科学的方法，这里说一下依据：</p>
+<h1 id="计算机组成原理笔记（第一章）"><a href="#计算机组成原理笔记（第一章）" class="headerlink" title="计算机组成原理笔记（第一章）"></a>计算机组成原理笔记（第一章）</h1><p>第一章内容相对较少</p>
+<p>主要包括以下部分</p>
 <blockquote>
-<p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p>
+<p>1.软硬件和语言</p>
+<p>2.冯诺依曼机器</p>
+<p>3.概述一些计算机技术指标</p>
 </blockquote>
-<p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p>
-<p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p>
-<p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p>
-<h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p>
-<p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p>
-<p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p>
-<p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p>
-<p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p>
-<p>下面要进行两种大情况和四种小情况的讨论</p>
+<p>首先把一部分内容说在前面，方便后续的理解：</p>
+<p>假设一个C语言程序，在跑的时候会生成.c .o .exe文件，这些文件的生成过程中，我们只关心最后的.o-&gt;.exe而且只关心之间的微程序和电子硬件层面，不涉及具体的汇编语言实现，也不涉及编译原理，请自行学习其他内容。</p>
+<p>同时，机组关心如何存取指令，运算指令等等的细节，不从宏观的代码角度理解代码的编译，希望在学习之前有一定的认知</p>
+<h2 id="软硬件和语言"><a href="#软硬件和语言" class="headerlink" title="软硬件和语言"></a>软硬件和语言</h2><h3 id="软硬件"><a href="#软硬件" class="headerlink" title="软硬件"></a>软硬件</h3><p>先上定义！！</p>
 <blockquote>
-<ol>
-<li>i&gt;maxR</li>
-<li>i&lt;maxR</li>
-</ol>
+<p>以下内容选自课本</p>
+<p><strong>硬件</strong>：计算机的实体部分</p>
+<p><strong>软件</strong>：由人们实现编制好的具有各类特殊功能的程序</p>
+<p><strong>固件</strong>：把软件永恒的存储在只读存储器中</p>
 </blockquote>
-<p>在第二种情况下包含三种小情况</p>
+<p>下边先上一张框图</p>
+<ul>
+<li>硬件</li>
+<li>软件<ul>
+<li>系统软件</li>
+<li>应用软件</li>
+</ul>
+</li>
+</ul>
+<p>系统软件和应用软件进行判别相对而言比较容易。稍微介绍以下系统软件给出的例子</p>
 <blockquote>
-<ol>
-<li>p[mir]&lt;maxR-i</li>
-<li>p[mir]==maxR-i</li>
-<li>p[mir]&gt;maxR-i</li>
-</ol>
+<p>语言处理系统（编译器）</p>
+<p>操作系统</p>
+<p>服务型程序（MPI）</p>
+<p>数据库管理系统</p>
+<p>网络软件</p>
 </blockquote>
-<p>接下来，我们按照顺序进行讨论</p>
-<h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p>
-<p>（我是图）</p>
-<p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p>
-<h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p>
-<p>（我是图）</p>
-<p>由于对称性，这个i的</p>
+<p>这部分实在是没什么好说的</p>
+<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>下面给出几种语言</p>
+<blockquote>
+<p>高级语言：比如C语言，c++，JAVA，Python</p>
+<p>汇编语言：一种贴近机器语言的语言，内部写法是一个操作符加上一个或多个地址的格式</p>
+<p>机器语言：一大串二进制代码（计算机唯一认识的语言）</p>
+</blockquote>
+<p>还要注意的是，汇编语言拜托不了实际机器的指令系统，因此，汇编语言不具有通用性。</p>
+<p>下面再给出几种说法：</p>
+<blockquote>
+<p>汇编程序：将汇编语言生成机器语言</p>
+<p>编译程序：将机器语言一次性全部生成机器语言</p>
+<p>解释程序：将源程序一行一行生成机器语言，只能一行一行来，而且如果重复解释程序的，需要重新生成逐行对应的机器语言</p>
+<p>翻译程序：编译程序或解释程序。高级语言生成机器语言，是上述两者的组合产物</p>
+</blockquote>
+<p>注意：以上的程序都是软件</p>
+<p>给出一个C语言的例子便于理解</p>
+<p>一个C语言程序，生成.c文件，经过编译生成.o文件，最后连接生成.exe文件。</p>
+<p>C语言的翻译先经过一次预编译，执行内部的#include和#define，之后编译，生成一整套汇编语言.o文件，最后把.o文件进行汇编生成机器语言，形成可执行的.exe文件</p>
+<p>希望这样的解释可以方便理解上面的定义</p>
+<h2 id="冯诺依曼机器"><a href="#冯诺依曼机器" class="headerlink" title="冯诺依曼机器"></a>冯诺依曼机器</h2><h3 id="冯诺依曼结构的5条特点"><a href="#冯诺依曼结构的5条特点" class="headerlink" title="冯诺依曼结构的5条特点"></a>冯诺依曼结构的5条特点</h3><blockquote>
+<p><strong>基本框架</strong>：计算机由运算器，存储器，控制器，输入设备，输出设备5个设备组成</p>
+<p><strong>指令和数据的存放</strong>：指令和数据以同等地位存放在存储器中，都是二进制数表示，并按照地址寻访</p>
+<p><strong>指令的组成</strong>：指令由地址码和操作码组成，前者表示指令在存储器中的位置，后者表示操作的性质</p>
+<p><strong>指令的顺序</strong>：指令在存储器内顺序存放，通常指令顺序执行，特定条件下也可以改变运算顺序</p>
+<p><strong>中心</strong>：机器以运算器为中心，输入输出设备与存储器之间的数据通过运算器完成</p>
+<p>（最后一条在现在的计算机中做了更改，以存储器为中心，并将输入输出设备与运算器之间的数据通过存储器完成）</p>
+</blockquote>
+<p>而且有：</p>
+<p>1.冯诺依曼提出上述结构时正在和美国军方研究第一台计算机ENIAC，新的计算机EDVAC设计的时候才使用了。</p>
+<p>2.这个结构最重要的概念是存储程序的概念</p>
+<h3 id="五大结构"><a href="#五大结构" class="headerlink" title="五大结构"></a>五大结构</h3><p>五大结构是有一定层次和组合的。</p>
+<p>运算器和控制器集合成为CPU，CPU和存储器中的主存集合成为主机，输入输出设备合称IO或者外部设备</p>
+<p>（为了更直观希望各位画个图感受一下）</p>
+<p>以下根据大分类简介两个内容，CPU和MM（主存）</p>
+<p><del>IO内容过于简单就不说了</del></p>
+<h4 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h4><p>CPU内部的运算器主要是ALU（算术逻辑单元），这个单元和CU是CPU的核心部件，但是不代表只有这两个部件。</p>
+<h5 id="运算器"><a href="#运算器" class="headerlink" title="运算器"></a>运算器</h5><p>运算器中，主要有三个寄存器，ACC，MQ，X。</p>
+<p>进行加减乘除这样的双目运算的时候，单说加减，两个寄存器完全够用，例如一个存放加数1，另一个存放加数2，结果也存在第二个里面。但是由于乘除有着乘积高位和低位，除法还有取模，所以需要用到三个，这第三个就是MQ</p>
+<blockquote>
+<p>ACC用以存放被加数被减数和加减结果，乘积高位和被除数，模</p>
+<p>MQ：只存放乘法的乘积低位，乘数，商</p>
+<p>X存放加数，减数，被乘数，除数</p>
+</blockquote>
+<p>值得注意的是，本来ACC存放被操作数，但是乘法刚好反过来由X承担。</p>
+<p>当然后话是，有的机器用MDR取代X</p>
+<h5 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h5><p>控制器的运行过程包括取指（是取指令，不是寻址），分析，执行</p>
+<p>控制器上面来说，控制器包括三者组成：</p>
+<blockquote>
+<p>程序计数器（PC）：存放当前操作的地址进行计数，有新操作的时候就地址++。</p>
+<p>指令寄存器（IR）：存放当前的指令</p>
+<p>控制单元（CU）：分析指令并加以控制</p>
+</blockquote>
+<h4 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h4><p>主存的层次结构如下所示</p>
+<ul>
+<li>主存<ul>
+<li>存储体<ul>
+<li>存储单元<ul>
+<li>存储元（存储基元）</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>逻辑部件</li>
+<li>控制电路</li>
+</ul>
+</li>
+</ul>
+<p>着重看一下这个存储体，存储体是主存中可以进行存储的空间，这部分空间设计上被划分成小块，每一块是一个存储单元，每一个存储单元可以存储一长串二进制代码，每一个二进制代码称之为一个存储元</p>
+<p>存储字长 = 存储单元.length()；</p>
+<p>主存中存在两个寄存器：MAR，MDR</p>
+<blockquote>
+<p>MAR：存放预访问的存储单元地址，位数对应着存储单元的个数</p>
+<p>MDR：存放即将存入的代码和取出的代码，位数和机器字长相同</p>
+</blockquote>
+<h2 id="概述一些计算机技术指标"><a href="#概述一些计算机技术指标" class="headerlink" title="概述一些计算机技术指标"></a>概述一些计算机技术指标</h2><blockquote>
+<p>机器字长; CPU一次可以处理的位数，取决于寄存器的数目</p>
+<p>存储容量：包括主存容量和缓存容量，计算方式为存储单元数 * 存储字长（习惯上用K，M，KB，MB进行表示）</p>
+<p>运算速度：运算速度的单位是MIPS，（百万条指令每秒），因为频率的单位Hz本身蕴含的含义就是秒的倒数，所以可以直接理解为ps，计算的时候直接计算就完事儿了。</p>
+<p>运算速度的另一种表示：CPI（时钟频率），时钟频率是机器主频的倒数，计算的时候综合所有的指令时间占比进行比例乘积相加就行，他和上面的那个MIPS的关系为MIPS*CPI=主频，这个式子计算的时候务必保证单位要统一，如果单位带有百万条的M的话可能更好计算</p>
+</blockquote>
+<p>这里就不放例题了，等到做题的时候自己看看就行</p>
+<p>第一章内容到此结束。</p>
 <hr>
 <p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
 <p><em>图片来自网络，侵删。</em></p>
@@ -270,7 +333,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2020/11/08/marache/",
+                text: "http://algarth.github.io/2020/10/13/blog-4/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -282,11 +345,14 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2020/11/08/marache/";
-            const title         = "「marache-马拉车算法」";
-            const excerpt       = `这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模
-马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）
-因此，马拉车是一种...`;
+            const hostUrl       = "http://algarth.github.io/2020/10/13/blog-4/";
+            const title         = "「计算机组成原理笔记（第一章）」";
+            const excerpt       = `
+今天突然意识到该写一份计算机组成原理的笔记
+那就写呗
+为的是方便我个人的复习以及对读者进行启发
+目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MO...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -305,10 +371,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/marache/" rel="tag">marache</a>
+                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2020-11-25</span>
+                    <span>最后编辑：2020-12-28</span>
                     </div>
                 </div>
             </footer>
@@ -317,12 +383,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" 计算机组成原理笔记（第四章）（中）" href="/2020/11/02/blog-8/">&lt; 上一篇</a>
+                    <a title=" priority" href="/2020/10/12/blog-3/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" 计算机组成原理（第四章下和第五章开头）" href="/2020/11/25/blog-9/">下一篇 &gt;</a>
+                    <a title=" 计算机组成原理笔记（第二章）" href="/2020/10/19/blog-5/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -344,7 +410,7 @@
     </div>
     <div class="textwidget">
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%B8%80%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第一章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6%E5%92%8C%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.</span> <span class="toc-text">软硬件和语言</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E7%A1%AC%E4%BB%B6"><span class="toc-number">1.1.1.</span> <span class="toc-text">软硬件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AD%E8%A8%80"><span class="toc-number">1.1.2.</span> <span class="toc-text">语言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E6%9C%BA%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">冯诺依曼机器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%AF%E8%AF%BA%E4%BE%9D%E6%9B%BC%E7%BB%93%E6%9E%84%E7%9A%845%E6%9D%A1%E7%89%B9%E7%82%B9"><span class="toc-number">1.2.1.</span> <span class="toc-text">冯诺依曼结构的5条特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E5%A4%A7%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.2.</span> <span class="toc-text">五大结构</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#CPU"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">CPU</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E5%99%A8"><span class="toc-number">1.2.2.1.1.</span> <span class="toc-text">运算器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.2.2.1.2.</span> <span class="toc-text">控制器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BB%E5%AD%98"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">主存</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0%E4%B8%80%E4%BA%9B%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%8A%80%E6%9C%AF%E6%8C%87%E6%A0%87"><span class="toc-number">1.3.</span> <span class="toc-text">概述一些计算机技术指标</span></a></li></ol></li></ol>
         
     </div>
 </aside>

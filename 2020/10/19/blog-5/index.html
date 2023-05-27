@@ -4,7 +4,7 @@
   <!-- 元数据 -->
   <meta charset="utf-8">
   <link rel="icon" href="">
-  <title>计网第一章 | ALgarth's blog</title>
+  <title>计算机组成原理笔记（第二章） | ALgarth's blog</title>
   <meta name="author" content="ALgarth" />
   <meta http-equiv="Cache-Control" content="no-transform" />
   <meta http-equiv="Cache-Control" content="no-siteapp" />
@@ -13,20 +13,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <meta name="format-detection" content="telphone=no, email=no" />
   
-    <meta name="keywords" content="计网" />
+    <meta name="keywords" content="计算机组成原理" />
   
-  <meta name="description" content="第一章（概述）  网络分为：电信网络，有线电视网络，计算机网络  互联网是一种计算机网络，他的两个基本特点就是连通性和共享&#x2F;&#x2F;以下简称计算机网络为网络  网络最基本的功能是数据通信  网络是由节点和链路组成的  节点可以是计算机，集线器，交换机，路由器  通过路由器可以把网络连接成大网络，称为互联网，即网络的网络  网络连接的是主机，互联网是把网络用路由器连接    互联网基础结构发展的三个阶段">
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第二章）第二章，emmmmm，其实根本没什么内容 我就该把这个内容和第一章笔记放在一块aaaaaaa 本章只有两个内容">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计网第一章">
-<meta property="og:url" content="http://algarth.github.io/2021/10/23/cnet/index.html">
+<meta property="og:title" content="计算机组成原理笔记（第二章）">
+<meta property="og:url" content="http://algarth.github.io/2020/10/19/blog-5/index.html">
 <meta property="og:site_name" content="ALgarth&#39;s blog">
-<meta property="og:description" content="第一章（概述）  网络分为：电信网络，有线电视网络，计算机网络  互联网是一种计算机网络，他的两个基本特点就是连通性和共享&#x2F;&#x2F;以下简称计算机网络为网络  网络最基本的功能是数据通信  网络是由节点和链路组成的  节点可以是计算机，集线器，交换机，路由器  通过路由器可以把网络连接成大网络，称为互联网，即网络的网络  网络连接的是主机，互联网是把网络用路由器连接    互联网基础结构发展的三个阶段">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理笔记（第二章）第二章，emmmmm，其实根本没什么内容 我就该把这个内容和第一章笔记放在一块aaaaaaa 本章只有两个内容">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://algarth.github.io/null">
-<meta property="article:published_time" content="2021-10-23T03:09:36.000Z">
-<meta property="article:modified_time" content="2021-10-23T03:11:07.359Z">
+<meta property="article:published_time" content="2020-10-19T05:19:30.000Z">
+<meta property="article:modified_time" content="2020-10-27T07:59:05.250Z">
 <meta property="article:author" content="ALgarth">
-<meta property="article:tag" content="计网">
+<meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://algarth.github.io/null">
 <meta name="twitter:site" content="@null">
@@ -126,17 +126,17 @@
     <article>
         <div class="kratos-hentry kratos-post-inner clearfix">
             <header class="kratos-entry-header">
-                <h1 class="kratos-entry-title text-center">计网第一章</h1>
+                <h1 class="kratos-entry-title text-center">计算机组成原理笔记（第二章）</h1>
                 
                 <div class="kratos-post-meta text-center">
                     <span>
-                        <i class="fa fa-calendar"></i> 2021-10-23
+                        <i class="fa fa-calendar"></i> 2020-10-19
                         <i class="fa fa-folder"></i> 分类于 
                         <i class="fa fa-user"></i> 作者 ALgarth
                         <i class="fa fa-edit"></i> 
                         
                         
-                            ~3.84K
+                            830
                         
                         字
                         
@@ -145,466 +145,61 @@
             </header>
             <div class="kratos-post-content">
                 
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第二章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">计算机发展的历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E7%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">电子管计算机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">晶体管计算机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.3.</span> <span class="toc-text">集成电路计算机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">1.2.</span> <span class="toc-text">计算机的未来展望</span></a></li></ol></li></ol>
+                    </div>
+                
                 <hr />
-                <ul>
-<li><p>第一章（概述）</p>
-<ul>
-<li><p>网络分为：电信网络，有线电视网络，计算机网络</p>
-</li>
-<li><p>互联网是一种计算机网络，他的两个基本特点就是连通性和共享<br>//以下简称计算机网络为网络</p>
-</li>
-<li><p>网络最基本的功能是数据通信</p>
-</li>
-<li><p>网络是由节点和链路组成的</p>
-<ul>
-<li><p>节点可以是计算机，集线器，交换机，路由器</p>
-</li>
-<li><p>通过路由器可以把网络连接成大网络，称为互联网，即网络的网络</p>
-</li>
-<li><p>网络连接的是主机，互联网是把网络用路由器连接</p>
-</li>
-</ul>
-</li>
-<li><p>互联网基础结构发展的三个阶段：（重点：arpanet）</p>
-<ul>
-<li><ol>
-<li>单个网络arpanet向互联网发展：1983年互联网诞生，arpanet退役</li>
-</ol>
-<ul>
-<li><p>互连网：internet，他泛指多个计算机互相连成的网络，不一定使用tcpip协议</p>
-</li>
-<li><p>互联网：Internet，它是专有名词，指代全球连接的特定网络，使用tcpip协议，前身是arpanet</p>
-</li>
-</ul>
-</li>
-<li><ol start="2">
-<li>三级结构互联网：主干网，地区网，校园网（企业网）：nsfnet</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>多层级isp结构互联网：</li>
-</ol>
-<ul>
-<li><p>nsfnet被互联网主干网取缔</p>
-</li>
-<li><p>isp指互联网服务提供商，比如那三大巨头，isp负责向用户批发IP地址</p>
-</li>
-<li><p>isp被划分为：主干isp，地区isp和本地isp</p>
-<ul>
-<li><p>主干：由运营商建造，覆盖面积达到全国，拥有高速主干网</p>
-</li>
-<li><p>地区：专属地区的</p>
-</li>
-<li><p>本地：给用户（端用户）提供服务的</p>
-</li>
-</ul>
-</li>
-<li><p>互联网交换点IXP：它可以进行地区isp的交换分组，从而不需要请求主干isp，在交换同等级的网络时不收费，否则收费</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>互联网国际组织：</p>
-<ul>
-<li><p>互联网委员会-&gt;互联网体系结构委员会-&gt;互联网工程部，互联网研究部（内部由研究组构成，具体工作由互联网研究指导小组管理）</p>
-</li>
-<li><p>指定互联网标准：</p>
-<p>经过建议标准和互联网标准之后就可以成为互联网标准</p>
-<ul>
-<li><ol>
-<li>互联网草案（草案有效期6个月）</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>建议标准</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>互联网标准</li>
-</ol>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>互联网组成：</p>
-<ul>
-<li><p>在组成成分上来说，是由硬件，软件，协议组成的</p>
-</li>
-<li><ol>
-<li>边缘部分（用户直接使用的，资源子网）</li>
-</ol>
-<ul>
-<li><p>边缘部分就是链接互联网的主机，称为端系统</p>
-</li>
-<li><p>端系统的拥有者可能是个人，单位，某个isp</p>
-</li>
-<li><p>主机间的通信是指主机之间的某两个进程之间在通信，简称为计算机间的通信，通信可以划分为一下两种</p>
-<ul>
-<li><p>客户，服务器方式（C/S）</p>
-<p>就是客户机请求服务器，服务器提供相应的那种基本逻辑</p>
-<ul>
-<li><p>客户端：必须知道服务器地址；不需要有复杂的操作系统和昂贵的硬件</p>
-</li>
-<li><p>服务器：专门提供某种服务，可同时处理多个远地或本地客户的请求；启动后一直运行；需要强大的硬件和高级的操作系统</p>
-</li>
-</ul>
-</li>
-<li><p>对等方式（P2P）</p>
-<ul>
-<li><p>在这种方式中，每台计算机即是客户又是服务器</p>
-</li>
-<li><p>可支持大量对等用户同时工作</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ol start="2">
-<li>核心部分（为边缘部分提供服务的，通信子网）</li>
-</ol>
-<ul>
-<li><p>核心部分使用路由器连接，路由器实现分组交换，转发收到的分组</p>
-</li>
-<li><p>电路交换中，会建立一条专用的物理通路，即</p>
-<ul>
-<li><p>建立连接-&gt;通话-&gt;释放连接  这三个步骤称为电路交换</p>
-</li>
-<li><p>电路交换的特点就是：在通话过程中，通话的两个用户比如占用端到端的通信资源。</p>
-</li>
-<li><p>也因此，线路传输效率很低</p>
-</li>
-</ul>
-</li>
-<li><p>分组交换特点：</p>
-<ul>
-<li><p>采用存储转发技术</p>
-</li>
-<li><p>发送的数据称为报文，报文会被划分成等长的段，每一段加上一个首部，称为分组，分组和首部也称为包，包头。</p>
-</li>
-<li><p>边缘的主机是为用户进行信息处理的，而核心部分的路由器则是转发分组的（分组交换）</p>
-</li>
-<li><p>在讨论分组交换的时候，会将网络简化为链路，路由器简化为结点</p>
-</li>
-<li><p>分组交换的缺点就是报头造成了一部分开销</p>
-</li>
-<li><p>优点：高效，灵活，迅速，可靠</p>
-</li>
-<li><p>这种交换每经过一个路由器会多传送一个组的信息，因此实际信息需要加上一个组乘以经过路由器个数的信息长度</p>
-</li>
-</ul>
-</li>
-<li><p>报文交换：直接一整段信息不去进行分组，直接传输的数据交换</p>
-<ul>
-<li>这种交换每经过一个路由器就会传送一遍信息，经过几个传送几次，数据量加倍</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>互联网种类：</p>
-<ul>
-<li><p>按照网络范围分类：</p>
-<ul>
-<li><p>广域网WAN</p>
-</li>
-<li><p>城域网MAN</p>
-</li>
-<li><p>局域网LAN</p>
-</li>
-<li><p>个人区域网PAN</p>
-</li>
-</ul>
-</li>
-<li><p>按照使用者分类：</p>
-<ul>
-<li><p>公用网</p>
-</li>
-<li><p>专用网</p>
-</li>
-</ul>
-</li>
-<li><p>按照传输技术分类：</p>
-<ul>
-<li><p>广播式网络（c/s）</p>
-</li>
-<li><p>点对点网络（p2p）</p>
-</li>
-</ul>
-</li>
-<li><p>按拓扑结构分类：</p>
-<ul>
-<li><p>总线型网络</p>
-</li>
-<li><p>星形网络：取出一个主机作为中继器，其余的主机和中继器链接</p>
-</li>
-<li><p>环形网络一根环形线链接所有的链接所有的</p>
-</li>
-<li><p>网状结构</p>
-</li>
-</ul>
-</li>
-<li><p>按交换技术分类：</p>
-<ul>
-<li><p>电路交换网络</p>
-</li>
-<li><p>报文交换网络</p>
-</li>
-<li><p>分组交换网络</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>网络的性能参数：</p>
-<p>比特代表bit，字节为bite</p>
-<ul>
-<li><ol>
-<li>速率：单位bit/s</li>
-</ol>
-<ul>
-<li><p>数据的传送速率，也称数据率，比特率</p>
-</li>
-<li><p>用bit做单位的数据，使用kbit，Mbit，Gbit，Tbit，Pbit，Ebit，Zbit，Ybit的时候代表的10的三次方倍，而使用B做单位的数据，使用kB，MB，GB，TB，PB，EB，ZB，YB的时候代表2的10个数次幂</p>
-</li>
-</ul>
-</li>
-<li><ol start="2">
-<li>带宽：单位bit/s，表示某信道能通过的最高数据率<br>一般达不到，运算意义不大</li>
-</ol>
-</li>
-<li><ol start="3">
-<li>吞吐量：单位bit/s，单位时间内通过某个网络的实际数据量<br>运算意义不大</li>
-</ol>
-</li>
-<li><ol start="4">
-<li>时延：单位s</li>
-</ol>
-<ul>
-<li><p>发送时延</p>
-<ul>
-<li><p>主机或路由器发送信息所要消耗的时间，也称为传输时延，公式：数据帧长度/发送速率</p>
-</li>
-<li><p>他会随着介质的改变而提升，通过提高发送速率改善</p>
-</li>
-</ul>
-</li>
-<li><p>传播时延</p>
-<ul>
-<li><p>电磁波在信道中传播一定的距离花费的时间，公式：信道长度/电磁波在信道的传播速率</p>
-</li>
-<li><p>在信道中的传播速率上限就是光速，改进空间不大，和传输时延的计算没有关系，两者分庭抗礼</p>
-</li>
-</ul>
-</li>
-<li><p>处理时延<br>一般不考虑</p>
-</li>
-<li><p>排队时延<br>一般不考虑</p>
-</li>
-</ul>
-</li>
-<li><ol start="5">
-<li>时延带宽积，单位bit</li>
-</ol>
-<ul>
-<li>传播时延和带宽的乘积，表示链路上最大的比特数目，几何意义是这段时间通过一定体积的链路的数据</li>
-</ul>
-</li>
-<li><ol start="6">
-<li>往返时间RTT：单位t</li>
-</ol>
-<ul>
-<li>双向交互所要花费的时间，公式：发送时间=数据长度/发送速率，有效数据率=数据长度/（发送时间+RTT）</li>
-</ul>
-</li>
-<li><ol start="7">
-<li>利用率：</li>
-</ol>
-<ul>
-<li>利用率并非越高越好，一般在百分制50以下</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>计算机网络的非性能特征：</p>
-<ul>
-<li><p>费用</p>
-</li>
-<li><p>质量</p>
-</li>
-<li><p>标准化</p>
-</li>
-<li><p>而考星</p>
-</li>
-<li><p>可扩展性和可升级性</p>
-</li>
-<li><p>易于管理和维护</p>
-</li>
-</ul>
-</li>
-<li><p>计算机网络体系结构</p>
-<ul>
-<li><p>1977年ISO建立了开放系统互连基本参考模型（OSI），但是事实上成为国际标准的是商业的tcpip</p>
-</li>
-<li><p>网络协议：（协议）</p>
-<ul>
-<li><p>明确规定了数据的格式以及有关的同步问题（同步含有时序的意思）</p>
-</li>
-<li><p>是为网络中的数据交换建立的规则，标准或约定</p>
-</li>
-<li><p>由语法，语义，同步构成</p>
-</li>
-<li><p>形式：1，便于人阅读和理解的文字描述。2，让计算机理解的程序代码</p>
-</li>
-</ul>
-</li>
-<li><p>体系结构：</p>
-<ul>
-<li><p>是计算机网络各层及其协议的集合，是计算机网络及其构建所应完成的功能的精确定义</p>
-</li>
-<li><p>体系结构是抽象的，实现是具体的，是真正运行在机器上的软硬件</p>
-</li>
-<li><p>分层的好处：</p>
-<ul>
-<li><p>各层之间是独立的</p>
-</li>
-<li><p>灵活性好</p>
-</li>
-<li><p>结构上可分割开</p>
-</li>
-<li><p>易于实现和控制</p>
-</li>
-<li><p>能促进标准化工作</p>
-</li>
-</ul>
-</li>
-<li><p>各层需要的功能：</p>
-<ul>
-<li><p>差错控制</p>
-</li>
-<li><p>流量控制</p>
-</li>
-<li><p>分段和重装</p>
-</li>
-<li><p>复用和分用（运输层，指运输层和应用层是一对多关系，上到下复用，反之分用）</p>
-</li>
-<li><p>链接建立和释放</p>
-</li>
-</ul>
-</li>
-<li><p>5层协议：</p>
-<p>对等层之间传送的数据称为协议数据单元（PDU）<br>​每层协议中的协议数据单元都是由服务数据单元和协议控制信息构成的<br>1-3层称为通信子网，其它层是资源子网</p>
-<ul>
-<li><p>应用层：5层</p>
-<ul>
-<li><p>任务：通过进程间的交互完成特定的网络应用</p>
-</li>
-<li><p>协议定义：应用进程间通信和交互的规则</p>
-</li>
-<li><p>OSI细分：</p>
-<ul>
-<li><p>应用层（7层）：向特定应用提供访问OSI模型的手段</p>
-</li>
-<li><p>表示层（6层）：抽象定义数据结构，提供数据压缩，加密解密</p>
-</li>
-<li><p>会话层（5层）：负责主机间的会话（建立同步），可以建立管理终止会话以及恢复会话</p>
-</li>
-</ul>
-</li>
-<li><p>协议：FTP，SMTP，HTTP，DNS</p>
-</li>
-</ul>
-</li>
-<li><p>运输层：4层</p>
-<ul>
-<li><p>传输报文段</p>
-</li>
-<li><p>任务：为端到端提供可靠数据服务，差错控制，流量控制，服务质量，数据传输管理</p>
-</li>
-<li><p>可以分用和复用，一个传输层可以满足多个应用层使用</p>
-</li>
-<li><p>tcp和udp：</p>
-<ul>
-<li><p>tcp：可靠，传输的单位是报文段</p>
-</li>
-<li><p>udp：不可靠，但速度快，传输的单位是用户数据报</p>
-</li>
-</ul>
-</li>
-<li><p>只有这层数据是首尾封装，为了表示一帧的长度，其余都是封在头上</p>
-</li>
-<li><p>协议：TCP，UDP</p>
-</li>
-</ul>
-</li>
-<li><p>网络层（网际层，ip层）：3层</p>
-<ul>
-<li><p>传输分组</p>
-</li>
-<li><p>互联网是由大量异构网络通过路由器相互连接起来的</p>
-</li>
-<li><p>任务：路由选择，差错控制，流量控制，拥塞控制，差错控制，网际互联</p>
-</li>
-<li><p>会将数据封装为分组（ip数据报，数据报）或包进行传输</p>
-</li>
-<li><p>协议：IP，IPX，ICMP，IGMP，ARP，RARP，OSPF</p>
-</li>
-</ul>
-</li>
-<li><p>链路层（数据链路层）：2层</p>
-<ul>
-<li><p>传输帧</p>
-</li>
-<li><p>任务：封装成帧，差错控制，流量控制（平衡数据的发送和接收速率），传输管理（LLC，之前有）</p>
-</li>
-<li><p>协议：SDLC，HDLC，PPP，STP，帧中继</p>
-</li>
-</ul>
-</li>
-<li><p>物理层</p>
-<ul>
-<li><p>传输比特</p>
-</li>
-<li><p>任务：考虑电路接口，信号的意义和电气特征</p>
-</li>
-<li><p>接口标准：EIA-232C，EIA/TIA RS-449，CCITT的X.21</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>几层堆叠在一起也被称为协议栈</p>
-</li>
-<li><p>协议和服务：</p>
-<ul>
-<li><p>协议：</p>
-<ul>
-<li>两个对等实体进行通信的规则集合（水平的）</li>
-</ul>
-</li>
-<li><p>服务：</p>
-<ul>
-<li><p>在协议控制下，通信需要向上一层提供服务，而且应用下一层提供的服务（竖直的）</p>
-</li>
-<li><p>并非在一层内完成的全部功能是服务，只有能被上一层看得见的功能才是服务</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>OSI在网络层提供无连接和面向对象的通信，传输层只有面向对象通信，TCPIP在网络层提供无连接通信，传输层提供无连接和面向对象通信</p>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+                <p>老规矩，上开头！！</p>
+<blockquote>
+<p>突然意识到该写一份计算机组成原理的笔记</p>
+<p>那就写呗</p>
+<p>为的是方便我个人的复习以及对读者进行启发</p>
+<p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
+<p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
+</blockquote>
+<h1 id="计算机组成原理笔记（第二章）"><a href="#计算机组成原理笔记（第二章）" class="headerlink" title="计算机组成原理笔记（第二章）"></a>计算机组成原理笔记（第二章）</h1><p>第二章，emmmmm，其实根本没什么内容</p>
+<p><del>我就该把这个内容和第一章笔记放在一块aaaaaaa</del></p>
+<p>本章只有两个内容</p>
+<blockquote>
+<p>1.计算机发展的历史</p>
+<p>2.计算机的未来展望</p>
+</blockquote>
+<p>（这章第二部分的内容如果敢出考试题就是出题人水平不够，可能是来水题的。）</p>
+<h2 id="计算机发展的历史"><a href="#计算机发展的历史" class="headerlink" title="计算机发展的历史"></a>计算机发展的历史</h2><p>计算机发展的历史阶段分为以下三个</p>
+<blockquote>
+<p>1.电子管计算机</p>
+<p>2.晶体管计算机</p>
+<p>3.集成电路计算机</p>
+<p>（有一些奇怪的出版社喜欢把集成电路这里分成两个阶段或者三个阶段，加上所谓的中小规模，大规模，超大规模的字眼）</p>
+</blockquote>
+<h3 id="电子管计算机"><a href="#电子管计算机" class="headerlink" title="电子管计算机"></a>电子管计算机</h3><p>1946年，ENIAC</p>
+<p>注意这里的ENIAC和EDVAC，前者是46年的第一台计算机，在这一年交付使用。后者是在ENIAC之后冯诺依曼提出冯诺依曼结构的那台机器。在EDVAC中首次采取了存储程序的设计理念</p>
+<p>详细内容见上一章笔记</p>
+<h3 id="晶体管计算机"><a href="#晶体管计算机" class="headerlink" title="晶体管计算机"></a>晶体管计算机</h3><p>1958年，贝尔实验室</p>
+<p>使用硅制作晶体管</p>
+<h3 id="集成电路计算机"><a href="#集成电路计算机" class="headerlink" title="集成电路计算机"></a>集成电路计算机</h3><p>中小型集成电路 1965</p>
+<p>大规模集成电路 1972</p>
+<p>超大规模集成电路 1978</p>
+<h2 id="计算机的未来展望"><a href="#计算机的未来展望" class="headerlink" title="计算机的未来展望"></a>计算机的未来展望</h2><p>摩尔定律：微芯片上集成的晶体管数目每三年翻两翻</p>
+<p>按照用途分类，计算机分为专用计算机和通用计算机。通用计算机包括以下类别</p>
+<blockquote>
+<p>巨型机</p>
+<p>大型机</p>
+<p>中型机</p>
+<p>小型机</p>
+<p>微型机：这个是家用电脑的配置</p>
+<p>单片机</p>
+</blockquote>
+<p>未来的计算机因此有两极化发展：</p>
+<p>1.大型计算机朝着巨型化，超高速，并行处理，智能化方向发展</p>
+<p>2.小型计算机朝着微型化，网络化，高性能，多用途方向发展</p>
+<p>后面没了，确实就这点东西，第二章不过如此</p>
+<p>第二章到此结束</p>
+<hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
 
             </div>
             
@@ -660,7 +255,7 @@
     <script type="text/javascript">
         $(()=>{
             new QRCode("wechat-qr", {
-                text: "http://algarth.github.io/2021/10/23/cnet/",
+                text: "http://algarth.github.io/2020/10/19/blog-5/",
                 width: 150,
                 height: 150,
                 correctLevel : QRCode.CorrectLevel.H
@@ -672,20 +267,15 @@
             const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
             const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
             const twitterBase   = "https://twitter.com/intent/tweet?";
-            const hostUrl       = "http://algarth.github.io/2021/10/23/cnet/";
-            const title         = "「计网第一章」";
-            const excerpt       = `
-第一章（概述）
+            const hostUrl       = "http://algarth.github.io/2020/10/19/blog-5/";
+            const title         = "「计算机组成原理笔记（第二章）」";
+            const excerpt       = `老规矩，上开头！！
 
-网络分为：电信网络，有线电视网络，计算机网络
-
-互联网是一种计算机网络，他的两个基本特点就是连通性和共享//以下简称计算机网络为网络
-
-网络最基本的功能是数据通信
-
-网络是由节点和链路组成的
-
-节点可以是计算机，集...`;
+突然意识到该写一份计算机组成原理的笔记
+那就写呗
+为的是方便我个人的复习以及对读者进行启发
+目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记...`;
             let _URL;
             switch (dest) {
                 case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
@@ -704,10 +294,10 @@
                 <div class="footer-tag clearfix">
                     <div class="pull-left">
                     <i class="fa fa-tags"></i>
-                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%BD%91/" rel="tag">计网</a>
+                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
                     </div>
                     <div class="pull-date">
-                    <span>最后编辑：2021-10-23</span>
+                    <span>最后编辑：2020-10-27</span>
                     </div>
                 </div>
             </footer>
@@ -716,12 +306,12 @@
             <nav class="navigation post-navigation clearfix" role="navigation">
                 
                 <div class="nav-previous clearfix">
-                    <a title=" (no title)" href="/2021/10/23/trailer-1/">&lt; 上一篇</a>
+                    <a title=" 计算机组成原理笔记（第一章）" href="/2020/10/13/blog-4/">&lt; 上一篇</a>
                 </div>
                 
                 
                 <div class="nav-next clearfix">
-                    <a title=" OS第一章" href="/2021/10/30/OS/">下一篇 &gt;</a>
+                    <a title=" 计算机组成原理笔记（第三章）" href="/2020/10/20/blog-6/">下一篇 &gt;</a>
                 </div>
                 
             </nav>
@@ -743,7 +333,7 @@
     </div>
     <div class="textwidget">
         
-            <p class="text-center">一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头</p>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E7%AC%94%E8%AE%B0%EF%BC%88%E7%AC%AC%E4%BA%8C%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理笔记（第二章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%8F%91%E5%B1%95%E7%9A%84%E5%8E%86%E5%8F%B2"><span class="toc-number">1.1.</span> <span class="toc-text">计算机发展的历史</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%B5%E5%AD%90%E7%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.1.</span> <span class="toc-text">电子管计算机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%B6%E4%BD%93%E7%AE%A1%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">晶体管计算机</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E7%94%B5%E8%B7%AF%E8%AE%A1%E7%AE%97%E6%9C%BA"><span class="toc-number">1.1.3.</span> <span class="toc-text">集成电路计算机</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E6%9C%AA%E6%9D%A5%E5%B1%95%E6%9C%9B"><span class="toc-number">1.2.</span> <span class="toc-text">计算机的未来展望</span></a></li></ol></li></ol>
         
     </div>
 </aside>
