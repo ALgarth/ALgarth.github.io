@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>marache-马拉车算法 | ALgarth's blog</title>
+  <meta name="author" content="ALgarth" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="marache" />
+  
+  <meta name="description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="marache-马拉车算法">
+<meta property="og:url" content="http://algarth.github.io/2020/11/08/marache/index.html">
+<meta property="og:site_name" content="ALgarth&#39;s blog">
+<meta property="og:description" content="这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模 马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决） 因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联） 这次大纲如下   求回文串的土办法 稍微优化的算法 马拉车永远的">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://algarth.github.io/null">
+<meta property="article:published_time" content="2020-11-08T07:48:44.000Z">
+<meta property="article:modified_time" content="2020-11-25T08:25:37.708Z">
+<meta property="article:author" content="ALgarth">
+<meta property="article:tag" content="marache">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://algarth.github.io/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="ALgarth's blog" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">marache-马拉车算法</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2020-11-08
+                        <i class="fa fa-folder"></i> 分类于 
+                        <i class="fa fa-user"></i> 作者 ALgarth
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~1.67K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p>
+<p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p>
+<p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p>
+<p>这次大纲如下</p>
+<blockquote>
+<ol>
+<li>求回文串的土办法</li>
+<li>稍微优化的算法</li>
+<li>马拉车永远的神</li>
+</ol>
+</blockquote>
+<p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p>
+<p>那我们进入正题</p>
+<h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p>
+<p>那如何才能求一个给定的s的回文串呢？</p>
+<p>那我们先来最秀的算法，BF（brute force）算法！！</p>
+<p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p>
+<p>想都别想，直接就TLE了</p>
+<p>肯定行不通</p>
+<h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p>
+<p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p>
+<p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p>
+<p>示例图如下：</p>
+<p>（我是图）</p>
+<p>这个算法有问题么？当然有。</p>
+<p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p>
+<p>eg. ababa处理成#a#b#a#b#a#</p>
+<p>这个处理是很科学的方法，这里说一下依据：</p>
+<blockquote>
+<p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p>
+</blockquote>
+<p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p>
+<p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p>
+<p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p>
+<h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p>
+<p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p>
+<p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p>
+<p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p>
+<p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p>
+<p>下面要进行两种大情况和四种小情况的讨论</p>
+<blockquote>
+<ol>
+<li>i&gt;maxR</li>
+<li>i&lt;maxR</li>
+</ol>
+</blockquote>
+<p>在第二种情况下包含三种小情况</p>
+<blockquote>
+<ol>
+<li>p[mir]&lt;maxR-i</li>
+<li>p[mir]==maxR-i</li>
+<li>p[mir]&gt;maxR-i</li>
+</ol>
+</blockquote>
+<p>接下来，我们按照顺序进行讨论</p>
+<h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p>
+<p>（我是图）</p>
+<p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p>
+<h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p>
+<p>（我是图）</p>
+<p>由于对称性，这个i的</p>
+<hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://algarth.github.io/2020/11/08/marache/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://algarth.github.io/2020/11/08/marache/";
+            const title         = "「marache-马拉车算法」";
+            const excerpt       = `这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模
+马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）
+因此，马拉车是一种...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/marache/" rel="tag">marache</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-11-25</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 计算机组成原理笔记（第四章）（中）" href="/2020/11/02/organization4/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理（第四章下和第五章开头）" href="/2020/11/25/organization5/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B1%82%E5%9B%9E%E6%96%87%E4%B8%B2%E7%9A%84%E5%9C%9F%E6%96%B9%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">求回文串的土方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A8%8D%E5%BE%AE%E4%BC%98%E5%8C%96%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">稍微优化的算法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A9%AC%E6%8B%89%E8%BD%A6%E6%B0%B8%E8%BF%9C%E7%9A%84%E7%A5%9E"><span class="toc-number">3.</span> <span class="toc-text">马拉车永远的神</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#i-gt-maxR"><span class="toc-number">3.0.1.</span> <span class="toc-text">i&gt;maxR</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#p-mir-lt-maxR-i"><span class="toc-number">3.0.2.</span> <span class="toc-text">p[mir]&lt;maxR-i</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/projectpool/" style="font-size: 0.6em;">projectpool</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 0.6em;">竞赛</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/projectpool/"><i class="fa  fa-book"></i> 计划进程池设定</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/02/09/jingsai8/"><i class="fa  fa-book"></i> 算法竞赛从入门到进阶（8）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:algarth@163.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/ALgarth"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 ALgarth 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>动态规划笔记1 | ALgarth's blog</title>
+  <meta name="author" content="ALgarth" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="dp" />
+  
+  <meta name="description" content="动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。 这次动归打算按照下文顺序讲解   记忆化搜索和动归的几个要素  背包九讲  xxxx    这部分还是感谢对我帮助最大的雨巨和罗勇军老师。 剧透一下：动归是从中间开始的贪心 记忆化搜索和动归的几个要素记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子 1234">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态规划笔记1">
+<meta property="og:url" content="http://algarth.github.io/2020/10/31/dp1/index.html">
+<meta property="og:site_name" content="ALgarth&#39;s blog">
+<meta property="og:description" content="动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。 这次动归打算按照下文顺序讲解   记忆化搜索和动归的几个要素  背包九讲  xxxx    这部分还是感谢对我帮助最大的雨巨和罗勇军老师。 剧透一下：动归是从中间开始的贪心 记忆化搜索和动归的几个要素记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子 1234">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://algarth.github.io/null">
+<meta property="article:published_time" content="2020-10-31T06:52:56.000Z">
+<meta property="article:modified_time" content="2020-10-31T07:28:23.185Z">
+<meta property="article:author" content="ALgarth">
+<meta property="article:tag" content="dp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://algarth.github.io/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="ALgarth's blog" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">动态规划笔记1</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2020-10-31
+                        <i class="fa fa-folder"></i> 分类于 
+                        <i class="fa fa-user"></i> 作者 ALgarth
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~1.99K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                <hr />
+                <h1 id="动态规划笔记"><a href="#动态规划笔记" class="headerlink" title="动态规划笔记"></a>动态规划笔记</h1><p>动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。</p>
+<p>这次动归打算按照下文顺序讲解</p>
+<blockquote>
+<ol>
+<li><p>记忆化搜索和动归的几个要素</p>
+</li>
+<li><p>背包九讲</p>
+</li>
+<li><p>xxxx</p>
+</li>
+</ol>
+</blockquote>
+<p>这部分还是感谢对我帮助最大的雨巨和罗勇军老师。</p>
+<p>剧透一下：动归是从中间开始的贪心</p>
+<h2 id="记忆化搜索和动归的几个要素"><a href="#记忆化搜索和动归的几个要素" class="headerlink" title="记忆化搜索和动归的几个要素"></a>记忆化搜索和动归的几个要素</h2><p>记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> book[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">peng</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(book[num]!=<span class="number">-1</span>) <span class="keyword">return</span> book[num];</span><br><span class="line">	<span class="keyword">return</span> num*peng(num<span class="number">-1</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	fill(book,book+<span class="number">10010</span>,<span class="number">-1</span>);</span><br><span class="line">	book[<span class="number">1</span>]=<span class="number">1</span>;book[<span class="number">0</span>]=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line">		<span class="built_in">cout</span>&lt;&lt;peng(n)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//求n的阶乘 </span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这是一个简单的求n阶乘的式子，中间的peng函数就是求阶乘的，用的递归的方法，中间一个有意思的点在于，输入的n可能有很多组，可是多次访问，直接从自己向下乘到1实在耗时太多，因此我们使用一个数组，保存这个乘积的内容，从而方便访问。</p>
+<p>假设一个peng（i）已经计算了，那么计算peng（i+1）的时候，应用之前的peng（i）就可以很快计算，这里好像相当于peng函数本身是一个数组，时间复杂度上来说，这里拿函数当数组的时间复杂度和用一个数组直接访问上可以忽略不计。</p>
+<p>这里举一个记忆化搜索的例子，滑雪（洛谷P1434）</p>
+<blockquote>
+<p>Michael  喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1   2   3   4   5</span><br><span class="line">16  17  18  19  6</span><br><span class="line">15  24  25  20  7</span><br><span class="line">14  23  22  21  8</span><br><span class="line">13  12  11  10  9</span><br></pre></td></tr></table></figure>
+
+<p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度会减小。在上面的例子中，一条可行的滑坡为 24－17－16－1（从 24 开始，在 1 结束）。当然    25－24－23－…－3－2－1 更长。事实上，这是最长的一条。</p>
+</blockquote>
+<p>这个题就可以仿照上面的方法，建一个二维数组，第一行if语句的方法进行记忆化搜索</p>
+<p>下面看动归的几个部分</p>
+<p>动归的要素</p>
+<blockquote>
+<ol>
+<li>连续的过程（要求）</li>
+<li>初始状态（初始化）</li>
+<li>状态转移方程（又称转移方程或状态方程）</li>
+</ol>
+</blockquote>
+<p>最重要的是一个状态转移方程。</p>
+<p>假设上楼梯问题，每一层楼梯，都有上一层和两层两种走法，求上到某一层n有多少种方法</p>
+<p>这个最简单的方法就是你会发现这个值其实就是一个斐波那契数列，写一个fib就解决了</p>
+<p>如果采用模拟的方法，这其实是个动归问题，满足连续要求，在每一层的时候，取决于上一次上一层还是两层，所以在写函数f的时候，就有了状态转移方程f(i)={f(i-1)+f(i-2)}。<del>（别写成中括号，初学的时候我写了好几次）</del></p>
+<p>初始化就直接初始化f(2),f(1),f(0)就可以了</p>
+<p>记忆化搜索都可以很好的写出这个题了</p>
+<h2 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h2><h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><p>01背包是最简单的，也是入门一坑。</p>
+<p>一个背包，n个数据，每个表示一个物品，物品有重量cost[i] (简称c)，有价值value[i] (简称v)。背包是有一定空间w，求最大捡拾物品得到的重量。</p>
+<p>搜索算法是阶乘的复杂度，到了11！之后直接TLE。</p>
+<p>首先介绍基本背包写法，二维数组01背包</p>
+<p>写一个二维数组，这个数组是n*w的，第一个物品直接放，表示占用ci的空间，后面的物品都有两种情况，在前面所有物品的前提下放，在没有物品的前提下放，如果放不下，就不用写了。</p>
+<p>二维数组初始化为0，动归得到最后一行的时候，倒叙访问一遍，输出最大值</p>
+<p>（敷衍qzz一会儿啊，图不放了）</p>
+<p>节省空间的办法很简单</p>
+<p>第一种：开一个维数为2的数组，每次从一个层转移到另一层，最后输出最后转移的一层就行，这种方法的弊端就是难以判定最后一行是哪一个，而且代码看起来复杂</p>
+<p>第二种：就地滚动，就一个一位数组，内部循环的时候倒叙循环，防止一个物品放入多次，从而一个数组搞定</p>
+<p>很多题目就地滚动就行了，但是正常的二维数组在后面的背包种类中会用到</p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://algarth.github.io/2020/10/31/dp1/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://algarth.github.io/2020/10/31/dp1/";
+            const title         = "「动态规划笔记1」";
+            const excerpt       = `动态规划笔记动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。
+这次动归打算按照下文顺序讲解
+
+
+记忆化搜索和动归的几个要素
+
+背包九讲
+
+xxxx
+
+
+
+这部分还是感谢对我帮助最大的雨巨和罗勇军老师。
+剧透一下：动...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/dp/" rel="tag">dp</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-10-31</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 计算机组成原理笔记（第四章）（上）" href="/2020/10/27/organization3/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理笔记（第四章）（中）" href="/2020/11/02/organization4/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <p class="text-center">一位c--爆零大师，本科学的JVAV，内卷的美学，摸鱼的艺术。永远喜欢Bjarne Stroustrup和他的光头</p>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/projectpool/" style="font-size: 0.6em;">projectpool</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 0.6em;">竞赛</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/projectpool/"><i class="fa  fa-book"></i> 计划进程池设定</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/02/09/jingsai8/"><i class="fa  fa-book"></i> 算法竞赛从入门到进阶（8）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:algarth@163.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/ALgarth"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 ALgarth 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    </body>
+</html>

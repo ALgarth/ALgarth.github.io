@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ALgarth&#39;s blog</title>
+  
+  <subtitle>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</subtitle>
+  <link href="http://algarth.github.io/atom.xml" rel="self"/>
+  
+  <link href="http://algarth.github.io/"/>
+  <updated>2023-05-27T02:51:51.264Z</updated>
+  <id>http://algarth.github.io/</id>
+  
+  <author>
+    <name>ALgarth</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小范围开源期末材料</title>
+    <link href="http://algarth.github.io/2021/12/23/tmp/"/>
+    <id>http://algarth.github.io/2021/12/23/tmp/</id>
+    <published>2021-12-23T04:21:21.000Z</published>
+    <updated>2023-05-27T02:51:51.264Z</updated>
+    
+    <content type="html"><![CDATA[<p>随时更新的个人笔记，不知道什么时候会下架</p><p>密码联系ALgarth，嗯</p><p>软导链接: <a href="https://www.mubucm.com/doc/7I4M4y3cowC">https://www.mubucm.com/doc/7I4M4y3cowC</a></p><p>OS链接: <a href="https://www.mubucm.com/doc/1VeWBo1RFR6">https://www.mubucm.com/doc/1VeWBo1RFR6</a></p><hr><p>1.2更</p><p>考虑到开源材料带来的不可控和不确定性，对上述开源的材料做出了些许的更改，避免那些不懂RTFM和STFW的外行带来的问题，以及诸如奶奶问题等等</p><p>-删除了部分笔记的目录</p><p>*对现有目录的密码做出了更改</p><p>如有任何需求可以为algarth的仓库提交issue，我很乐意倾听各位的需求</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;随时更新的个人笔记，不知道什么时候会下架&lt;/p&gt;
+&lt;p&gt;密码联系ALgarth，嗯&lt;/p&gt;
+&lt;p&gt;软导链接: &lt;a href=&quot;https://www.mubucm.com/doc/7I4M4y3cowC&quot;&gt;https://www.mubucm.com/doc/7I4M4y</summary>
+      
+    
+    
+    
+    
+    <category term="tmp" scheme="http://algarth.github.io/tags/tmp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>OS第一章</title>
+    <link href="http://algarth.github.io/2021/10/30/OS/"/>
+    <id>http://algarth.github.io/2021/10/30/OS/</id>
+    <published>2021-10-30T07:11:48.000Z</published>
+    <updated>2021-10-30T07:12:27.707Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>第一章：操作系统概述</p><ul><li><p>操作系统</p><p>操作系统会被加载到RAM内</p><ul><li><p>定义：</p><ul><li>一组能有效的组织和管理计算机硬件和软件资源，合理的对各类作业进行调度，以及方便用户使用的程序的集合</li></ul></li><li><p>目标：</p><ul><li><p>（重要目标）1. 方便性：允许用户使用高级指令而非机器指令</p></li><li><p>（重要目标）2. 有效性：提高资源利用率和系统吞吐率</p></li><li><p>\3. 可扩充性：核内的微核结构可以方便的增加新功能和新模块</p></li><li><p>\4. 开放性：遵循国际标准osi</p></li></ul></li><li><p>作用：</p><ul><li><p>\1. 作为用户与计算机硬件系统之间的接口（向上）</p><ul><li><p>命令接口</p><ul><li><p>联机命令接口</p></li><li><p>脱机命令接口</p></li></ul></li><li><p>程序接口（也称系统调用）：程序中的系统调用是为了请求os为其提供服务</p></li></ul></li><li><p>\2. 作为计算机系统资源的管理者（向下）</p><ul><li><p>处理机：分配和控制处理机</p></li><li><p>存储器：内存的分配和回收</p></li><li><p>io设备管理：负责io设备的分配与操纵</p></li><li><p>文件管理：负责文件的存取，共享和保护</p></li></ul></li><li><p>\3. 实现了对计算机资源的抽象</p></li></ul></li><li><p>推动操作系统发展的动力：</p><ul><li><p>\1. 不断提高的计算机资源利用率</p></li><li><p>\2. 方便用户</p></li><li><p>\3. 器件不断更新换代</p></li><li><p>\4. 计算机体系结构不断发展</p></li><li><p>\5. 不断提出新的应用需求</p></li></ul></li><li><p>操作系统的基本特征：</p><ul><li><p>并发（基本特征）</p><ul><li><p>并发值两个或多个事件在同一个时间间隔内发生（有前后顺序），并行是真正意义的多个事件在一个时间发生</p></li><li><p>进程：系统中能独立运行并作为资源分配的基本单位，是一组机器指令，数据和堆栈组成的，是一个能独立运行的活动实体</p></li></ul></li><li><p>共享（基本特征）</p><p>资源共享指系统中的资源可供内存中多个并发执行的进程共同使用</p><ul><li><p>\1. 互斥访问：只允许一个进程访问资源（这种资源称为临界资源或独占资源）</p></li><li><p>\2. 同时访问</p></li></ul></li><li><p>虚拟：</p><ul><li><p>时分复用系统</p><ul><li><p>虚拟处理机技术</p></li><li><p>虚拟设备技术<br>虚拟一个打印机，使得多个用户都可以搜集到打印机，但是他们的使用是并发的</p></li></ul></li><li><p>空分复用系统</p><p>让一个小空间可以访问一个大空间的内容，使用某些内容的时候就直接调入</p><ul><li>虚拟设备的平均速度小于等于物理设备速度，虚拟设备的平均空间也低于物理设备的空间</li></ul></li></ul></li><li><p>异步</p><ul><li>进程是以人们不可预知的速度进行推进的</li></ul></li></ul></li><li><p>操作系统的发展过程</p><ul><li><p>未配置操作系统的计算机系统：这个阶段的明显缺点是：用户独占全机，CPU等待手工操作</p><ul><li><p>人工操作方式<br>装入卡带等待计算机运行，缺点有2：用户独占全机，CPU等待人工操作</p></li><li><p>脱机输入输出方式<br>通过一台外围机进行控制纸袋和磁带之间的输入输出，从而使得输入输出实在脱离主机的状态下进行的优势有2：减少了CPU的空闲时间，提高了io的速度</p></li></ul></li><li><p>单道批处理系统：</p><ul><li><p>增加监督程序使得作业可以一个一个处理</p></li><li><p>旨在提高系统资源的利用率和系统吞吐量</p></li><li><p>缺点：系统中的资源得不到有效利用，而且会造成内存的浪费</p></li><li><p>特征：</p><ul><li><p>单道性</p></li><li><p>自动性</p></li><li><p>顺序性</p></li></ul></li></ul></li><li><p>多道批处理系统</p><ul><li><p>当一个道上的程序因为进入io操作而停止时，可以切换到另一个道上进行程序运行</p></li><li><p>批处理最大缺点是无交互能力</p></li><li><p>优点：资源利用率高，系统吞吐量大</p></li><li><p>缺点：资源周转时间长，无交互能力</p></li><li><p>中断技术使得多道批处理的IO设备和CPU并行</p></li><li><p>为实现多道需要解决的问题：</p><ul><li><p>处理机争用问题</p></li><li><p>内存分配和保护问题</p></li><li><p>io设备的分配问题</p></li><li><p>文件的组织和管理问题</p></li><li><p>作业管理问题</p></li><li><p>用户与系统直接的接口问题</p></li></ul></li><li><p>特点：（并无顺序性）</p><ul><li><p>多道</p></li><li><p>宏观上并行</p></li><li><p>微观上串行</p></li></ul></li></ul></li><li><p>分时系统：</p><ul><li><p>为了满足用户两大需求而产生：</p><ul><li><p>人机交互</p></li><li><p>共享主机</p></li></ul></li><li><p>关键问题：</p><ul><li><p>及时接收<br>每有一个用户，就要设置一个路卡，通过多路卡实现多路复用</p></li><li><p>及时处理</p><ul><li><p>作业直接进入内存</p></li><li><p>轮转运行<br>规定一个时间片，每次只能运行一个时间片的时间，运行结束就强制进入下一个作业</p></li></ul></li></ul></li><li><p>特征：</p><ul><li><p>多路性（同时性）：一台计算机供多个用户使用</p></li><li><p>独立性</p></li><li><p>及时性</p></li><li><p>交互性</p></li></ul></li></ul></li><li><p>实时系统：</p><ul><li><p>实时系统是指系统能及时相应外部事件的需求，在规定时间内完成对该事件的处理，并控制所有实时任务协调一致的运行</p></li><li><p>通常采用抢占式的优先级高者优先算法</p></li><li><p>实时任务的类型:</p><ul><li><p>周期性任务：外部设备周期性的发出激励信号，要求计算机按照指定的周期循环执行，以便周期性的控制外部设备<br>无论是否是周期性任务，都会含有一个截止时间，它可以是开始截止时间或者最后截止时间</p></li><li><p>非周期性任务：没有明显的周期性</p></li><li><p>硬实时任务（HRT）：系统必须满足任务对截止时间的要求，否者会造成难以预测的结果</p></li><li><p>软实时任务（SRT）：对截止时间要求不严格，偶尔错过了兼职时间，对系统影像也不大</p></li></ul></li></ul></li><li><p>分时系统和实时系统的比较：</p><ul><li><p>多路性：分时的多路是系统按照分时原则为多个终端用户服务，实时的多路是周期性的从多路进行信息采集</p></li><li><p>独立性：一致，对象彼此不干扰</p></li><li><p>及时性：实时系统的精确度更高</p></li><li><p>交互性：分时系统会提供更多的交互功能，实时是特定功能</p></li><li><p>可靠性：实时系统要求必须可靠</p></li></ul></li><li><p>微机系统：</p><ul><li><p>单用户单任务：只允许一个用户上机，且只允许用户程序作为一个程序运行</p></li><li><p>单用户多任务：只允许一个用户上机，但是允许用户把程序分为若干个任务并发执行</p></li><li><p>多用户多任务：允许多个用户通过各自的中断使用同一台计算机，共享主机系统中的资源，用户程序也可以细分为几个任务并发执行</p></li></ul></li></ul></li><li><p>操作系统的主要功能：</p><ul><li><p>CPU的管理功能</p><ul><li><p>对进程的管理，包括进程创建，进程控制，进程同步，进程通信，死锁处理，处理机调度</p></li><li><p>进程同步最常用的机制是信号量机制</p></li></ul></li><li><p>存储器的管理功能：</p><ul><li><p>\1. 内存分配和回收</p><ul><li><p>任务：</p><ul><li><p>为每到程序分配空间</p></li><li><p>提高存储器利用率</p></li><li><p>允许正在运行的程序申请附加的内存空间</p></li></ul></li><li><p>静态分配方式</p></li><li><p>动态分配方式</p></li></ul></li><li><p>\2. 内存保护</p><ul><li><p>确保每个用户程序都在自己的内存空间运行，彼此互不干扰</p></li><li><p>绝不允许用户程序访问操作系统和程序，不允许用户程序转到非共享的用户程序中执行</p></li><li><p>一种简单的方法是设置界限寄存器，存放上下界防止越界</p></li></ul></li><li><p>\3. 地址映射</p></li><li><p>\4. 内存扩充</p><ul><li><p>用虚拟存储技术扩展容量</p></li><li><p>功能：</p><ul><li><p>请求调入功能</p></li><li><p>置换功能</p></li></ul></li></ul></li></ul></li><li><p>设备管理功能</p><ul><li><p>作用：</p><ul><li><p>完成用户进程提出的io请求</p></li><li><p>提高cpu和io设备的利用率</p></li></ul></li><li><p>\1. 缓冲管理</p></li><li><p>\2. 设备管理</p><ul><li>分配独占设备需要考虑是否安全</li></ul></li><li><p>\3. 设备处理</p></li></ul></li><li><p>文件管理功能：</p><ul><li><p>\1. 文件存储空间管理</p></li><li><p>\2. 目录管理</p></li><li><p>\3. 文件的读写管理和保护</p></li></ul></li><li><p>操作系统与用户之间的接口</p><ul><li><p>1 用户接口</p><ul><li><p>联机用户接口</p></li><li><p>脱机用户接口</p></li><li><p>图形用户接口</p></li></ul></li><li><p>2 程序接口：为程序提供系统调用，可以提供系统服务<br>为用户程序在执行中访问系统资源而设置的，使用户程序取得操作权限的唯一途径</p></li></ul></li><li><p>现代操作系统的新功能：</p><ul><li><p>系统安全</p><ul><li><p>认证技术</p></li><li><p>密码技术</p></li><li><p>访问控制技术</p><ul><li><p>设置用户存储权限</p></li><li><p>通过文件属性保障指定文件的安全性</p></li></ul></li><li><p>反病毒技术</p></li></ul></li><li><p>网络的功能和服务</p><ul><li><p>网络通信</p></li><li><p>资源管理</p></li><li><p>应用互操作</p></li></ul></li><li><p>支持多媒体</p><ul><li><p>接纳控制功能</p></li><li><p>实时调度</p></li><li><p>多媒体文件的存储</p></li></ul></li></ul></li></ul></li><li><p>额外知识：</p><ul><li><p>运行机制：</p><ul><li><p>系统状态：</p><p>状态切换是由硬件完成的</p><ul><li><p>管态（系统态，内核态）：命令解释程序，读时钟，取数，寄存器清零<br>执行特权指令</p></li><li><p>目态（用户态）：缺页处理程序（中断调用而来），置时钟<br>执行非特权指令</p></li><li><p>状态切换到管态的场景</p><ul><li><p>系统调用</p></li><li><p>发生中断</p></li><li><p>产生错误状态</p></li><li><p>执行特权指令（属于访管中断）</p></li></ul></li></ul></li><li><p>时钟管理：使用RR算法轮转</p></li><li><p>中断机制：保护和恢复现场信息，转移控制权</p></li><li><p>原语：可调用的底层小程序</p><ul><li><p>定义原语的方法关中断</p></li><li><p>可以负责设备驱动，CPU切换，进程通信</p></li></ul></li></ul></li><li><p>中断和异常：</p><ul><li><p>内中断（异常）</p><ul><li><p>自愿中断</p></li><li><p>强迫中断：指令故障，软件中断</p></li></ul></li><li><p>外中断：人为干预</p></li><li><p>中断的步骤：</p><ul><li><p>关中断</p></li><li><p>保存断点（硬件自动完成）</p></li><li><p>寻址</p></li><li><p>保存现场和屏蔽字（操作系统保存寄存器内容）</p></li><li><p>开中断</p></li></ul></li></ul></li><li><p>系统调用（也称广义指令）：程序接口提供</p><ul><li>可以调用：设备管理，文件管理，进程控制，进程通信，内存管理</li></ul></li></ul></li><li><p>结构设计</p><ul><li><p>\1. 传统操作系统结构</p><ul><li><p>无结构OS（整体系统结构）</p></li><li><p>模块化结构OS（无序模块法）<br>由模块-接口法进行设计的<br>要提高设备的内聚性，减少耦合度</p></li><li><p>分层式结构OS</p><p>自底向上进行铺设，每层的模块存在单向依赖，高层依赖底层</p><ul><li><p>优点：易保证正确性；易扩充和维护</p></li><li><p>缺点：效率降低，必须在每层之间建立通讯机制</p></li></ul></li></ul></li><li><p>\2. 客户服务器模式</p><ul><li><p>交互过程：</p><ul><li><p>客户发送请求信息</p></li><li><p>服务器接收信息</p></li><li><p>服务器回送信息</p></li><li><p>客户机接收信息</p></li></ul></li><li><p>优点：</p><ul><li><p>数据的分部处理和存储</p></li><li><p>便于集中管理</p></li><li><p>灵活性和可扩充性</p></li><li><p>易于改变应用软件</p></li></ul></li><li><p>缺点是㛮不可靠性和瓶颈问题</p></li></ul></li><li><p>\3. 面向对象的程序设计</p><ul><li><p>对象：现实世界中存在相同属性服从相同规则的一系列事物</p></li><li><p>优点：</p><ul><li><p>提高产品质量和生产率</p></li><li><p>是系统有更好的易修改性和易扩展性</p></li><li><p>易保证系统正确性和可靠性</p></li></ul></li></ul></li><li><p>\4. 微内核OS结构</p><ul><li><p>支持多处理机运行，适用于分布式系统环境</p></li><li><p>基本理念：</p><p>操作系统可以划分为微内核和多个服务器</p><ul><li><p>足够小的内核：实现现代OS的最基本核心功能</p><ul><li><p>与硬件处理紧密相关的部分</p></li><li><p>较为基本的功能</p></li><li><p>客户和服务器之间的通信</p></li></ul></li><li><p>客户服务器模式：</p><ul><li>这个模式作为进程实现，借助微内核的信息传递交互</li></ul></li><li><p>采用面向对象技术</p></li></ul></li><li><p>微内核基本功能</p><p>（这部分没详细整理。。）</p><ul><li><p>进程管理</p></li><li><p>低级存储器管理</p></li><li><p>中断和陷入处理</p></li></ul></li><li><p>优点：</p><ul><li><p>提高了软件的可扩展性</p></li><li><p>增强了系统的可靠性</p></li><li><p>可移植性强</p></li><li><p>提供了对分布式系统的支持</p></li><li><p>融入了面向对象技术</p></li></ul></li></ul></li></ul></li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第一章：操作系统概述&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;操作系统&lt;/p&gt;
+&lt;p&gt;操作系统会被加载到RAM内&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;定义：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;一组能有效的组织和管理计算机硬件和软件资源，合理的对各类作业进行调度，以及方便用户使</summary>
+      
+    
+    
+    
+    
+    <category term="OS" scheme="http://algarth.github.io/tags/OS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计网第一章</title>
+    <link href="http://algarth.github.io/2021/10/23/cnet/"/>
+    <id>http://algarth.github.io/2021/10/23/cnet/</id>
+    <published>2021-10-23T03:09:36.000Z</published>
+    <updated>2021-10-23T03:11:07.359Z</updated>
+    
+    <content type="html"><![CDATA[<ul><li><p>第一章（概述）</p><ul><li><p>网络分为：电信网络，有线电视网络，计算机网络</p></li><li><p>互联网是一种计算机网络，他的两个基本特点就是连通性和共享<br>//以下简称计算机网络为网络</p></li><li><p>网络最基本的功能是数据通信</p></li><li><p>网络是由节点和链路组成的</p><ul><li><p>节点可以是计算机，集线器，交换机，路由器</p></li><li><p>通过路由器可以把网络连接成大网络，称为互联网，即网络的网络</p></li><li><p>网络连接的是主机，互联网是把网络用路由器连接</p></li></ul></li><li><p>互联网基础结构发展的三个阶段：（重点：arpanet）</p><ul><li><ol><li>单个网络arpanet向互联网发展：1983年互联网诞生，arpanet退役</li></ol><ul><li><p>互连网：internet，他泛指多个计算机互相连成的网络，不一定使用tcpip协议</p></li><li><p>互联网：Internet，它是专有名词，指代全球连接的特定网络，使用tcpip协议，前身是arpanet</p></li></ul></li><li><ol start="2"><li>三级结构互联网：主干网，地区网，校园网（企业网）：nsfnet</li></ol></li><li><ol start="3"><li>多层级isp结构互联网：</li></ol><ul><li><p>nsfnet被互联网主干网取缔</p></li><li><p>isp指互联网服务提供商，比如那三大巨头，isp负责向用户批发IP地址</p></li><li><p>isp被划分为：主干isp，地区isp和本地isp</p><ul><li><p>主干：由运营商建造，覆盖面积达到全国，拥有高速主干网</p></li><li><p>地区：专属地区的</p></li><li><p>本地：给用户（端用户）提供服务的</p></li></ul></li><li><p>互联网交换点IXP：它可以进行地区isp的交换分组，从而不需要请求主干isp，在交换同等级的网络时不收费，否则收费</p></li></ul></li></ul></li><li><p>互联网国际组织：</p><ul><li><p>互联网委员会-&gt;互联网体系结构委员会-&gt;互联网工程部，互联网研究部（内部由研究组构成，具体工作由互联网研究指导小组管理）</p></li><li><p>指定互联网标准：</p><p>经过建议标准和互联网标准之后就可以成为互联网标准</p><ul><li><ol><li>互联网草案（草案有效期6个月）</li></ol></li><li><ol start="2"><li>建议标准</li></ol></li><li><ol start="3"><li>互联网标准</li></ol></li></ul></li></ul></li><li><p>互联网组成：</p><ul><li><p>在组成成分上来说，是由硬件，软件，协议组成的</p></li><li><ol><li>边缘部分（用户直接使用的，资源子网）</li></ol><ul><li><p>边缘部分就是链接互联网的主机，称为端系统</p></li><li><p>端系统的拥有者可能是个人，单位，某个isp</p></li><li><p>主机间的通信是指主机之间的某两个进程之间在通信，简称为计算机间的通信，通信可以划分为一下两种</p><ul><li><p>客户，服务器方式（C/S）</p><p>就是客户机请求服务器，服务器提供相应的那种基本逻辑</p><ul><li><p>客户端：必须知道服务器地址；不需要有复杂的操作系统和昂贵的硬件</p></li><li><p>服务器：专门提供某种服务，可同时处理多个远地或本地客户的请求；启动后一直运行；需要强大的硬件和高级的操作系统</p></li></ul></li><li><p>对等方式（P2P）</p><ul><li><p>在这种方式中，每台计算机即是客户又是服务器</p></li><li><p>可支持大量对等用户同时工作</p></li></ul></li></ul></li></ul></li><li><ol start="2"><li>核心部分（为边缘部分提供服务的，通信子网）</li></ol><ul><li><p>核心部分使用路由器连接，路由器实现分组交换，转发收到的分组</p></li><li><p>电路交换中，会建立一条专用的物理通路，即</p><ul><li><p>建立连接-&gt;通话-&gt;释放连接  这三个步骤称为电路交换</p></li><li><p>电路交换的特点就是：在通话过程中，通话的两个用户比如占用端到端的通信资源。</p></li><li><p>也因此，线路传输效率很低</p></li></ul></li><li><p>分组交换特点：</p><ul><li><p>采用存储转发技术</p></li><li><p>发送的数据称为报文，报文会被划分成等长的段，每一段加上一个首部，称为分组，分组和首部也称为包，包头。</p></li><li><p>边缘的主机是为用户进行信息处理的，而核心部分的路由器则是转发分组的（分组交换）</p></li><li><p>在讨论分组交换的时候，会将网络简化为链路，路由器简化为结点</p></li><li><p>分组交换的缺点就是报头造成了一部分开销</p></li><li><p>优点：高效，灵活，迅速，可靠</p></li><li><p>这种交换每经过一个路由器会多传送一个组的信息，因此实际信息需要加上一个组乘以经过路由器个数的信息长度</p></li></ul></li><li><p>报文交换：直接一整段信息不去进行分组，直接传输的数据交换</p><ul><li>这种交换每经过一个路由器就会传送一遍信息，经过几个传送几次，数据量加倍</li></ul></li></ul></li></ul></li><li><p>互联网种类：</p><ul><li><p>按照网络范围分类：</p><ul><li><p>广域网WAN</p></li><li><p>城域网MAN</p></li><li><p>局域网LAN</p></li><li><p>个人区域网PAN</p></li></ul></li><li><p>按照使用者分类：</p><ul><li><p>公用网</p></li><li><p>专用网</p></li></ul></li><li><p>按照传输技术分类：</p><ul><li><p>广播式网络（c/s）</p></li><li><p>点对点网络（p2p）</p></li></ul></li><li><p>按拓扑结构分类：</p><ul><li><p>总线型网络</p></li><li><p>星形网络：取出一个主机作为中继器，其余的主机和中继器链接</p></li><li><p>环形网络一根环形线链接所有的链接所有的</p></li><li><p>网状结构</p></li></ul></li><li><p>按交换技术分类：</p><ul><li><p>电路交换网络</p></li><li><p>报文交换网络</p></li><li><p>分组交换网络</p></li></ul></li></ul></li><li><p>网络的性能参数：</p><p>比特代表bit，字节为bite</p><ul><li><ol><li>速率：单位bit/s</li></ol><ul><li><p>数据的传送速率，也称数据率，比特率</p></li><li><p>用bit做单位的数据，使用kbit，Mbit，Gbit，Tbit，Pbit，Ebit，Zbit，Ybit的时候代表的10的三次方倍，而使用B做单位的数据，使用kB，MB，GB，TB，PB，EB，ZB，YB的时候代表2的10个数次幂</p></li></ul></li><li><ol start="2"><li>带宽：单位bit/s，表示某信道能通过的最高数据率<br>一般达不到，运算意义不大</li></ol></li><li><ol start="3"><li>吞吐量：单位bit/s，单位时间内通过某个网络的实际数据量<br>运算意义不大</li></ol></li><li><ol start="4"><li>时延：单位s</li></ol><ul><li><p>发送时延</p><ul><li><p>主机或路由器发送信息所要消耗的时间，也称为传输时延，公式：数据帧长度/发送速率</p></li><li><p>他会随着介质的改变而提升，通过提高发送速率改善</p></li></ul></li><li><p>传播时延</p><ul><li><p>电磁波在信道中传播一定的距离花费的时间，公式：信道长度/电磁波在信道的传播速率</p></li><li><p>在信道中的传播速率上限就是光速，改进空间不大，和传输时延的计算没有关系，两者分庭抗礼</p></li></ul></li><li><p>处理时延<br>一般不考虑</p></li><li><p>排队时延<br>一般不考虑</p></li></ul></li><li><ol start="5"><li>时延带宽积，单位bit</li></ol><ul><li>传播时延和带宽的乘积，表示链路上最大的比特数目，几何意义是这段时间通过一定体积的链路的数据</li></ul></li><li><ol start="6"><li>往返时间RTT：单位t</li></ol><ul><li>双向交互所要花费的时间，公式：发送时间=数据长度/发送速率，有效数据率=数据长度/（发送时间+RTT）</li></ul></li><li><ol start="7"><li>利用率：</li></ol><ul><li>利用率并非越高越好，一般在百分制50以下</li></ul></li></ul></li><li><p>计算机网络的非性能特征：</p><ul><li><p>费用</p></li><li><p>质量</p></li><li><p>标准化</p></li><li><p>而考星</p></li><li><p>可扩展性和可升级性</p></li><li><p>易于管理和维护</p></li></ul></li><li><p>计算机网络体系结构</p><ul><li><p>1977年ISO建立了开放系统互连基本参考模型（OSI），但是事实上成为国际标准的是商业的tcpip</p></li><li><p>网络协议：（协议）</p><ul><li><p>明确规定了数据的格式以及有关的同步问题（同步含有时序的意思）</p></li><li><p>是为网络中的数据交换建立的规则，标准或约定</p></li><li><p>由语法，语义，同步构成</p></li><li><p>形式：1，便于人阅读和理解的文字描述。2，让计算机理解的程序代码</p></li></ul></li><li><p>体系结构：</p><ul><li><p>是计算机网络各层及其协议的集合，是计算机网络及其构建所应完成的功能的精确定义</p></li><li><p>体系结构是抽象的，实现是具体的，是真正运行在机器上的软硬件</p></li><li><p>分层的好处：</p><ul><li><p>各层之间是独立的</p></li><li><p>灵活性好</p></li><li><p>结构上可分割开</p></li><li><p>易于实现和控制</p></li><li><p>能促进标准化工作</p></li></ul></li><li><p>各层需要的功能：</p><ul><li><p>差错控制</p></li><li><p>流量控制</p></li><li><p>分段和重装</p></li><li><p>复用和分用（运输层，指运输层和应用层是一对多关系，上到下复用，反之分用）</p></li><li><p>链接建立和释放</p></li></ul></li><li><p>5层协议：</p><p>对等层之间传送的数据称为协议数据单元（PDU）<br>​每层协议中的协议数据单元都是由服务数据单元和协议控制信息构成的<br>1-3层称为通信子网，其它层是资源子网</p><ul><li><p>应用层：5层</p><ul><li><p>任务：通过进程间的交互完成特定的网络应用</p></li><li><p>协议定义：应用进程间通信和交互的规则</p></li><li><p>OSI细分：</p><ul><li><p>应用层（7层）：向特定应用提供访问OSI模型的手段</p></li><li><p>表示层（6层）：抽象定义数据结构，提供数据压缩，加密解密</p></li><li><p>会话层（5层）：负责主机间的会话（建立同步），可以建立管理终止会话以及恢复会话</p></li></ul></li><li><p>协议：FTP，SMTP，HTTP，DNS</p></li></ul></li><li><p>运输层：4层</p><ul><li><p>传输报文段</p></li><li><p>任务：为端到端提供可靠数据服务，差错控制，流量控制，服务质量，数据传输管理</p></li><li><p>可以分用和复用，一个传输层可以满足多个应用层使用</p></li><li><p>tcp和udp：</p><ul><li><p>tcp：可靠，传输的单位是报文段</p></li><li><p>udp：不可靠，但速度快，传输的单位是用户数据报</p></li></ul></li><li><p>只有这层数据是首尾封装，为了表示一帧的长度，其余都是封在头上</p></li><li><p>协议：TCP，UDP</p></li></ul></li><li><p>网络层（网际层，ip层）：3层</p><ul><li><p>传输分组</p></li><li><p>互联网是由大量异构网络通过路由器相互连接起来的</p></li><li><p>任务：路由选择，差错控制，流量控制，拥塞控制，差错控制，网际互联</p></li><li><p>会将数据封装为分组（ip数据报，数据报）或包进行传输</p></li><li><p>协议：IP，IPX，ICMP，IGMP，ARP，RARP，OSPF</p></li></ul></li><li><p>链路层（数据链路层）：2层</p><ul><li><p>传输帧</p></li><li><p>任务：封装成帧，差错控制，流量控制（平衡数据的发送和接收速率），传输管理（LLC，之前有）</p></li><li><p>协议：SDLC，HDLC，PPP，STP，帧中继</p></li></ul></li><li><p>物理层</p><ul><li><p>传输比特</p></li><li><p>任务：考虑电路接口，信号的意义和电气特征</p></li><li><p>接口标准：EIA-232C，EIA/TIA RS-449，CCITT的X.21</p></li></ul></li></ul></li><li><p>几层堆叠在一起也被称为协议栈</p></li><li><p>协议和服务：</p><ul><li><p>协议：</p><ul><li>两个对等实体进行通信的规则集合（水平的）</li></ul></li><li><p>服务：</p><ul><li><p>在协议控制下，通信需要向上一层提供服务，而且应用下一层提供的服务（竖直的）</p></li><li><p>并非在一层内完成的全部功能是服务，只有能被上一层看得见的功能才是服务</p></li></ul></li></ul></li><li><p>OSI在网络层提供无连接和面向对象的通信，传输层只有面向对象通信，TCPIP在网络层提供无连接通信，传输层提供无连接和面向对象通信</p></li></ul></li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;第一章（概述）&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;网络分为：电信网络，有线电视网络，计算机网络&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;互联网是一种计算机网络，他的两个基本特点就是连通性和共享&lt;br&gt;//以下简称计算机网络为网络&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;</summary>
+      
+    
+    
+    
+    
+    <category term="计网" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%BD%91/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://algarth.github.io/2021/10/23/trailer-1/"/>
+    <id>http://algarth.github.io/2021/10/23/trailer-1/</id>
+    <published>2021-10-23T03:07:51.000Z</published>
+    <updated>2021-10-23T03:09:17.877Z</updated>
+    
+    <content type="html"><![CDATA[<p>目前考量是把部分正在学的内容相关笔记发布在这里</p><p>格式也不编辑了，在期末之前或者什么时候绝对会下架的</p><p>嗯</p><p>先从计网和OS开始吧</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;目前考量是把部分正在学的内容相关笔记发布在这里&lt;/p&gt;
+&lt;p&gt;格式也不编辑了，在期末之前或者什么时候绝对会下架的&lt;/p&gt;
+&lt;p&gt;嗯&lt;/p&gt;
+&lt;p&gt;先从计网和OS开始吧&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    
+    <category term="trailer" scheme="http://algarth.github.io/tags/trailer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计划进程池设定</title>
+    <link href="http://algarth.github.io/2021/10/19/projectpool/"/>
+    <id>http://algarth.github.io/2021/10/19/projectpool/</id>
+    <published>2021-10-19T08:58:07.000Z</published>
+    <updated>2021-10-19T12:19:04.002Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>进程池设定方法参考程序羊（b站@CodeSheep），在最近投入使用半个月之后，因为成果确实不错，因此决定，就是你啦，去我的博客里待着吧！！</p></blockquote><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在很早的时候，我应用过不同的日程清单记录方案，最早的时候使用的是windows自带的note，也没有什么过分复杂的使用，记录一下当天的任务和周任务，我最喜欢犯的错就是把每日任务划的特别多，仿佛只要划上就一定能完成那样。。最后当然是完成一半就不错</p><p>之后进入幕布时期（@MUBU），幕布是一个小团队开发笔记类软件，使用界面简介，目前还在初期发展，因此没有过多的广告和会员功能，就这样用下来了</p><p>幕布使用的时候我同时创建了自己的微信公众号，当初的计划是月更，后来。。。嗯</p><p>幕布当初是使用日计划的形式进行的，可以方便看到之后的计划</p><p><img src="%E5%BA%9F%E5%BC%83%E6%97%B6%E9%97%B4%E8%BD%B4.jpg" alt="废弃时间轴"></p><p>后来实施效果不错，但是1年之后发现，我开始认为使用这种迭代器打卡是种负担，就开摆了。</p><p>直到最近开始使用进程池，感觉效果不错，希望可以在兴趣衰退之前用的久一点</p><h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><blockquote><p>说明：进程池管理法创始者是程序羊，我是在使用的过程中总结自己的使用体验进行改造出的适配版</p></blockquote><p>进程池和OS中的进程是一个意思，进程池内部是一个队列，队列中事件的优先级是自行调整，动态变化的</p><h3 id="1-任务计划池"><a href="#1-任务计划池" class="headerlink" title="1. 任务计划池"></a>1. 任务计划池</h3><p>这个池子主要存放未来待执行事件，比如过一段时间的考试，接手的项目，是需要准备的事件，不需要考虑是否要发生，这个池子不能加入任何娱乐的事件！！</p><h3 id="2-任务就绪池"><a href="#2-任务就绪池" class="headerlink" title="2. 任务就绪池"></a>2. 任务就绪池</h3><p>就绪池是打算要进行的事件，比如打算3个月做项目，项目计划要草略的写入计划池，一旦打算这个周要开始做，那么把这个计划细化之后，拿出一周可以做完的工作，拉到这个就绪池里，就绪池一定是可以做的任务</p><h3 id="3-任务执行池"><a href="#3-任务执行池" class="headerlink" title="3. 任务执行池"></a>3. 任务执行池</h3><p>每日安排的当日必须处理完的日程，这个日程我一般会习惯根据重要程度进行排序，这个顺序是会随时更改的，最好不要把一件事的时间过于零散的分隔开，比如制作项目和背单词，不能把背单词的时间穿插到项目制作时间中间，一件任务的最长时间是从任务开始直到我感到生理疲惫</p><h3 id="4-任务完成池"><a href="#4-任务完成池" class="headerlink" title="4. 任务完成池"></a>4. 任务完成池</h3><p>存放每日完成的任务，这个池的展示意义大于实际意义，展示自己有一个每日的完成池会让自己身心愉悦，当一天过完，这个池子的所有内容会加入下面的任务验收池</p><h3 id="5-任务验收池"><a href="#5-任务验收池" class="headerlink" title="5. 任务验收池"></a>5. 任务验收池</h3><p>这个池是用来进行安排任务的二次学习的，作用完全是进行复习，当一天的任务完成之后，会加入这个池，这个池的内容会在下一周进行验收，相应的，所有的内容也会在周末的时候加入验收缓冲区，用于进行复习</p><h3 id="6-验收缓冲区"><a href="#6-验收缓冲区" class="headerlink" title="6. 验收缓冲区"></a>6. 验收缓冲区</h3><p>验收缓冲区用于验收任务的缓冲，上周完成的任务，在周末的时候会加入验收缓冲区，在这周的时间里，需要进行内容验收，这里的内容也可以直接加入执行池，这些任务一旦加入执行池可能会和正常任务产生混淆</p><h3 id="7-任务阻塞池"><a href="#7-任务阻塞池" class="headerlink" title="7. 任务阻塞池"></a>7. 任务阻塞池</h3><p>如果一个任务过于复杂或所需工期过长，并且必须是优先级较低的事情，像是内容审核需要强制等待（也就是被挂起）的任务，暂时会被放在这里</p><h3 id="8-任务酱油池"><a href="#8-任务酱油池" class="headerlink" title="8. 任务酱油池"></a>8. 任务酱油池</h3><p>最有意思的区域，一旦在做任务的时候突然想到的事情，比如突然想学前端的工程化框架，这种任务可以在放送的时候去做，也不需要有固定的时间，也完全可以分开时间去做，这些都可以无脑扔进去</p><h3 id="辅助工具：任务工作时长整理"><a href="#辅助工具：任务工作时长整理" class="headerlink" title="辅助工具：任务工作时长整理"></a>辅助工具：任务工作时长整理</h3><p>当天完成的部分重复性任务，可以记录一份时间，方便今后安排</p><h2 id="使用心得"><a href="#使用心得" class="headerlink" title="使用心得"></a>使用心得</h2><p>不要每日贪图任务量，把过多的任务塞进执行池</p><p>使用幕布结合进程池的做法进行设计还是蛮不错的</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;blockquote&gt;
+&lt;p&gt;进程池设定方法参考程序羊（b站@CodeSheep），在最近投入使用半个月之后，因为成果确实不错，因此决定，就是你啦，去我的博客里待着吧！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;he</summary>
+      
+    
+    
+    
+    
+    <category term="projectpool" scheme="http://algarth.github.io/tags/projectpool/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://algarth.github.io/2021/10/19/trailer/"/>
+    <id>http://algarth.github.io/2021/10/19/trailer/</id>
+    <published>2021-10-19T08:45:52.000Z</published>
+    <updated>2021-10-19T08:48:06.982Z</updated>
+    
+    <content type="html"><![CDATA[<p>没想到我还能想起来自己还有这个博客。。。</p><p>这个博客记录了我犯错的过程</p><p>当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性</p><p>最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之前的博文。</p><p>后期可能会在博客定期分享一部分我觉得可以开源的技术和故事</p><p>当电子小说看就行，嗯</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;没想到我还能想起来自己还有这个博客。。。&lt;/p&gt;
+&lt;p&gt;这个博客记录了我犯错的过程&lt;/p&gt;
+&lt;p&gt;当时机组的时候分心整了这个博客，在整理笔记的时候没有系统化，反而是未虚无读者考虑博客理解和普适性&lt;/p&gt;
+&lt;p&gt;最近把博客搬到了gitee，会在复习机组的过程中不断整理和删除之</summary>
+      
+    
+    
+    
+    
+    <category term="trailer" scheme="http://algarth.github.io/tags/trailer/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>算法竞赛从入门到进阶（8）</title>
+    <link href="http://algarth.github.io/2021/02/09/jingsai8/"/>
+    <id>http://algarth.github.io/2021/02/09/jingsai8/</id>
+    <published>2021-02-09T02:21:02.000Z</published>
+    <updated>2021-02-09T02:54:36.595Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="8-1-高精度计算"><a href="#8-1-高精度计算" class="headerlink" title="8.1 高精度计算"></a>8.1 高精度计算</h1><p>高精度的加减乘除一般可以使用java的大数据模板</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.BigInteger</span><br><span class="line"><span class="keyword">import</span> java.util.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</span><br><span class="line">        Scanner imput = <span class="function">nnew <span class="title">Scanner</span><span class="params">(System.in)</span></span>;</span><br><span class="line">        <span class="keyword">while</span>(input.hasNext())&#123;</span><br><span class="line">            BigInteger ans = BigInteger.ONE;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">1</span>;i&lt;=n;++i)&#123;</span><br><span class="line">                ans = ans.multiply(BigInteger.valueOf(i));</span><br><span class="line">            &#125;</span><br><span class="line">            Sysout(ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h1 id="8-2-数论"><a href="#8-2-数论" class="headerlink" title="8.2 数论"></a>8.2 数论</h1><h3 id="1-模运算"><a href="#1-模运算" class="headerlink" title="1 模运算"></a>1 模运算</h3><p>加减法和乘法取模的运算是一致，除法运算是使用逆元的，这个懂得都懂</p><h3 id="2-快速幂"><a href="#2-快速幂" class="headerlink" title="2 快速幂"></a>2 快速幂</h3><p>快速幂进行运算的时候直接根据指数的二进制编码进行运算</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ll <span class="title">ksm</span><span class="params">(<span class="keyword">int</span> a,<span class="keyword">int</span> b)</span></span>&#123;</span><br><span class="line">    ll ans=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(b&amp;<span class="number">1</span>) ans=(ans*a)%M;</span><br><span class="line">        a=(a*a)%M;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>矩阵的快速幂和上面的快速幂一致，就是在进行快速幂计算的时候初始化改为单位矩阵，乘法采用矩阵的乘法即可</p><h3 id="3gcd"><a href="#3gcd" class="headerlink" title="3gcd"></a>3gcd</h3>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;8-1-高精度计算&quot;&gt;&lt;a href=&quot;#8-1-高精度计算&quot; class=&quot;headerlink&quot; title=&quot;8.1 高精度计算&quot;&gt;&lt;/a&gt;8.1 高精度计算&lt;/h1&gt;&lt;p&gt;高精度的加减乘除一般可以使用java的大数据模板&lt;/p&gt;
+&lt;figure class</summary>
+      
+    
+    
+    
+    
+    <category term="竞赛" scheme="http://algarth.github.io/tags/%E7%AB%9E%E8%B5%9B/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理汇总篇</title>
+    <link href="http://algarth.github.io/2020/12/31/organization-ex/"/>
+    <id>http://algarth.github.io/2020/12/31/organization-ex/</id>
+    <published>2020-12-31T01:48:20.000Z</published>
+    <updated>2020-12-29T05:20:00.777Z</updated>
+    
+    <content type="html"><![CDATA[<p>计算机组成原理汇总篇是我打算做的全新的一个部分，他的初衷只是方便我的期末复习，把他开源出来其实只是我一厢情愿，要不然我也没必要花费大把的时间整理hexo对吧。</p><p>闲话不多说，这次的内容直接就是以章节内容分类的，写博客就是期末复习而且看博客还能复习两遍，诶真不错</p><h1 id="计算机组成原理汇总篇"><a href="#计算机组成原理汇总篇" class="headerlink" title="计算机组成原理汇总篇"></a>计算机组成原理汇总篇</h1><p>以下按照章节分类，详细的内容不去进行解释，直接进入正题</p><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><blockquote><p> 硬件：是指计算机的实体部分，它由看得见摸得着的各种电子元件以及各类光电机设备的实物构成</p><p>软件：由人们实现编制的具有各类特殊功能的程序组成，是无形的</p><p>固件：具有某种软件功能的硬件</p></blockquote><p>冯诺依曼机器：EDVAC，提出了存储程序概念</p><blockquote><p>计算机由运算器，存储器，控制器，输入设备，输出设备5个设备组成</p><p>指令和数据以同的地位存储在运算器中，并可以按地址寻访</p><p>指令和数据都以二进制表示</p><p>指令由操作码和地址码组成，前者表示操作的性质。后者表示操作数在存储器中的位置</p><p>指令在存储器中顺序存放，指令通常顺序执行，特定条件下也可以改变运算顺序</p><p>机器以运算器为中心，输入输出设备与存储器之间的数据哦通过运算器完成</p></blockquote><p>控制器和运算器合称CPU，CPU和存储器的主存合称主机，输入输出设备合称IO设备</p><p>软件包括系统软件和应用软件，系统软件最重要的是OS</p><p>以下名词自检：CU，IR，PC，ACC，MQ，X，ALU</p><p>存储体下属存储单元下属存储元，还有存储字长</p><p>名词自检：CPI和MIPS</p><p>衡量标准：机器字长，存储容量，运算速度，</p><p>ex.</p><p>计算机和便携计算器本质区别在于自动化水平的高低</p><p>冯诺依曼机工作方式的基本特点是按地址访问并顺序执行指令</p><p>用户与计算机通信的界面属于外部设备（我感觉表达的意思是显示器）</p><p>为了更好发挥计算机效率和方便用户，20世纪50年代发展了操作系统技术</p><p>指令和数据都存放在存储器中，控制器能识别他们</p><p>文本处理属于应用软件，汇编程序属于系统软件</p><h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>计算机发展史包括电子管计算机，晶体管计算机，集成电路计算机</p><p>第一台计算机：1946 EDIAC</p><p>家庭电脑是微型机</p><p>ex.</p><p>通常计算机的更新换代以电子器件为依据</p><p>邮局对信件进行自动分拣属于模式识别技术</p><h2 id="第三章"><a href="#第三章" class="headerlink" title="第三章"></a>第三章</h2><p>总线：将各部件连在一起的一组公共信息传输线</p><blockquote><p>总线连接：将各部件链接到一组公共信息传输线上</p><p>分散链接：各部件使用单独的连线进行链接</p></blockquote><blockquote><p>片内总线：芯片内部的总线</p><p>系统总线：分为数据总线，系统总线，控制总线</p><p>通信总线：通信方式包括串行通信和并行通信</p></blockquote><p>辨析：ISA，EISA，VESA，PCI，AGP，RS232，USB</p><p>多总线结构略去不表</p><p>判优控制分为集中式和分布式，集中式分为链式查询，计数器查询，独立请求三种</p><p>总线通信控制分为申请分配阶段，寻址阶段，传数阶段，结束阶段</p><p>总线通信常见四种通信方式：同步通信，异步通信，半同步通信，分离通信</p><p>异步通信会存在互锁现象，包括不互锁，半互锁，全互锁</p><blockquote><p>主模块是对总线有控制权的模块</p><p>从模块是被主模块访问的模块，只能相应从主模块发来的各种总线命令</p></blockquote><p>ex.</p><p>独立请求不增加处理机的开销</p><p>三总线的计算机是指IO总线，MM总线，DMA总线</p><p>PCI总线是一个和时钟周期无关的总线，不需要人工方式和系统进行配置，它是那个传送图形的线</p><p>计算机之间的远距离通信除了直接由网卡经远距离传输之，还可以使用RS232的载波电话线传输</p><p>多机系统中，CPU向共享存储器写入数据使用半互锁的方式通信</p><p>单机系统中，向主存中写入数据使用不互锁</p><h2 id="第四章"><a href="#第四章" class="headerlink" title="第四章"></a>第四章</h2><p>存储器分类</p><blockquote><p>按照存储介质分类：半导体，磁表面，磁芯，光盘</p><p>按照存储方式分类：随机存取，顺序存储，直接存取</p><p>按照计算机中的作用分类：二者组合</p></blockquote><p>缓存-主存层次和主存-辅存层次</p><p>按字寻址和按字节寻址</p><p>线选法和重合法</p><p>辨析：CS，WE</p><p>动态RAM和静态RAM的原理，触发器和电容器放电</p><p>动态RAM的刷新方式：集中刷新，分散刷新，异步刷新</p><p>ROM的历史：掩模ROM，PROM，EPROM，EEPROM</p><p>汉明码的设计</p><p>cache的设计</p><p>写回法，写直达法</p><p>直接映射，全相连映射，组相连映射以及他们的地址分配方式</p><p>ex.</p><h2 id="第五章"><a href="#第五章" class="headerlink" title="第五章"></a>第五章</h2><p>IO设备经历的四个阶段</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;计算机组成原理汇总篇是我打算做的全新的一个部分，他的初衷只是方便我的期末复习，把他开源出来其实只是我一厢情愿，要不然我也没必要花费大把的时间整理hexo对吧。&lt;/p&gt;
+&lt;p&gt;闲话不多说，这次的内容直接就是以章节内容分类的，写博客就是期末复习而且看博客还能复习两遍，诶真不错&lt;</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理汇总" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第八章）</title>
+    <link href="http://algarth.github.io/2020/12/26/organization10/"/>
+    <id>http://algarth.github.io/2020/12/26/organization10/</id>
+    <published>2020-12-26T01:48:44.000Z</published>
+    <updated>2020-12-26T07:31:31.733Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第八章）"><a href="#计算机组成原理（第八章）" class="headerlink" title="计算机组成原理（第八章）"></a>计算机组成原理（第八章）</h1><p>第八章讲解CPU，按教材来看分为四个小节，其实后两个小节一个讲解指令流水，一个讲解中断程序，这两个小节内容偏多，当然这一节也是以概念理解为主，就当第三章看</p><blockquote><p>CPU的结构和指令周期</p><p>指令流水</p><p>中断系统</p></blockquote><h2 id="CPU的结构和指令周期"><a href="#CPU的结构和指令周期" class="headerlink" title="CPU的结构和指令周期"></a>CPU的结构和指令周期</h2><p>CPU具有三个基本功能：</p><blockquote><p>取指令</p><p>分析指令：分析指令的操作数地址和操作</p><p>执行指令</p></blockquote><p>CPU必须具有的功能为指令控制，操作控制，时间控制，操作加工，处理中断。</p><p> CPU的寄存器包括用户可见寄存器和控制状态寄存器（用户不可见寄存器）</p><p>用户可见寄存器包括</p><blockquote><p>通用寄存器：通用寄存器名副其实，就是通用的寄存器，他非常通用，可以转换为很多种寄存器存储很多种信息，比如第七章里面的基址寄存器BR，就可以使用通用寄存器实现</p><p>数据寄存器（不是MDR）</p><p>地址寄存器（不是MAR）</p><p>条形码寄存器</p></blockquote><p>控制状态寄存器包括：</p><blockquote><p>MAR：存储器地址寄存器</p><p>MDR：存储器数据寄存器</p><p>PC：程序计数器</p><p>IR：指令寄存器</p></blockquote><p>指令周期其实也很好理解，指令周期一般包括两部分，取指周期和执行周期，但是有时其实会有附加周期，附加到四个周期，比如取指周期-&gt;（可选）间指周期-&gt;执行周期-&gt;（可选）中断周期</p><p>简单的指令周期可以只有取指周期，比如一个空指令，取出的时候就知道不用执行了</p><p>另一方面，指令中每一个周期的长度其实不一定一样，比如加法和乘法运算，这两者来看取指等长，但是后者执行周期必然长于前者</p><h2 id="指令流水"><a href="#指令流水" class="headerlink" title="指令流水"></a>指令流水</h2><p>首先，为了提高处理机的速度，我们采取提高硬件性能和优化结构两种思路</p><p>我们这里采取提高器件性能和开发系统并行性来实现上述两种思路</p><p>指令流水就是为来开发并行性的一种思路</p><p>让我们把之前的指令周期简单的分为有取指周期和执行周期，我们链式执行指令，一条指令取指执行，进行完再开下一条，这显然会很慢，我们就先采取优化，当第一条指令取指完毕，在执行周期的时候，我们直接进行第二条指令的取指。</p><p>为了实现更复杂的并行，我们细分一条指令中的阶段，包括FI（取指），DI（确定操作数和地址计算方式），CO（根据DI的方式计算地址），FO（取操作数），EI（执行指令），WO（写回存储器）</p><p>因此我们还是实行阶梯型的指令流水设计，除了第一条指令执行时间为整个六个阶段外，后续的指令都是在之前的基础上加上一个阶段的时间</p><p>当然这种流水线的情况很想当然，流水线本身还会有自己内部的冲突。常见的冲突有三种</p><blockquote><p>结构相关：不同的设备在上述留个阶段执行的时候用的设备可能不是一个设备，不免会出现设备之间的冲突，那么遇到这种请款时，我们就将后执行的指令以及他之后的指令全部后移一个delta t的时间</p><p>数据相关：数据冲突是指数据本身有执行的顺序，比如先乘后加，我们就得等待乘法的结果再执行加法，所以加法执行完取指之后就开始等，一直到乘法结束之后再执行加法</p><p>控制相关：指跳转指令，假设遇到一个跳转指令要去执行未执行的语句，那么缓冲的下一条语句其实就作废了</p></blockquote><p>流水线的性能可以由三个指标来衡量，在介绍指标之前我们引入一个流水线时间T，假设一个流水线有m条指令，那么每条指令的每一部分时间用t表示，一条指令分为n个部分，那么T=mt+（n-1）t。后续我们会用到这个T</p><blockquote><p>吞吐率：吞吐率分为最大吞吐率和实际吞吐率两种，当m趋近无穷时，其实每条指令的实际执行时间趋近t，最大吞吐率为1/t，不趋近于0的时候，这时的吞吐率用1/T表示</p><p>加速比：最大时间和流水加速的比值，值为nmt/T</p><p>效率：加速比/m</p></blockquote><p><img src="%E8%B6%85%E9%87%8F.jpg" alt="超量"></p><p>上述是三种超量技术，超量技术也是现代计算机常用的技术</p><blockquote><p>超标量流水：当两条指令根本没有元件重合的时候，我们完全可以将其一起执行</p><p>超流水线：将流水线中的六大部分更加细分，再缩短执行时间</p><p>超长指令字：执行指令的时候同时执行多个指令</p></blockquote><p>中断系统其实就是第五章知识复习，这里就不赘述了。</p><p>第八章内容至此结束。</p><p>机组的所有笔记也至此结束</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第七章）</title>
+    <link href="http://algarth.github.io/2020/12/23/organization9/"/>
+    <id>http://algarth.github.io/2020/12/23/organization9/</id>
+    <published>2020-12-23T08:13:56.000Z</published>
+    <updated>2020-12-23T08:38:34.265Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第七章）"><a href="#计算机组成原理（第七章）" class="headerlink" title="计算机组成原理（第七章）"></a>计算机组成原理（第七章）</h1><p>第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容是在划水摸鱼，所以两章实际内容我感觉量差不多</p><p> 本章的第四节是指令格式举例，这部分可以理解为一个举例，并不是那么重要，这里我也就不写了</p><p>那闲话不多说，直接开始第七章</p><p>本章分为以下内容</p><blockquote><ol><li>机器指令</li><li>操作数和操作</li><li>寻址方式</li><li>RISC</li></ol></blockquote><h2 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h2><p>机器指令在第一章就学过了，这里再学的是机器指令的一般形式。</p><p>每一条指令都由两部分组成，操作码和地址码。操作码通过操作码的数值表示操作，地址码不仅仅是自己的地址，比如加减法数字的地址，结果的地址，下一操作的地址等等。</p><p>操作码有扩展和不扩展两种设计方法，固定操作码或不扩展操作码是指操作码的长度是一个定值，扩展操作码是是指操作码可以伸长或者缩短，指令的长度是一个定值，那么扩展码的长度改变势必同时引起指令码的改变，我们按照地址码的长度对地址码起名，产生了零地址，一地址，二地址等等的说法。计算操作码的时候，在扩展操作码上面的计算会比较复杂。</p><p>这里做一个假设，假设一个简单的扩展操作码，有两种操作码长度，4个字节长的操作码，伸长之后会成为6个字节长度。假设一个四个字节的操作码，他有一个操作码是0001，那么，他就不会进行扩展成为6字节的形式，比如000001这种情况，这两个操作码还要考虑是不是一个操作码，因此计算机在处理这种指令的时候，如果存在0001，那么无论XX0001的格式有什么，我们一概不将这种内容视为操作码。计算的时候留意就行了。</p><p>地址码有多重长度之分，细节如下：</p><blockquote><p>四地址：包括两个操作数地址，一个结果地址，一个下一条指令地址，这就可以满足一个基本的二元运算符了，使用时访问四次存储器（操作数两个，操作符一个，结果一个）</p><p>三地址：把上述的狭义指令地址删除，用PC实现，剩下的就是三地址，使用时依旧访问四次存储器</p><p>二地址：操作数也是结果地址，a+=b; 节省了访问次数，使用时访问三次存储器</p><p>一地址：把之前的那个操作数存放在ACC里了，ACC存放操作数和结果，第二操作数自己存储，使用时访问两次存储器</p><p>零地址：全存在寄存器里了，就直接不用立省100%</p></blockquote><h2 id="操作数和操作"><a href="#操作数和操作" class="headerlink" title="操作数和操作"></a>操作数和操作</h2><p>操作数常见的有四种：地址，数字，字符，逻辑数据（这不是懂得都懂）</p><p>数据的存放方式也有多重，常见的有字节，半字，字，双字，四字</p><p>操作类型包括：数据传送，逻辑操作，移位，转移（可以粗略理解为goto语句），输入输出，其他</p><p>转移又分为多种：无条件转移（goto语句），条件转移（if语句实现跳转），调用与返回，陷阱和陷阱指令（系统出现意外）</p><h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>寻址方式是为了确定当前指令数据位置和下一条指令的位置，前者称为指令寻址，后者称为数据寻址。</p><p>指令寻址相对简单，分为顺序寻址和跳跃寻址，顺序寻址就是一条一条指令顺序进行找到地址，跳跃就是goto语句跳转到下一条指令继续进行。</p><p>数据寻址才是相对重要的内容，包括以下10种基本寻址方式</p><p>这里先进行基本的介绍，数据存放的地址其实一般不是数据的真实地址，在C语言中，指针的地址，就是&amp;a得到的16进制码其实并不是数据在计算机中的真实地址，我们称这种地址为形式地址，记做A，真实地址称为有效地址，记做EA（不是某EA！！）</p><p>我们在指令的地址部分中加入一个寻址特征，用来指定当前指令的寻址方式</p><blockquote><p>立即寻址：他的寻址特征一般用#来表示，他的地址就是操作数本身，每次访问这个操作数，直接进行加减就行。这是一种很基本的寻址方式</p><p>直接寻址：直接寻址的地址是就是真实的地址，即A=EA。</p><p>隐含寻址：隐含寻址是指令字中给定一个操作数的地址，另一个地址是在寄存器中的，比如累加操作中直接用ACC进行保存另一个操作数的地址</p><p>间接寻址：可以理解为这个形式地址指向的是一个指针的地址，通过这个指针再次指向真正的地址，当然，这个指针可以是指针的指针。（他有两个优点，1,这种操作扩展了操作数的寻址范围，2，可以用于编程。1个缺点：由于一次寻址会访问很多的地址，会导致执行时间延长）</p><p>寄存器寻址：一种广泛应用的寻址方式，这里的形式地址指定的就是一个寄存器的地址，直接调用寄存器北部的数据。优点有二：1， 寄存器的访问速度快。2， 寄存器的地址短，节省了形式地址的存储空间</p><p>寄存器间接寻址：通过在寄存器中存储操作数的地址，指针型访问，这种方法可以让访问存储器的次数-1</p><p>基址寻址：基址寻址可以理解为两者的简单相加，EA=A+BR，BR是基址，储存在基址寄存器中，基址本身分为显式和隐式两种，前者是用户必须自己明确指明在哪个寄存器中存储了内容，后者是由计算机自行分配</p><p>变址寻址：变址寻址和基址寻址是差不多的意思，变址寻址给定的是一个可变的BR记为IX，可以理解为之前的BR扩展为一个数组，方便对多个数据进行寻址</p><p>相对寻址：相对寻址和基址寻址其实理解上差不太多，差异在于 ，相对寻址可以理解为一次C语言的数组寻址，每次找到的是相对于a[0]位置进行偏移的元素</p><p>堆栈寻址：堆栈寻址其实是使用堆栈的方法去找操作数</p></blockquote><h2 id="RISC"><a href="#RISC" class="headerlink" title="RISC"></a>RISC</h2><p>RISC其实我倒很早就接触了，RISC产生有一个说法：计算机中80%的语句仅仅使用了20%的指令。这句话其实表明，我们要实现的内容很多，但是他们都可以用一小部分基本的小指令组合构成。那么我们就可以使用少部分指令完成大部分工作。</p><p>相对而言，和RISC对应的就是CISC。CISC就是没有脑子的直接存放所有指令的那种，称为复杂指令系统。</p><p>两者相比，RISC有以下优点</p><blockquote><p>充分利用VLSI的面积</p><p>提高计算机运算的速度</p><p>降低成本，提高可靠性</p><p>支持高级语言</p></blockquote><p>第七章内容到此结束。</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第六章）（下）</title>
+    <link href="http://algarth.github.io/2020/12/21/organization8/"/>
+    <id>http://algarth.github.io/2020/12/21/organization8/</id>
+    <published>2020-12-21T01:47:44.000Z</published>
+    <updated>2020-12-23T08:42:11.187Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第六章）（下）"><a href="#计算机组成原理（第六章）（下）" class="headerlink" title="计算机组成原理（第六章）（下）"></a>计算机组成原理（第六章）（下）</h1><p>下要提的内容就少了很多，主要是浮点数的四则远算和ALU电路，后者看着难，实际比较简单，浮点数的四则远算其实就是比定点数增加了一点点儿前处理和后处理，中间内容还是一笔带过嗷</p><blockquote><p>浮点数的四则运算</p><p>ALU电路</p></blockquote>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第六章）（上）</title>
+    <link href="http://algarth.github.io/2020/12/20/organization7/"/>
+    <id>http://algarth.github.io/2020/12/20/organization7/</id>
+    <published>2020-12-20T02:13:06.000Z</published>
+    <updated>2020-12-23T05:25:24.429Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第六章）（上）"><a href="#计算机组成原理（第六章）（上）" class="headerlink" title="计算机组成原理（第六章）（上）"></a>计算机组成原理（第六章）（上）</h1><p>本章主要讲解定点数和浮点数的四则运算，最后还要提一句ALU的介绍，为第七章节省篇章</p><blockquote><p>有无符号数和定点浮点表示</p><p>定点数的四则运算</p></blockquote><p>这次理论的内容其实挺多，可惜的是课本上的图片不是很好理解，希望我能把课本的图片解释清楚</p><h2 id="有无符号数和定点浮点表示"><a href="#有无符号数和定点浮点表示" class="headerlink" title="有无符号数和定点浮点表示"></a>有无符号数和定点浮点表示</h2><p>数字首先可以分为有无符号数，有无符号数C语言直接学过了，不打算多说了，总之无符号数可以扩展数据的上限，但是下限永远是0.</p><p>在计算机中的数据一般用两种内容进行存放，整数和小数，小数进行存放的时候，我们假设是有符号数，一个有符号数进行小数存放，我们用0.xxx表示数据，我们大可以直接把小数点前的那一位作为一个符号位，如果是1表示是负数。对于整数而言，为了保持和小数的一致，我们用逗号进行表示，比如1,xxx表示一个负整数</p><p>对于一个数据，我们使用原码，反码和补码进行保存数据，这个其实C语言讲的也很明白了，正数的原码=反码=补码，负数的原码=负反码=（补码-1）取反。我们用取反加一表示负数的补码</p><p>这里还有一个常用公式，负补码=补码取反+1</p><p>这里还有一种表示移码，移码的目的是为了便于数据比较，一个负数和一个正数进行比较的时候正常很难判定，还得用较为复杂的方式实现符号的判定，所以我们设计一种加法运算得到移码，比如1010，我们加上比他大一位的最小数10000得到11010，这样去进行比较，在负数的时候其实现实的就很明显了，负数和他相加会得到一个较小的数据从而方便比较数据的大小</p><p>数据一般采用两种保存方式，定点表示和浮点表示，定点表示常用于int型，一个数符后面是数据，浮点数懂的都懂，有两个数符是用来保存正负号的</p><p>浮点数存储的时候有一定的存储范围，可想而知，当阶码和数码一定的时候，数码取非0的最小，阶码也取最小，这样得到的数字是非0的最小值，他会趋近于0，但是并不是0，这个点到0之间的值是无法表示的，如果数字在这个区域，称为下溢，这里的值强行转换为0。同理，如果一个值大于浮点数的最大范围，称为上溢。</p><p>浮点数表示的精确程度取决于给他的数码和阶码的长度，如果假设两者相同，其实可以让有效数值在可能的情况下数码左移，减少阶码，这样数码的右端可以存放更多的数据增大精度，再考虑原码反码补码，对于原码来说，有效的数值是1，全部左移之后，他的表示形式一定是x,1xxx这种形式。反码和补码刚好相反，表示形式是x,0xxx。</p><p>定点数和浮点数相比，浮点数的精度和范围都比定点数要好，但是就是运算的时候会比定点数麻烦，编程的时候是两者都有的。</p><h2 id="定点数的四则运算"><a href="#定点数的四则运算" class="headerlink" title="定点数的四则运算"></a>定点数的四则运算</h2><p>写在四则运算之前，我们先要看一看基本的移位运算，移位运算是后面乘法和除法的基础，而且其实没什么好说的，也比较简单</p><h3 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h3><p>移位运算就是直接左移右移，他的重点在于补数，在正常一个正数中，他的原码反码补码一致，所以直接左移右移补0就可以。一个负数相对而言会比较复杂。</p><p>负数的原码左右移动的时候直接补0，反码因为刚好和原码相反，所以左移右移的时候补1.补码运算的时候，是取反之后+1，所以如果左边要补，可以看成一个负数，补0.右边运算的时候，因为+1，所以补0。也就是说，左移补0，右移补1.</p><p>移位运算的时候有算数移位和逻辑移位的区别。算数移位是把符号位和数值位看做一个整体，移位的时候一起移位，逻辑移位就是直接对数值位进行移位。算数移位其实在后续乘法和除法中用到，这也是他唯一的用途</p><h3 id="加法和减法"><a href="#加法和减法" class="headerlink" title="加法和减法"></a>加法和减法</h3><p>加法其实和减法没有过大的区别，我们先来看加法的基本方法</p><p>二进制的加法和十进制的加法相差不多，我们如果两个1相加的话，就直接进位一个1.由于数据在计算机中都是补码存放的，我们就直接对补码相加，就可以得到补码表示的结果。如果最后进位的时候在不存在的最高位进位了一个1，我们就直接丢掉这个进位。</p><p>负数计算的时候，A的补码-B的补码=A的补码+（-B）的补码。上面的文章中我们提到，-B的补码就是B的补码加上符号位一起取反+1.后面和正常加法运算相同了。</p><p>加减法计算的时候会存在溢出的情况，我们假设A和B，B是带符号的数，我们直接把减法统一转换为A+B。</p><p>如果我们就采用正常的一位符号位判断，如果A和B符号不同，其实是不会溢出的。当A和B符号相同，但是运算结果和A，B符号不同的话，那么我们就判定，AB的运算出现了溢出。</p><p>其实还有另一种符号保存方法，就是采用双符号位进行保存，双符号位表示正数的就是00，负数就是11，无论结果是否溢出，双符号位的第一位永远是最终正确的符号。如果运算之后，结果出现01或者10这样的符号位，就表示加减运算发生了溢出</p><h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第五章剩余内容）</title>
+    <link href="http://algarth.github.io/2020/12/09/organization6/"/>
+    <id>http://algarth.github.io/2020/12/09/organization6/</id>
+    <published>2020-12-09T04:35:11.000Z</published>
+    <updated>2020-12-20T02:12:37.986Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第五章剩余内容）"><a href="#计算机组成原理（第五章剩余内容）" class="headerlink" title="计算机组成原理（第五章剩余内容）"></a>计算机组成原理（第五章剩余内容）</h1><p>本节内容相对而言不算太多，及时是第五章后面三节，内容其实不过如此，下面是这次的大纲</p><blockquote><ol><li>程序查询流程</li><li>程序中断操作</li><li>DMA</li></ol></blockquote><p>这次的图片内容比较多，希望各位以图片内容为主，毕竟这一章还是更偏重与理解。</p><h2 id="程序查询流程"><a href="#程序查询流程" class="headerlink" title="程序查询流程"></a>程序查询流程</h2><p>程序进行流程查询，我们以单个程序进行查询为例</p><p><img src="%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B.jpg" alt="程序查询方式的程序流程"></p><p>单个程序查询的方式如上图所示，每次在启动IO设备之后有一个循环，持续询问IO设备是否准备好，这个过程是整个数据交换的重点</p><p>为了实现这种查询，我们定义了三种指令</p><blockquote><p>测试指令：进入询问过程之前的指令，用来查询IO设备是否准备就绪</p><p>传送指令：询问后的一种情况对应的指令，指IO准备完成之后的传送指令，他会继续测试IO设备的状态</p><p>转移指令：IO设备未准备就绪，继续跳转为测试指令进行询问IO设备状态</p></blockquote><p>这种查询也可以推广到多程序查询，如下图</p><p><img src="%E5%A4%9A%E4%B8%AAIO%E8%AE%BE%E5%A4%87%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B.jpg" alt="多个IO设备的查询流程"></p><p>当然还有几个内容要进行补充：</p><blockquote><ol><li>传送数据的时候要占用CPU的寄存器，所以传送之前会先进行CPU的数据保存，保存之后再进行IO传输，IO结束后进行</li><li>IO的准备好判定其实是进行数据寄存器是否空或者是满的判断，写入数据时，如果寄存器满，就进行传输，反之在读出数据的时候，刚好相反，判断数据寄存器是否为空</li></ol></blockquote><p>这里补上之前的一张中断宏观示意图</p><p><img src="%E4%B8%AD%E6%96%AD%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="中断示意图"></p><p>接下来，我们展开之前的那个查询电路，得到了下面这张电路图，我们根据这张图来进行后续的说明</p><p><img src="%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF.jpg" alt="程序查询方式接口电路"></p><p>这张图中，B是工作触发器，D是完成触发器，一旦工作开始，那么B进行工作，D停止工作，开启右边的4号门。完成后，D执行，B休息，7号门执行。</p><h2 id="程序中断操作"><a href="#程序中断操作" class="headerlink" title="程序中断操作"></a>程序中断操作</h2><p>我们现在简单看一下IO中断的产生过程</p><p><img src="IO%E8%AE%BE%E5%A4%87%E6%8F%92%E5%85%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="IO设备插入示意图"></p><p>当打印机进行IO设备的访问时，先进行请求CPU，CPU接受了消息，之后接着忙手头的活动，等待打印机后续请求，之后一旦收到打印机的中断请求，就进行终端，传送计算机的数据，传输完毕后，继续执行主程序，等待打印机后续的请求</p><p>接下来我们来看程序中断的接口电路</p><p>电路我们先看其中的信号发生器</p><p><img src="%E4%B8%AD%E6%96%AD%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%9B%BE.jpg" alt="中断查询部分图"></p><p>这张图表示了INTR中断请求触发器和MASK中断屏蔽触发器</p><p>这张图中，D还是上面那个完成触发器，一旦程序完成，而且屏蔽触发不进行工作，那么就进行中断请求触发器。否则。中断屏蔽触发器是用来中断当前信号发送的。</p><p>INTR的信号向上传输就会到达排队器，进行信号排队</p><p><img src="%E6%8E%92%E9%98%9F%E5%99%A8.jpg" alt="排队器"></p><p>这个排队器是一个链式结构，只要有一个INTR工作，那么就进行中断处理，当前请求INTP前面的电路依然连通，后续的电路就会断开。</p><p>通过排队器进行执行判断的过程称为<strong>中断判优</strong></p><p>如果CPU统一了中断，称为<strong>中断响应</strong></p><p>整个图片集合在一起就是下图</p><p><img src="%E4%B8%AD%E6%96%AD%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E5%85%A8%E8%B2%8C.jpg" alt="中断接口电路全貌"></p><p>中断服务也是有一定的流程的，且单重中断和多重中断的流程在细节上有所不同，话不多说，先上图</p><p><img src="%E5%8D%95%E9%87%8D%E4%B8%AD%E6%96%AD%E5%92%8C%E5%A4%9A%E9%87%8D%E4%B8%AD%E6%96%AD.jpg" alt="单重中断和多重中断"></p><p>先解释一下图片中中断周期后面的内容</p><blockquote><p>保护现场：1.保护程序的断点，2.保护程序寄存器的内容</p><p>中断服务：就是IO设备去进行IO设备自己的内容</p><p>恢复现场：取出当时保护现场得到的指令</p><p>中断返回：重新进行主程序</p></blockquote><p>这里还有一个开中断的说法，开中断是指放开原来的中断请求，等待下一个中断请求的到来</p><p>单重中断的时候等到处理完毕之后再进行开中断，多重中断为了快速处理新的中断内容，保护现场之后就要立即开中断</p><h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><p>DMA方式是对某磁轭紧急IO设备采取的直接和主存相连的模式，他的调用和一般的IO设备不同，为的是解决某些紧急的IO设备急需访问CPU的情况。</p><p>DMA和主存交换数据的时候一般有以下三种</p><blockquote><ol><li>停止CPU访问主存：当DMA接口访问的时候，直接暂停CPU的工作，进行DMA接口的工作，没有什么规律可言，就是动态分配</li><li>周期挪用：每次DMA进行请求的时候，主存结束当前周期之后，将新的1个或几个周期分配给DMA接口使用这种设计比较合理，因此被大多数设备采用</li><li>DMA和CPU交替访问：直接将DMA和CPU的工作分开，一部分周期直接永久分配给DMA设备，两者的交替进行</li></ol></blockquote><p>下面我们来看一下DMA的接口</p><p><img src="DMA%E6%8E%A5%E5%8F%A3.jpg" alt="DMA接口"></p><p>DMA接口内部就是由这六者组成的</p><blockquote><p>AR：（主存）地址寄存器，负责地址查找，传送开始的时候，CPU将地址传送给AR，AR接受了地址之后通过++运算，不断访问后续的地址位置</p><p>WC：字计数器，就是记录要传送多少个字，传送数据够了就调用终止信号终止传送。</p><p>DAR：（设备）地址寄存器，存储要调用设备哪一个位置的存储器</p><p>BR：数据暂存寄存器</p><p>DMA控制逻辑：就是直接进行DMA控制的，和CPU交换控制信号的元件</p><p>中断机构：中断机构就是调用DMA上面的中断服务的机构，一旦WC计数器中的值归零后，这代表着数据传送完毕，中断机构就找CPU进行中断请求</p></blockquote><p>DMA接口的工作过程分为大致三个阶段</p><blockquote><p>预处理阶段：这个阶段主要进行预处理，包括CPU传送地址给DMA的AR，初始化WC的值等等</p><p>数据传送：就是主要进程</p><p>后处理：CPU处理最后的中断进程，终止和DMA接口的链接</p></blockquote><p>下面来看DMA的链接方式：</p><p>DMA的链接方式分为DMA之间的链接和DMA与设备的链接</p><p>DMA直接的链接包括</p><blockquote><p>具有公共请求线的链接：就是第三章总线那里的总线方式，省线材，但是具有设备具有优先顺序</p><p>独立的DMA请求：第三章的独立请求，没有优先顺序，但是耗线材</p></blockquote><p>DMA和设备的链接</p><blockquote><p>选择型DMA接口：对于多个设备进行选择处理，选择一个设备进行链接，这种DMA的接口虽说是链接了很多的设备，但是其实在同一时间只能使用一个设备进行DMA的传输。</p><p>多路型DMA接口：多路型的DMA接口实现了多个设备同时使用DMA进行传送的需求，只是设计复杂，稍微贵点儿</p></blockquote><p>那第五章到此结束</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理（第四章下和第五章开头）</title>
+    <link href="http://algarth.github.io/2020/11/25/organization5/"/>
+    <id>http://algarth.github.io/2020/11/25/organization5/</id>
+    <published>2020-11-25T08:26:22.000Z</published>
+    <updated>2020-12-29T02:54:37.452Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第四章下和第五章开头）"><a href="#计算机组成原理（第四章下和第五章开头）" class="headerlink" title="计算机组成原理（第四章下和第五章开头）"></a>计算机组成原理（第四章下和第五章开头）</h1><p>本节其实很有意思，第四章结尾和第五章开头都写得一堆很没用的东西，第四章节结尾是真的非重点，第五章开头也很玄幻。第四章末尾涉及到了软盘的内容，这种已经被时代淘汰的东西已经没有学习的必要了；第五章开头涉及到成像的原理，这些其实和机组不挂钩，所以这部分内容也不是重点，因此就一笔带过，直接将这两部分内容发在一起了</p><p>本节内容分包括以下部分</p><blockquote><ol><li>辅存</li><li>IO设备的历史</li><li>IO设备举例和应用</li></ol></blockquote><p>那直接进入正题</p><h2 id="辅存"><a href="#辅存" class="headerlink" title="辅存"></a>辅存</h2><p>辅存的概述其实第四章开头就阐述的差不多了，所以直接进入正题了</p><p>这部分只有一个例子 - - - 磁盘，理解他就可以直接理解光盘了。</p><h3 id="磁盘概述"><a href="#磁盘概述" class="headerlink" title="磁盘概述"></a>磁盘概述</h3><p>磁盘是一种目前普遍使用的存储设备，这里直接概述一下，</p><p><strong>磁头</strong>是一个读取头，如果你用过老笔记本或者见过光驱的话，这部分很好理解，光盘是旋转进行读取内容的，磁盘就是一个光盘盒，是采用同样的原理进行读取的。磁头通过旋转在盘片上读取信息。通常磁盘内部并不是一层盘片，可能是多层盘片，这时磁头会通过磁头支架进行多层信息读取。</p><p><strong>盘片</strong>是磁盘用于储存信息的物理介质，盘片上的信息存放方法可能是单面的或者双面的，盘面上的信息是一圈一圈存储的，存储的结构称为磁道。为了访问不同磁道上的内容，磁头可以设计为可以在旋转时可以直接访问所有磁道的，也可以是滑动磁头，从而实现多内容的访问。（被称为固定磁头和移动磁头）盘片非常容易损坏，如果积灰都会带来不可逆的损伤，因此正常磁盘（比如西数的或者希捷的），都会外包一层金属保护壳</p><p>这里还要先说明，即使磁道是一个同心圆，这并不代表每一个磁道上存储信息的容量有差异，相反，每个磁道储存的信息数目反而相同</p><h3 id="磁盘的参数"><a href="#磁盘的参数" class="headerlink" title="磁盘的参数"></a>磁盘的参数</h3><blockquote><p>道密度：道密度是盘面上相邻两个磁道之间距离的倒数</p><p>位密度：一个磁道上储存的信息和磁道物理周长（周长计算的时候直径取最小直径）的比值</p><p>存储容量：每个磁道存储的信息 * 一个盘面的磁道数 * 存储信息的盘面数</p><p>平均寻址时间：找到当前位置的平均时间，这个时间包括找到当前的磁道，在道上找到信息两部分，<strong>这个地方取两者的平均值，是直接两个时间取和除以二</strong></p><p>数据传输率：盘片的旋转速度 * 一条磁道的容量</p></blockquote><p>其余参数其实还有误码率，但这其实已经考不到了</p><p>截至到这儿，第四章内容结束</p><p>下面是第五章内容</p><blockquote><p>第五章内容共5小节，前三小节内容比较简单，第一节是概述，我简要介绍一部分，2,3小节可能内容介绍的不多</p></blockquote><h2 id="IO设备的历史"><a href="#IO设备的历史" class="headerlink" title="IO设备的历史"></a>IO设备的历史</h2><p>IO设备的发展过程分为四个阶段，分别是</p><blockquote><p>早期阶段</p><p>接口模块和DMA阶段</p><p>通道结构阶段</p><p>IO处理机阶段</p></blockquote><h3 id="早期阶段"><a href="#早期阶段" class="headerlink" title="早期阶段"></a>早期阶段</h3><p>早期阶段的IO设备，根据基础的冯诺依曼结构，数据必须直接经过CPU，再到达主存，这种计算机简直一无是处</p><p>缺点明显：每个IO都必须有一个和CPU相连的庞杂线路，且会导致更换设备困难，输入输出会穿插在CPU执行程序之间，耽误正常工作。</p><h3 id="接口模块和DMA阶段"><a href="#接口模块和DMA阶段" class="headerlink" title="接口模块和DMA阶段"></a>接口模块和DMA阶段</h3><p>这是我们教材重点叙述的一段，也是后续小节介绍的重点（其实是其他的不介绍了）</p><p>接口模块是独立的模块，经IO设备输入后将数据直接送给总线，非常有利于总线结构，课本描述中有两个优点：接口可以起到缓冲作用，同时可以完成串并转换</p><p>DMA意为直接存储器存储，易失的内容或者重要的内容可以通过DMA方式直接进行和CPU的传输，可以理解为VIP通道</p><h3 id="通道结构阶段"><a href="#通道结构阶段" class="headerlink" title="通道结构阶段"></a>通道结构阶段</h3><p>对于大型的计算机来说，设置DMA可能会面对CPU访问冲突问题，所以，大型计算机不得不为每一个IO设备增加专用的IO通道，因此称之为通道结构阶段</p><h3 id="IO处理机阶段"><a href="#IO处理机阶段" class="headerlink" title="IO处理机阶段"></a>IO处理机阶段</h3><p>通过独立于CPU的独立处理机完成IO设备的协调工作</p><p>后面再提两个小点儿</p><ol><li>IO设备的联络方式分为同步访问和异步访问两种（详细描述在第四节展开）</li><li>IO设备和主机的链接方式包括辐射式和总线式两种，前者是历史的淘汰物</li></ol><h2 id="IO设备举例和应用"><a href="#IO设备举例和应用" class="headerlink" title="IO设备举例和应用"></a>IO设备举例和应用</h2><p>别看这个题目很大，但是其实并没有什么实质性内容</p><p>IO设备一般课以划分为三大类</p><blockquote><p>人机交互设备（鼠标键盘）</p><p>计算机信息存储设备（包括磁盘什么的）</p><p>计算机通信设备（课本原名为机-机通信设备）（光猫什么的）</p></blockquote><p>后面课本举的例子只用简单了解一下就行，比如键盘的输入就是按下按键之后调用输入设备，以及显示存储器就是直接现实图像</p><p>第三节的接口就两页，也没讲什么有用的内容，就直接略过了</p><p>本部分水博客内容到此结束</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>marache-马拉车算法</title>
+    <link href="http://algarth.github.io/2020/11/08/marache/"/>
+    <id>http://algarth.github.io/2020/11/08/marache/</id>
+    <published>2020-11-08T07:48:44.000Z</published>
+    <updated>2020-11-25T08:25:37.708Z</updated>
+    
+    <content type="html"><![CDATA[<p>这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模</p><p>马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）</p><p>因此，马拉车是一种非常局限的算法，和其他类型的算法基本没有交集，（字符串处理的其他算法就连KMP都和AC自动机有关联）</p><p>这次大纲如下</p><blockquote><ol><li>求回文串的土办法</li><li>稍微优化的算法</li><li>马拉车永远的神</li></ol></blockquote><p>提前感谢：学校开心实验室学长，csdn博主darge，程序员小吴</p><p>那我们进入正题</p><h1 id="求回文串的土方法"><a href="#求回文串的土方法" class="headerlink" title="求回文串的土方法"></a>求回文串的土方法</h1><p>首先先说好，马拉车算法求解的是回文子串，返回一个字符串s中的最长字回文串长度，没办法讨论回文子序列问题。</p><p>那如何才能求一个给定的s的回文串呢？</p><p>那我们先来最秀的算法，BF（brute force）算法！！</p><p>枚举子串用2层循环就行，判断子串是否回文需要遍历一遍，要用n的时间复杂度，两者相乘，n^3时间复杂度</p><p>想都别想，直接就TLE了</p><p>肯定行不通</p><h1 id="稍微优化的算法"><a href="#稍微优化的算法" class="headerlink" title="稍微优化的算法"></a>稍微优化的算法</h1><p>首先给出一种稍微优化的思路</p><p>先设一个数组p，数组p表示当前i所在位置的最长回文串长度</p><p>我们假设每次每一个字符i都是对称中心，从i向两边扩展，扩展到极限的时候我们把当前扩展的距离记录在p数组内，最后遍历一遍p数组，就可以确定了。</p><p>示例图如下：</p><p>（我是图）</p><p>这个算法有问题么？当然有。</p><p>每次我们在假设当前i是对称中心，如果i并非是对称中心，假设s=”bb”,对称中心明显在字符中间，所以我们预处理一下字符串，在两个字符中间加上#，开头结尾也加上。（习惯性使用#，其他也可以，但是别忘了$符号是变量就行）</p><p>eg. ababa处理成#a#b#a#b#a#</p><p>这个处理是很科学的方法，这里说一下依据：</p><blockquote><p>众所周知，一个奇数长度的回文串一定有一个是字符的对称中心，一个偶数的没有。奇数和偶数的二倍都是偶数，二倍加一都是奇数，那么我们将长度为n的字符串扩展到2*n+1，因为每次扩展的时候都是在中间加入的其他符号，也不会出现#本身的回文串了。</p></blockquote><p>如果我们使用上面图片上的处理方法，处理出来的p[i]刚好是回文串的字符数+1</p><p>其实这里是可以处理成回文串的字符数的，但是用+1方便写这个while循环，因此采用这种写法。</p><p>时间复杂度O（n^2），而且n因为加入了#所以常数会稍微大一点，优化的很不错了</p><h1 id="马拉车永远的神"><a href="#马拉车永远的神" class="headerlink" title="马拉车永远的神"></a>马拉车永远的神</h1><p>马拉车是上述优化算法的再优化，马拉车的原名为Marache，是个将对称发挥到极致的算法</p><p>网上的其他资料往往有2个弊病，1个是没有足够多的图片辅助说明或者图片质量较低，显得这个知识晦涩难懂，2是没有在开篇清楚的说明marache算法的原理，而且代码的板子其实很精简，看板子更看不懂了。</p><p>本博客的意义就在于解决上述的两个弊病，更好的方便各位进行马拉车的学习</p><p>正式写马拉车之前，首先建立了3个变量，c（center），mir（mirror）和maxR（maxRight）。</p><p>O(n)枚举的时候，对于每个值i，都会有一个确定的maxR，c和mir。maxR是当前找到的回文串对应的最远的右端点，center是这个maxR所对应的对称中心，mirror是i相对于对称中心对称的那个镜像值。这里其实可以看出，c和maxR是同时产生的，两者是绑定的</p><p>下面要进行两种大情况和四种小情况的讨论</p><blockquote><ol><li>i&gt;maxR</li><li>i&lt;maxR</li></ol></blockquote><p>在第二种情况下包含三种小情况</p><blockquote><ol><li>p[mir]&lt;maxR-i</li><li>p[mir]==maxR-i</li><li>p[mir]&gt;maxR-i</li></ol></blockquote><p>接下来，我们按照顺序进行讨论</p><h3 id="i-gt-maxR"><a href="#i-gt-maxR" class="headerlink" title="i&gt;maxR"></a>i&gt;maxR</h3><p>i在这个位置只限于刚开始运行函数，因为maxR初值就是0，这里做一个不正确的长度图，表示这种情况。</p><p>（我是图）</p><p>这种情况只能暴力，用上面的小优化方法，直接while两端扩展就行</p><h3 id="p-mir-lt-maxR-i"><a href="#p-mir-lt-maxR-i" class="headerlink" title="p[mir]&lt;maxR-i"></a>p[mir]&lt;maxR-i</h3><p>如下图</p><p>（我是图）</p><p>由于对称性，这个i的</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这次突然想写一下马拉车的内容，马拉车是我见过为数不多的简单舒心的算法，它把n^3的算法直接优化到n，实属业界楷模&lt;/p&gt;
+&lt;p&gt;马拉车只能处理一种问题，就是求一个字符串的最长回文子串，甚至连最长子序列都求不出来（用区间dp解决）&lt;/p&gt;
+&lt;p&gt;因此，马拉车是一种非常局限的算</summary>
+      
+    
+    
+    
+    
+    <category term="marache" scheme="http://algarth.github.io/tags/marache/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理笔记（第四章）（中）</title>
+    <link href="http://algarth.github.io/2020/11/02/organization4/"/>
+    <id>http://algarth.github.io/2020/11/02/organization4/</id>
+    <published>2020-11-02T11:45:18.000Z</published>
+    <updated>2020-11-25T10:45:53.924Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第四章）（中）"><a href="#计算机组成原理（第四章）（中）" class="headerlink" title="计算机组成原理（第四章）（中）"></a>计算机组成原理（第四章）（中）</h1><p>本节分为以下部分</p><blockquote><p>1.分类和层次结构</p><p>2.主存</p><p>3.缓存</p><p>4.辅存</p></blockquote><p>这次重点写一下汉明码和cache的部分，汉明码这种阳间东西，必须多说说。</p><p>本部分开始前感谢CSDN blogger Yonggie的文章，这篇文章启发性很强，这次的文章中我会尽量采取一个不同而特别的方法进行介绍汉明码部分</p><p>开始的部分接着上次主存来</p><h3 id="存储器和CPU的链接"><a href="#存储器和CPU的链接" class="headerlink" title="存储器和CPU的链接"></a>存储器和CPU的链接</h3><p>存储器和CPU的链接其实就是在讲芯片的扩展方法，这部分其实学起来应该是很有意思的一个部分</p><p>首先不按照课本定义的扩展而言，就拿老例子，那个16k * 1扩展到64k * 8来说明真正的扩展方法。</p><p>扩展的时候有四种线要进行考虑</p><blockquote><p>A：地址线</p><p>D：数据线</p><p>CS：片选线</p><p>WE：读写线</p></blockquote><p>扩展的维度也就只有两个，一个是地址线的扩展，一个是数据线的扩展</p><p><strong>首先我们看数据线的扩展：</strong></p><p>从例子来看，要从1位扩展到8位，我们只要拿8个这种1位的芯片，每次存储数据的时候，每一位做8位中的一部分就可以了。就是下图的意思</p><p><img src="%E6%95%B0%E6%8D%AE%E7%BA%BF%E6%89%A9%E5%B1%95.jpg" alt="数据线扩展"></p><p>在CS线的链接上，其实丝毫不用管，每次大家一起选择就完了，那不就直接一起连上CS不就完事了吗</p><p>WE其实和CS是一个意思，啥也不管就行</p><p><strong>其次是地址线的扩展：</strong></p><p>从例子来看，16k扩展到64k，其实就加了2根线，但是这两根线，需要选择4个芯片，那么其实两位表示4个内容，直接用二进制表示4个内容就可以了，所以加一个片选译码处理一下就行，如下图所示</p><p><img src="%E5%9C%B0%E5%9D%80%E7%BA%BF%E6%89%A9%E5%B1%95.jpg" alt="地址线扩展"></p><p>CS其实就需要操作一下了，CS在选择的时候是进行一种选择，所以要在片选译码之后，对于片选译码的每一种情况都进行单独连接CS。</p><p>WE还是不用考虑，直接连就行</p><h3 id="汉明码"><a href="#汉明码" class="headerlink" title="汉明码"></a>汉明码</h3><p>汉明码我一直想以一个很有意思的方法进行描述</p><p>首先从一个编程的小题目的简化形式开始引入</p><p>题意大致如下</p><blockquote><p>现在有一瓶解药，他被洒在了一个猪喝水的桶里，这个桶里的农药，如果猪喝掉之后，在0-15min内任意一个时间点均有可能死亡。现在有1000个相似的桶，也有m只猪，在15min（原题为1h）之内，问：最少用多少只猪可以检测出来？</p></blockquote><p>这个题的简化形式来看，一头猪只能检测两种情况，喝了毒药死或者不死可以理解为计算机中的二进制码，那么问题来了，一头猪可以检测多少桶？（假设毒药的桶恒为1）</p><p>必然是2桶，喝掉一桶，根据猪的情况就可以判定那一桶有毒对吧。我们扩展一下，两头猪可以检测多少桶？</p><p>4桶对吧，我们吧0-3这4个数全部二进制表示，一头喝掉第一位为1的所有桶，另一头喝掉第二位为1的。根据两头猪的4中表现就可以锁定有毒的一桶。</p><p>（这里把这个题原题说完，原题是1h之内，那其实一头猪可以检测5种情况，n头猪可以检测pow（5，n）的个桶，5^5&gt;1000，所以最少5头）</p><p>汉明码和这个问题有着异曲同工之处，我们有n位汉明码，n位检测pow(2,n)种情况，但是汉明码的问题在于，汉明码本身也是一个二进制，要放在数据中，因此自己会占一位空间</p><p>这里开始补充说明检测和纠错：</p><p><strong>一串二进制码，正常的时候出错2位即以上的概率很小，我们不妨假设只有可能出错一位，这其实和上面的农药问题一致了</strong></p><blockquote><p>一串二进制码，假设一共有4位，16种情况，如果其中一位出错，发生了0,1互换，他就会变成另一种操作数，为了防止这种情况，我们把其中的部分二进制码置空，这样改变一个二进制位就不会出现问题了，最小改变出错的改变量称为最小距离L</p><p>检错（D）：检错指的是当发生了错误之后，可以知道发生了错误，这点是通过之前章节的奇偶校验实现的，那么我们如果知道发生了错误，但是无法锁定是哪一个位置，那么这个最大值就成为检错位数</p><p>纠错（C）：跟检错差不多，但是我们能过发现是哪一位出错的，纠错的要求比较高，一般难以纠错，只能发现。即D&gt;=C</p></blockquote><p>而且有公式L-1=D+C</p><p>再加上汉明码也会出错，因此我们采取这样的保存汉明码的方法</p><p>我们在pow（2，i）的位置保存汉明码，每一个汉明码检测它自己位置上二进制为1的所有数据，而且通过奇偶校验配置汉明码位置的数据，如果奇偶校验出现了问题，只有一位错一定是汉明码出错，多位出错的话一定仅能锁定一位数据，确认出错的位置。</p><p>同时可以得出汉明码的长度关系，方便今后计算</p><p>pow(2,k)&gt;n+k其中，k为汉明码的个数，n为数据的个数。</p><p>这个式子里，n+k就是整个数据的长度，长度刚好小于整个汉明码所能检测出的个数</p><h3 id="提高访存速度的方法"><a href="#提高访存速度的方法" class="headerlink" title="提高访存速度的方法"></a>提高访存速度的方法</h3><p>其实提高访存的方法很简单，无非就是合理分配主存，多加主存扩展，迭代升级</p><p>下面是专业术语</p><blockquote><p>单体多字：分配主存的方法，每次取主存的内容的时候连续取4块邻接的内容，同时操作，缩短了单个操作所用的时钟周期</p><p>多体并行：用多个存储器，每次取内容的时候取多个存储器的内容，设计很复杂，不适合微型计算机应用</p><p>高性能存储芯片：直接迭代，不跟上面的方法多bb。课本上的例子是SDRAM，RDRAM，CDRAM</p></blockquote><h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><p>缓存部分其实讲的很草率，那我也就直接分为概述和两大重点就行了</p><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>本章的概述说过，缓存-主存层次是为了解决主存和CPU的速度问题的，但是除了目前主存速度和CPU速度严重不匹配之外，还有一个窘境，就是CPU速度的迭代速度是主存的10倍，主存根本赶不上CPU</p><p>主存和cache中的内容分为地址内容和数据内容，我们把地址内容单独拿出来，剩余的数据内容分配一下，分为n个包，每个包保存的数据内容长度相同，同时，主存也按照相同的方式分配，两者的包大小相同，这样双方就可以进行交流了</p><p>我们先以读数据为例</p><p>CPU在读数据的时候，先询问缓存中有没有相应的主存的内容，如果有，那么直接用，没有，就从主存中拿数据，再看看cache的空间有没有满，满的话踢出去部分内容，把刚才的内容加入cache方便今后访问</p><p>我们把从缓存中访问数据，称为命中，否则没有命中，因此可以用命中次数占比（命中率）进行定量衡量</p><p>如果我们同时得知cache的访问速度和主存访问速度，那么我们可以算出整个程序的访问时间，这个时间称之为平均访问时间，最快的访问时间（只用cache的访问时间）和平均访问时间的比值称为访问效率</p><p>当然，不是说cache越大命中率越高越好，这也不全是经济因素束缚的，缓存越大，可能有些常用的数据会被不常用的数据经常替换，而且目前的缓存命中率已经在95%以上，扩大的性价比不高</p><p>那么我们看看写数据有没有什么不同</p><p>写数据的时候要考虑要不要数据写入cache还是主存的问题，其实一个写入的数据，无论怎样都要写入主存，而且要把cache作为中转站，根据写入时间的不同，分为以下两种</p><blockquote><p>写直达法：写入cache的时候直接写入主存</p><p>写回法：写入cache的时候先不写入主存，当数据被替换之后再写入主存</p></blockquote><p>为了改进cache，还有两种改进的方法：</p><blockquote><p>增加级数：使用功能两层cache，一层集成在芯片上称为片内缓存，放在外面的cache称为片外缓存</p><p>统一分立：指令和数据的cache分开存放或者统一存放，有些在一个操作没结束就急着缓存下一个数据的cache（超前缓存），必须采用分立缓存</p></blockquote><p>其实仔细品上面的内容，很容易发现，上面有两个重点没有交代清楚</p><p>1.主存和cache内容是如何映射的？</p><p>2.cache上内容的替换是怎么做的？</p><p>这两个问题正是后面要讲的两大重点</p><h3 id="其一：映射"><a href="#其一：映射" class="headerlink" title="其一：映射"></a>其一：映射</h3><p>映射有三种方法：直接映射，全相连映射，组相连映射</p><p>每种映射方法解决的核心都是同一个问题，由于cache内存和主存大小的差异引发的二者块的传送。我们不妨设cache一共可放C个快，主存可放M个（M&gt;&gt;C）</p><blockquote><p>直接映射：直接将M对C取模，每个M对应着取模之后位置的那个块。</p><p>全相连映射：啥都不管了，莽夫流，C中的每一个块和M中的每一个块都构建映射关系</p><p>组相连映射：取模+莽夫，我们先给定一个分组方式，将cache内部的块分成n组，每组包含相同的块数，之后我们将n用作直接映射的C，组外实现直接映射和主存建立联系，每一组内的块，和对应的主存内部的一组块建立全相连映射。（上述的n被称为路，二路组相连就是n=2）</p></blockquote><p>这三种映射方式的重点在于他们的主存地址</p><p>以下是这三种情况的图：</p><p>首先这三种情况中，总长度是一定的（=主存的字地址），块的大小一定，主存字块标记都是做差得到的。</p><p><img src="%E7%9B%B4%E6%8E%A5.jpg" alt="直接"></p><p>直接映射中，cache标记就是cache的块数对应的地址线数</p><p><img src="%E5%85%A8%E7%9B%B8%E8%BF%9E.jpg" alt="全相连"></p><p>全相连就不用区分了，懒人爱了</p><p><img src="%E7%BB%84%E7%9B%B8%E8%BF%9E.jpg" alt="组相连"></p><p>组相连的组地址是指划分了组之后剩余的cache块数对应的地址线数</p><h3 id="其二：替换"><a href="#其二：替换" class="headerlink" title="其二：替换"></a>其二：替换</h3><p>替换策略一共有三种：</p><blockquote><p>FIFO：队列算法（先进先出）</p><p>LRU：近期最少使用</p><p>随机法</p></blockquote><p>第四章中的笔记到此结束</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>动态规划笔记1</title>
+    <link href="http://algarth.github.io/2020/10/31/dp1/"/>
+    <id>http://algarth.github.io/2020/10/31/dp1/</id>
+    <published>2020-10-31T06:52:56.000Z</published>
+    <updated>2020-10-31T07:28:23.185Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动态规划笔记"><a href="#动态规划笔记" class="headerlink" title="动态规划笔记"></a>动态规划笔记</h1><p>动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。</p><p>这次动归打算按照下文顺序讲解</p><blockquote><ol><li><p>记忆化搜索和动归的几个要素</p></li><li><p>背包九讲</p></li><li><p>xxxx</p></li></ol></blockquote><p>这部分还是感谢对我帮助最大的雨巨和罗勇军老师。</p><p>剧透一下：动归是从中间开始的贪心</p><h2 id="记忆化搜索和动归的几个要素"><a href="#记忆化搜索和动归的几个要素" class="headerlink" title="记忆化搜索和动归的几个要素"></a>记忆化搜索和动归的几个要素</h2><p>记忆化搜索是一个听起来很玄妙的名字，记忆化搜索其实内涵并不是很难，就是每次保存一部分代码，这里我们看一个例子</p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> book[<span class="number">10010</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">peng</span><span class="params">(<span class="keyword">int</span> num)</span></span>&#123;</span><br><span class="line"><span class="keyword">if</span>(book[num]!=<span class="number">-1</span>) <span class="keyword">return</span> book[num];</span><br><span class="line"><span class="keyword">return</span> num*peng(num<span class="number">-1</span>); </span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    ios::sync_with_stdio(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line">fill(book,book+<span class="number">10010</span>,<span class="number">-1</span>);</span><br><span class="line">book[<span class="number">1</span>]=<span class="number">1</span>;book[<span class="number">0</span>]=<span class="number">1</span>; </span><br><span class="line">    <span class="keyword">while</span>(<span class="built_in">cin</span>&gt;&gt;n)&#123;</span><br><span class="line"><span class="built_in">cout</span>&lt;&lt;peng(n)&lt;&lt;<span class="built_in">endl</span>;<span class="comment">//求n的阶乘 </span></span><br><span class="line">&#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>这是一个简单的求n阶乘的式子，中间的peng函数就是求阶乘的，用的递归的方法，中间一个有意思的点在于，输入的n可能有很多组，可是多次访问，直接从自己向下乘到1实在耗时太多，因此我们使用一个数组，保存这个乘积的内容，从而方便访问。</p><p>假设一个peng（i）已经计算了，那么计算peng（i+1）的时候，应用之前的peng（i）就可以很快计算，这里好像相当于peng函数本身是一个数组，时间复杂度上来说，这里拿函数当数组的时间复杂度和用一个数组直接访问上可以忽略不计。</p><p>这里举一个记忆化搜索的例子，滑雪（洛谷P1434）</p><blockquote><p>Michael  喜欢滑雪。这并不奇怪，因为滑雪的确很刺激。可是为了获得速度，滑的区域必须向下倾斜，而且当你滑到坡底，你不得不再次走上坡或者等待升降机来载你。Michael 想知道在一个区域中最长的滑坡。区域由一个二维数组给出。数组的每个数字代表点的高度。下面是一个例子：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1   2   3   4   5</span><br><span class="line">16  17  18  19  6</span><br><span class="line">15  24  25  20  7</span><br><span class="line">14  23  22  21  8</span><br><span class="line">13  12  11  10  9</span><br></pre></td></tr></table></figure><p>一个人可以从某个点滑向上下左右相邻四个点之一，当且仅当高度会减小。在上面的例子中，一条可行的滑坡为 24－17－16－1（从 24 开始，在 1 结束）。当然    25－24－23－…－3－2－1 更长。事实上，这是最长的一条。</p></blockquote><p>这个题就可以仿照上面的方法，建一个二维数组，第一行if语句的方法进行记忆化搜索</p><p>下面看动归的几个部分</p><p>动归的要素</p><blockquote><ol><li>连续的过程（要求）</li><li>初始状态（初始化）</li><li>状态转移方程（又称转移方程或状态方程）</li></ol></blockquote><p>最重要的是一个状态转移方程。</p><p>假设上楼梯问题，每一层楼梯，都有上一层和两层两种走法，求上到某一层n有多少种方法</p><p>这个最简单的方法就是你会发现这个值其实就是一个斐波那契数列，写一个fib就解决了</p><p>如果采用模拟的方法，这其实是个动归问题，满足连续要求，在每一层的时候，取决于上一次上一层还是两层，所以在写函数f的时候，就有了状态转移方程f(i)={f(i-1)+f(i-2)}。<del>（别写成中括号，初学的时候我写了好几次）</del></p><p>初始化就直接初始化f(2),f(1),f(0)就可以了</p><p>记忆化搜索都可以很好的写出这个题了</p><h2 id="背包九讲"><a href="#背包九讲" class="headerlink" title="背包九讲"></a>背包九讲</h2><h3 id="01背包"><a href="#01背包" class="headerlink" title="01背包"></a>01背包</h3><p>01背包是最简单的，也是入门一坑。</p><p>一个背包，n个数据，每个表示一个物品，物品有重量cost[i] (简称c)，有价值value[i] (简称v)。背包是有一定空间w，求最大捡拾物品得到的重量。</p><p>搜索算法是阶乘的复杂度，到了11！之后直接TLE。</p><p>首先介绍基本背包写法，二维数组01背包</p><p>写一个二维数组，这个数组是n*w的，第一个物品直接放，表示占用ci的空间，后面的物品都有两种情况，在前面所有物品的前提下放，在没有物品的前提下放，如果放不下，就不用写了。</p><p>二维数组初始化为0，动归得到最后一行的时候，倒叙访问一遍，输出最大值</p><p>（敷衍qzz一会儿啊，图不放了）</p><p>节省空间的办法很简单</p><p>第一种：开一个维数为2的数组，每次从一个层转移到另一层，最后输出最后转移的一层就行，这种方法的弊端就是难以判定最后一行是哪一个，而且代码看起来复杂</p><p>第二种：就地滚动，就一个一位数组，内部循环的时候倒叙循环，防止一个物品放入多次，从而一个数组搞定</p><p>很多题目就地滚动就行了，但是正常的二维数组在后面的背包种类中会用到</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;动态规划笔记&quot;&gt;&lt;a href=&quot;#动态规划笔记&quot; class=&quot;headerlink&quot; title=&quot;动态规划笔记&quot;&gt;&lt;/a&gt;动态规划笔记&lt;/h1&gt;&lt;p&gt;动归是一个很系统的内容，老梗说的好，动归就是多做题，刷完千题便会用。&lt;/p&gt;
+&lt;p&gt;这次动归打算按照下文顺序</summary>
+      
+    
+    
+    
+    
+    <category term="dp" scheme="http://algarth.github.io/tags/dp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理笔记（第四章）（上）</title>
+    <link href="http://algarth.github.io/2020/10/27/organization3/"/>
+    <id>http://algarth.github.io/2020/10/27/organization3/</id>
+    <published>2020-10-27T08:52:27.000Z</published>
+    <updated>2020-12-29T01:36:00.476Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理（第四章）（上）"><a href="#计算机组成原理（第四章）（上）" class="headerlink" title="计算机组成原理（第四章）（上）"></a>计算机组成原理（第四章）（上）</h1><p>本节分为以下部分</p><blockquote><p>1.分类和层次结构</p><p>2.主存</p><p>3.缓存</p><p>4.辅存</p></blockquote><p>本章节内容非常多，是超长章节的开端，这一章节的内容是前面三个章节的内容之和，从这之后将会以章节部分笔记的形式发布博客</p><p>这一部分先写一下上半部分，概述和主存的笔记</p><h2 id="分类和层次结构"><a href="#分类和层次结构" class="headerlink" title="分类和层次结构"></a>分类和层次结构</h2><p>这一部分其实就是概述，内容就上面这俩</p><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>分类可以按照外部，内部，作用三个分类方向进行理解</p><blockquote><p>按照存储介质分类（外部，可见的分类标准）</p><p>按照存取方式分类（内部，具体分工的分类）</p><p>按照计算机中的作用分类（具体作用的分类）</p></blockquote><h4 id="按照存储介质分类"><a href="#按照存储介质分类" class="headerlink" title="按照存储介质分类"></a>按照存储介质分类</h4><blockquote><p>半导体存储器（易失）：优点是体积小，功耗低，存取时间短，缺点是断电就丢失信息，按照材质不同还可以进行分类：</p><p>———&gt;双极型TTL（晶体管）：高速型号</p><p>———&gt;MOS（氧化物）：高集成型号（制造简单，成本低廉，目前广泛使用）</p><p>磁表面存储器（非易失）：比如磁盘，磁带，而且不易丢失（要有磁头和磁载体）</p><p>磁芯存储器（非易失）：用硬磁元件制作的环状元件，永久保存，目前被半导体存储器取代</p><p>光盘存储器（非易失）：优点很多，包括光盘密度高，耐用性好，可靠性高，可互换性强</p></blockquote><h4 id="按照存取方式分类"><a href="#按照存取方式分类" class="headerlink" title="按照存取方式分类"></a>按照存取方式分类</h4><p>按照存取方式分类具体而言其实是分为以下三类，不要被老唐的书上奇怪的顺序迷惑嗷</p><blockquote><p>随机存储（串行存取）存储器：指的是数据支持随机访问，即数据的访问是连续的，访问每个数据的时间是相同的。（可以类比数据结构的线性表进行下标访问）</p><p>顺序存取存储器：数据存储时顺序的，访问每个元素的时间不一样，必须从开头一个一个去找（类比链表），举例：磁带</p><p>直接存取存储器：<del>缝合怪</del>，存储的时候指定多个存储区域，每个存储区域是彼此离散的，里面的数据是连续的，也就是前段串行访问，后段顺序访问（链表结构体包含数组呗），举例：磁盘</p></blockquote><p>随机存储的存储器中，比较重要的两个是下一种存储方式中主存包含的元素，RAM和ROM</p><blockquote><p>RAM（random access memory）：计算机系统中主存使用的存储结构，根据存储原理，分为静态RAM和动态RAM。（内容后续展开描述）</p><p>ROM（read only memory）：只能读出，不能写入的结构，一般储存字典类文件，这种文件一般不需要进行更改。</p></blockquote><p>ROM随着时间的发展，还有以下的类型</p><blockquote><p>MROM：掩模型，使用掩模工艺制作的ROM芯片</p><p>PROM：可编程的ROM，因为人们对于编程设计ROM芯片的需求产生的</p><p>EPROM：可擦除的可编程ROM，可以在写错之后更改ROM内部的信息，但是是物理更改，不够智能</p><p>EEPROM：电可擦除的可编程ROM，一个完备的融合产物</p></blockquote><h4 id="按照计算机中的作用分类"><a href="#按照计算机中的作用分类" class="headerlink" title="按照计算机中的作用分类"></a>按照计算机中的作用分类</h4><p><img src="%E5%AD%98%E5%82%A8%E5%99%A8%E5%88%86%E7%B1%BB.jpg" alt="存储器分类"></p><p>嗯，如图所示，就这些东西，后面再展开讲嗷</p><h3 id="层次结构"><a href="#层次结构" class="headerlink" title="层次结构"></a>层次结构</h3><p>存储器的层次结构如下图：</p><p><img src="%E5%B1%82%E6%AC%A1%E7%BB%93%E6%9E%84.jpg" alt="层次结构"></p><p>这是两个层次：缓存-主存层次和主存-辅存层次</p><p>常识来说，我们关心存储器的存储容量，存储速度和价格。但是这三者肯定不会一次满足。<del>（对，成年人的世界往往就是这样真实）</del>，速度快存储量大肯定贵这都是真理，所以为了权衡容量问题以及速度问题，有了两个层次</p><p><strong>主存-辅存层次</strong>：为了缓解容量问题，主存快，辅存慢但是容量大，两者折中，就有了容量大速度还可以的缝合层次</p><p><strong>缓存-主存层次</strong>：主存一般和CPU传递信息，可是CPU发展速度太快了，逐渐速度和主存脱节太多了，总不能让CPU去想办法设计如何平衡这段等待主存的时间，所以缓存这一个稍微便宜一点又有点速度的部件就用来解决两者的速度问题（这部分逐渐发展，形成了虚拟存储系统）</p><h2 id="主存"><a href="#主存" class="headerlink" title="主存"></a>主存</h2><p>先提一点概述的内容，后面再讲重头的RAM和ROM</p><p>寻址这种事，其实类似于C++的指针，不同的类型的指针，比如int*的指针，在确定的时候，有两个重要的参数，指向的地址和步长，步长就是每次执行指针++运算的时候，该指针会向前移动的距离，通常被叫做步长。寻址其实也是一样，可以通过以下两种步长在同一块存储空间中运作</p><blockquote><p>按字寻址：按照byte为一个基本单位进行寻址，步长就是8个字节，无论是多少位的计算机，按字寻址只关注字节的8位长度</p><p>按字节寻址：按照位数进行寻址，32位机步长就是32位，16位就是16位，寻找的时候步子跨的会比较大</p></blockquote><p>下面再提一提技术指标</p><blockquote><ol><li><p>存储容量：（这个其实在第一章就提到过），存储容量目前有两种表示形式，一种是以位为单位的，一种是以byte为单位的。对于前者而言，就用存储单元的数目*存储字长就可以得到了。后者的计算在前者基础上除以8就行。</p></li><li><p>存储速度：存储速度并不是比值定义的一个速度单位，而是一个以存储时间和存储周期为衡量标准的时间概念。计算机的每两次相同操作之间的时间间隔，称之为存储周期，这个周期中，有一部分是存取时间，用来读入或者写出（成为写入时间和读出时间）。另一部分其实是空的，因为总会有其他的时间富裕，比如后面提到的动态RAM刷新。因此这个存储区周期长度&gt;存取时间</p></li><li><p>存储器带宽：这个才是比值定义得出来的计算式，单位字/s或Byte/s，怎么计算就不说了吧，一般计算的时候采用一个存储周期的时间作为分母。为了提高带宽，可以采取以下策略，（后面还会提及）：缩短存储周期的时间（减少分母），增加存储字长使每个周期可以存储更多的位数（增加分子），增加存储体（物理模式增加分子）</p></li></ol></blockquote><p>下面还要介绍两个概述内容：扩展和译码驱动方式</p><p>扩展方式如下图，我们举例说明从16k * 1扩展到64k * 8</p><p><img src="64x8%E4%BD%8D.jpg" alt="64x8位"></p><p>这张图可以这样理解，链接的时候，先扩展数据线，数据线扩展到8位，那就8个并联，这就把原先16k * 1扩展成了16k * 8 。之后扩展数据线，数据线要从14根增加到16根，变为可以选择4种空间，也就把刚才的内容复制到4份</p><p>计算片数的时候当然更加简单，只要进行正常的相除就可以</p><p>64 * 8/ (16 * 1) = 条数</p><p>下面写完最后的驱动方式：</p><p><img src="%E7%BA%BF%E9%80%89%E6%B3%95%EF%BC%8C%E9%87%8D%E5%90%88%E6%B3%95.jpg" alt="线选法，重合法"></p><p>驱动方式分为两种：线选法和重合法。很明显重合法通过行列相交的方式实现更好，节省线材</p><h3 id="RAM"><a href="#RAM" class="headerlink" title="RAM"></a>RAM</h3><h4 id="静态RAM"><a href="#静态RAM" class="headerlink" title="静态RAM"></a>静态RAM</h4><p>静态RAM的基本单元电路就略了。静态RAM采取的触发器的原理制成的。</p><p>直接从这个图开始吧</p><p><img src="%E9%9D%99%E6%80%81RAM.jpg" alt="静态RAM"></p><p>这张图上解释了基本的几个部件，CS是片选信号，低电平的时候代表该位置被选中。WE是允许信号，低电平为写，反之为读。GND接地，VCC电源</p><p>而且根据之前的重合法来讲，静态RAM就是采用的上述重合法编辑出来的</p><p>下面我们介绍一下时序控制</p><p><img src="%E8%AF%BB%E5%91%A8%E6%9C%9F.jpg" alt="读周期"></p><p><img src="%E5%86%99%E5%91%A8%E6%9C%9F.jpg" alt="写周期"></p><p>上述的两张图是读写周期，读周期相对简单，这里单介绍一下读周期，写周期的内容其实可以自己推出来了</p><p>读周期开始的时候给出要读取的地址，之后CS片选信号选择对应的地址位置，Dout生效给出数据，输出完毕之后，地址失效，之后会有一段时间依旧给出数据，这段时间是为了保证数据可靠。</p><p>写周期懂的都懂</p><h4 id="动态RAM"><a href="#动态RAM" class="headerlink" title="动态RAM"></a>动态RAM</h4><p>动态RAM相对于静态RAM来说变化还是很多的，这里我就以变化为主线串联这部分内容</p><p>动态RAM最大的变化就是他的存储方式不同，静态RAM采用的是触发器原理，动态RAM采用的是电容器放电的原理。</p><p>首先，电容器放点存储信息的原理和特点</p><blockquote><p>电容器放电：电容器如果有电，表示逻辑1，没电表示逻辑0。电容器的充放电需要额外采用物理结构，而且电容器会随着时间自动放电，所以需要有一个不断充电的过程</p></blockquote><h5 id="动态RAM的电路和时序"><a href="#动态RAM的电路和时序" class="headerlink" title="动态RAM的电路和时序"></a>动态RAM的电路和时序</h5><p>动态RAM的电路使用以下的三管MOS和单管MOS</p><p><img src="%E4%B8%89%E7%AE%A1.jpg" alt="三管"></p><p><img src="%E5%8D%95%E7%AE%A1.jpg" alt="单管"></p><p>每种结构都会有一个预充电元件和一个刷新元件（单管MOS没画）</p><p>在进行芯片选择的时候，还是和静态RAM一样选择重合法或者线选法</p><p>在时序上，只需要注意这几点：动态RAM有RAS和CAS选择器用于选择列信号和行信号，动态RAM在传送的时候不是像静态那样同时传送行列地址选择信息，而是一个一个传输，所以时序上来看，先传入行选择，在传入列选择</p><h5 id="刷新"><a href="#刷新" class="headerlink" title="刷新"></a>刷新</h5><p>这才是动态RAM的重头戏</p><p>动态RAM进行不断充电维持信息的过程称之为刷新，我们以一个例题的题干作为引子</p><blockquote><p>用16K×8位的DRAM芯片构成64K×32位存储器，设存储器读/写周期为0.5μs，CPU在1μs内至少要访问一次。试问采用哪种刷新方式比较合理？</p></blockquote><p>先看这个芯片的数据，地址线是16k的，也就是pow(2,14)，14线，选择的时候是pow(2,7)*pow(2,7)，那也就是说选择的时候是128 * 128。这种选择时课本上的例子，课本给出这种芯片刷新周期是2ms，也就是在2ms必须全部刷新一次。</p><p>下面给出三种刷新方式</p><blockquote><p>集中刷新：集中的进行刷新，一个周期中，前面的时间进行正常的使用和操作，最后一期进行刷新，刷新的周期是和读写周期相同的，且只用刷新行选择就可以刷新完所有的单元。也就是0.5*128=64μs，这部分时间呗称为死时间，啥活儿都干不了。而且cpu访问时间不允许，不成</p><p>分散刷新：集中不是刷新不好不方便吗，那我暴力一点，直接在每次正常操作结束之后就刷新一整行，这样读写周期直接一个加倍，变成1μs处理一个操作刷新一行内容。但是题干是CPU至少访问一次，还是不行，死时间还是太多。（而且有没有发现，一个刷新周期内，甚至有的部件刷新了多余一次）</p><p>异步刷新：为了使得分散刷新能够不进行重复工作，我们把刷新次数先算好，之后平均插入到执行命令的内容之间，这种方式目前是最好的，而且这个题选择这种格式也比较合理</p></blockquote><h4 id="DRAM和SRAM的比较"><a href="#DRAM和SRAM的比较" class="headerlink" title="DRAM和SRAM的比较"></a>DRAM和SRAM的比较</h4><p>动态RAM使用电容器，功率高，速度比静态的慢，但是容量大，便宜，经常用做主存</p><p>静态RAM使用触发器，功耗低，速度比动态的块，但是容量小，挺贵，经常用作cache</p><h3 id="ROM"><a href="#ROM" class="headerlink" title="ROM"></a>ROM</h3><p>ROM这里主要是从历史角度出发的，</p><p>最早的时候只有掩模ROM，这种ROM的制作工艺就是在需要输出1的位置加一个MOS管，没有MOS就是0。当时的ROM还比较傻</p><p>PROM：一次性编程，这种采用的保险丝的方式，保险丝在通过大电流的时候会熔断，断了表示0，否则是1。熔断之后无法复原</p><p>EPROM：这种加入了一种浮动栅，有浮动栅为0，否则为1。这种浮动栅可以用紫外线的方法照射去除，但是不能定向去除，而且照射时间比较长</p><p>EEPROM：还是那个浮动栅，我们发现可以使用电气方法擦除，而且可以定向。后来根据这种方法制成了闪存</p><p>（这里说点题外话，闪存使用的擦除的办法，电擦除一定会磨损芯片，芯片的寿命取决于擦写次数，不要贪便宜买这样的二手盘，目前工艺已经很好了，有的芯片会用算法动态规划，擦写的时候优先擦写新一点的部分使得整体磨损度尽可能相同，现在有的盘可以擦写10w次，基本正常人用要擦写几十年，够用了。而且不要买小厂商的盘，因为没有这样算法的盘容易在多擦几次的时候擦坏）</p><p>行，这次内容先到这儿，后面还有汉明码计算这种阴间东西，字写的太多人怪不愿看的。</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://algarth.github.io/2020/10/27/update-20-10-27/"/>
+    <id>http://algarth.github.io/2020/10/27/update-20-10-27/</id>
+    <published>2020-10-27T07:52:57.000Z</published>
+    <updated>2020-10-27T07:55:51.238Z</updated>
+    
+    <content type="html"><![CDATA[<p>20_10_27的小更新</p><ul><li><p>更新了hexo主题，现在支持这样的展示方法了。</p></li><li><p>更新了之前的笔记，修改了部分措辞不当和乱码</p></li><li><p>增加了目录显示位置，长文章的目录现在会显示在右侧头像的下方</p></li></ul><p>目前一段时间还不打算打开评论区，见谅</p><p>谢谢各位的支持和陪伴呢~~</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;20_10_27的小更新&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;更新了hexo主题，现在支持这样的展示方法了。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;更新了之前的笔记，修改了部分措辞不当和乱码&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;增加了目录显示位置，长文章的目录现在会显示在右侧头像的下</summary>
+      
+    
+    
+    
+    
+    <category term="update" scheme="http://algarth.github.io/tags/update/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>计算机组成原理笔记（第三章）</title>
+    <link href="http://algarth.github.io/2020/10/20/organization2/"/>
+    <id>http://algarth.github.io/2020/10/20/organization2/</id>
+    <published>2020-10-20T02:16:47.000Z</published>
+    <updated>2020-12-29T00:41:10.090Z</updated>
+    
+    <content type="html"><![CDATA[<p>老规矩，上开头！！</p><blockquote><p>突然意识到该写一份计算机组成原理的笔记</p><p>那就写呗</p><p>为的是方便我个人的复习以及对读者进行启发</p><p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p><p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p></blockquote><h1 id="计算机组成原理笔记（第三章）"><a href="#计算机组成原理笔记（第三章）" class="headerlink" title="计算机组成原理笔记（第三章）"></a>计算机组成原理笔记（第三章）</h1><p>本节分为以下几个部分</p><blockquote><p>1.总线分类</p><p>2.总线特性</p><p>3.总线结构</p><p>4.总线控制</p></blockquote><p>总体而言，本章节内容相对较难，但是不如第四章。内容主要以定义的背诵为主，没有过多的计算以及框图的记忆</p><h2 id="总线分类"><a href="#总线分类" class="headerlink" title="总线分类"></a>总线分类</h2><p>上定义： 总线是将计算机各部件连在一起的一组公共信息传输线。</p><p>计算机根据冯诺依曼的分类，5大部件需要进行连接，连接方式有以下两种</p><blockquote><p>总线连接：将各部件连接到一组公共信息传输线上</p><p>分散连接：各部件使用单独的连线进行连接</p></blockquote><p>为了提高效率并且可以方便IO设备的增添和删除，因此现代计算机采用总线连接</p><p>计算机内部的总线是一组内容，因此有必要进行适当的总线分类分类的形式大致如下所示</p><ul><li>片内总线</li><li>系统总线<ul><li>数据总线</li><li>地址总线</li><li>控制总线</li></ul></li><li>通信总线</li></ul><p>另外，总线的分类方式不止一种，按照数据传送方式可以分为并行传输总心啊和串行传输总线，串行传输中也可以根据传输数据宽度分为不同位数的传输总线。本章着重讲解的是按照连接部件的分类</p><p>下面就对上述5种总线进行逐一介绍</p><h3 id="片内总线"><a href="#片内总线" class="headerlink" title="片内总线"></a>片内总线</h3><p>芯片内部的总线</p><p>比如CPU中间的ALU，寄存器之间的总线</p><h3 id="系统总线"><a href="#系统总线" class="headerlink" title="系统总线"></a>系统总线</h3><p>又称板级总线，板间总线。是5个大部件之间连接的总线</p><p>系统总线下分为数据总线，地址总线，控制总线</p><h4 id="数据总线"><a href="#数据总线" class="headerlink" title="数据总线"></a>数据总线</h4><p><em>双向传输线</em></p><p>数据总线传输部件之间的数据信息，位数称为数据总线宽度</p><h4 id="地址总线"><a href="#地址总线" class="headerlink" title="地址总线"></a>地址总线</h4><p><em>单项传输线</em></p><p>指出数据总线的原数据或者目的数据的主存地址/IO上的地址</p><p>位数和存储单元的个数有关</p><h4 id="控制总线"><a href="#控制总线" class="headerlink" title="控制总线"></a>控制总线</h4><p><em>单项传输线</em></p><p>发送各种控制信号</p><h3 id="通信总线"><a href="#通信总线" class="headerlink" title="通信总线"></a>通信总线</h3><p>用于计算机系统之间或者计算机和其他系统之间的通信</p><p>传输方式有两种，其实也就是开头提到的按照传输方式分类的那两个</p><blockquote><p>串行通信：单条传输线上在不同的时间一位一位传输过去</p><p>并行通信：多条数据线在同一时间内传输过去</p></blockquote><h2 id="总线特性"><a href="#总线特性" class="headerlink" title="总线特性"></a>总线特性</h2><p>首先自然是基本的总线特性：机械特性，电气特性，功能特性，时间特性</p><p>这些特性比较简单，直接背过就可以了</p><h3 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h3><p>总线的性能指标包括以下几种</p><blockquote><p>总线宽度：数据总线的根数，一般用8位，16位，32位表示。（和32位，64位电脑的概念差不多，32位电脑指CPU一次可以处理32位数据线的数据）</p><p>总线带宽：总线传输速率，单位是MBPs，和第一章的MIPs计算有相似之处，将Hz理解为Ps，带宽就是兆字节*Hz</p><p>时钟同步 / 异步：总线上的数据和时钟同步运算就称为同步总线，否则是异步总线</p><p>（后续内容为细碎的知识点，个人认为是非重点）</p><p>信号线数：地址总线，数据总线，控制总线的总和</p><p>其他的参数比如传输周期，时钟周期，工作效率，总线复用等等</p></blockquote><h3 id="总线标准"><a href="#总线标准" class="headerlink" title="总线标准"></a>总线标准</h3><p>这真的是恶心中的恶心，重点中的重点</p><p>这一章设计到很多的总线结构，名字很混乱，这里只是列出常考的重点内容，方便各位做填空和选择</p><blockquote><p>ISA：最早出现的微型计算机系统总线，为16位CPU量身定制</p><p>EISA：Express-ISA，是ISA为32位计算机设计的扩展总线，对ISA完全兼容</p><p>VESA：局部总线，在系统外的高速数据传输，就是DMA那个线</p><p>PCI：高性能的32位或64位总线，有好的兼容性，可通过超链接实现多层PCI总线，即插即用（这点多代指USB，别混淆）</p><p>AGP：为了视频设计的视频接口，传输三维数据，是显示卡专用的局部总线</p><p>RS-232：串行总线接口，内含DTE和DCE两个设备，反人类的反向表示逻辑二进制，低电平是1，反之是0，可以载波电话线。</p><p>USB：即插即用，懂得都懂</p></blockquote><h2 id="总线结构"><a href="#总线结构" class="headerlink" title="总线结构"></a>总线结构</h2><blockquote><p>单总线结构：小型计算机和微型计算机采用的设计结构，所有设备都和一条总线连接，设计简单便宜，但是总线负载过大，不容易并发传送</p><p>双总线结构：因为IO数据线传输速度相对较慢，就把他单独提出来，传建一个IO总线，就有了双总线结构，提高了总线的速度</p><p>多总线结构：多总线结构各有各的设计方案，比如一种三总线设计方案是在加入cache从而使得CPU和cache之间设计新总线，甚至在这种情况下还要吧cache和主存架设一条总线，形成四总线结构</p></blockquote><h2 id="总线控制"><a href="#总线控制" class="headerlink" title="总线控制"></a>总线控制</h2><p>最后一个重头戏内容</p><p>主要包括以下两个控制，判优控制，通信控制</p><h3 id="判优控制"><a href="#判优控制" class="headerlink" title="判优控制"></a>判优控制</h3><p>又称仲裁控制</p><p>判优的逻辑前提是：总线上的设备有主设备和从设备，主设备可以对总线有控制权，为了分配这种控制权，需要判优决定使用先后问题</p><p>判优分为集中式和分布式，速度来说肯定是分布式比较快，但是造假高</p><p>书中的例子全部是针对集中式的，下面是三个例子</p><blockquote><p>链式查询：一根线从头到尾发送地址，和那个接口地址吻合之后进行使用，从头到尾顺序是固定的，所以优先级是死的，而且如果中间断了，后面都完蛋</p><p>计数器定时查询：用定时器存储地址，每次地址++而且对n取模，循环查找，这样就不知道从哪里开始，动态的开始点使得优先级不是固定的了。</p><p>独立请求：每个IO设备自己申请去，按申请顺序一个一个占用总线。非常好的方式，就是贵</p></blockquote><p>使用线材上：</p><blockquote><p> 链式查询：2根有用的线，1根其他线，说法上是用2根线完成的，BG线用于一个一个从头到尾查找，BR线用于传送信息，额外的BS表示总线忙，防止其他IO占用</p><p>计数器定时查询：logn条线，BR，BS不变，删掉BG，增加一个地址线用于搜索地址，地址线不是一条线，而是使用二进制进行确定选择，所以是logn条，最后的常数忽略不计</p><p>独立请求：2n条线，每个县自己一个BG，BR</p></blockquote><h3 id="通信控制"><a href="#通信控制" class="headerlink" title="通信控制"></a>通信控制</h3><p>通信控制有4个阶段：申请分配，寻址，传数，结束</p><p>通信控制用于解决中间的如何调配以及获知双方开始传输和结束的问题</p><p>分为以下几种</p><blockquote><p>同步通信：各个设备时间一直的根据时钟周期办事</p><p>异步通信：各设备的时间动态分配，分配方式称为互锁</p><p>半同步通信：各个设备的时间还是和同步通信差不多，但是不是严格的一个操作占一个周期，中间不工作的时候用WAIT总线暂停n个周期</p><p>分离式通信：上述的通信都会一直占用总线，分离式分离的占用总线，中间可能一段时间就不占用了。操作实现复杂，不在小型机和微型机上实现</p></blockquote><p>四种结构中，前两种比较复杂，第三种和第一种相似，第四个不展开讲，所以下面介绍一下前两种</p><h4 id="同步通信"><a href="#同步通信" class="headerlink" title="同步通信"></a>同步通信</h4><p><img src="input.jpg" alt="input"></p><p>这里先放张图，这个是输入的图片</p><p>图上可以看出，在根据这一个之中周期来看，第一个周期读入地址，第二周期读命令，三周期传数据，四周期撤销操作。</p><p>这个矩形块表示电路的三态门结构，看不懂没关系</p><p>如果上述内容看懂了，其实输出的这张图也看的懂了，那下面这张图给给为练手</p><p><img src="output.jpg" alt="output"></p><h4 id="异步通信"><a href="#异步通信" class="headerlink" title="异步通信"></a>异步通信</h4><p>异步通信讲究的就是一个互锁，但是先容我把除了互锁之外的内容交代清楚</p><blockquote><p>波特率：单位时间传输的二进制位，在数据传输中，一个数据中包含奇偶校验位，开头结尾位，这些在计算波特率的时候都要计算进去</p></blockquote><p>那接下来就是互锁部分<img src="husuo.jpg" alt="husuo"></p><blockquote><p>不互锁：请求之后不要求应答，一段时间之后去确认是否收到就行，如果收到就撤销请求</p><p>半互锁：比上面的麻烦，请求之后还要应答，应答之后就撤回请求</p><p>全互锁：最复杂，最后应答之后还要在要求确认收到，再加一个应答，应答后撤回原信号</p></blockquote><h4 id="半同步通信"><a href="#半同步通信" class="headerlink" title="半同步通信"></a>半同步通信</h4><p>半同步介于上述两者之间，他和CPU一起采用时钟周期，但是还采用异步的应答，为了让两者匹配，加入了一条wait线，两者不匹配的时候直接用wait线停顿</p><h4 id="分离式通信"><a href="#分离式通信" class="headerlink" title="分离式通信"></a>分离式通信</h4><p>分离就直接和机器分开了，可以理解为PCI总线</p><p>行了，第三章东西挺多，希望看的时候多留心，理一下框架呢</p><p>第三章到此结束</p><hr><p><em>我是ALgarth，如果有缘，我们下次再见。</em></p><p><em>图片来自网络，侵删。</em></p><p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;老规矩，上开头！！&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;突然意识到该写一份计算机组成原理的笔记&lt;/p&gt;
+&lt;p&gt;那就写呗&lt;/p&gt;
+&lt;p&gt;为的是方便我个人的复习以及对读者进行启发&lt;/p&gt;
+&lt;p&gt;目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的&lt;/p&gt;
+&lt;p&gt;内容</summary>
+      
+    
+    
+    
+    
+    <category term="计算机组成原理" scheme="http://algarth.github.io/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/"/>
+    
+  </entry>
+  
+</feed>

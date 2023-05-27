@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>计算机组成原理（第七章） | ALgarth's blog</title>
+  <meta name="author" content="ALgarth" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="计算机组成原理" />
+  
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第七章）第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理（第七章）">
+<meta property="og:url" content="http://algarth.github.io/2020/12/23/organization9/index.html">
+<meta property="og:site_name" content="ALgarth&#39;s blog">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第七章）第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://algarth.github.io/null">
+<meta property="article:published_time" content="2020-12-23T08:13:56.000Z">
+<meta property="article:modified_time" content="2020-12-23T08:38:34.265Z">
+<meta property="article:author" content="ALgarth">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://algarth.github.io/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="ALgarth's blog" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">计算机组成原理（第七章）</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2020-12-23
+                        <i class="fa fa-folder"></i> 分类于 
+                        <i class="fa fa-user"></i> 作者 ALgarth
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.52K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第七章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">机器指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">操作数和操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC"><span class="toc-number">1.4.</span> <span class="toc-text">RISC</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <p>老规矩，上开头！！</p>
+<blockquote>
+<p>突然意识到该写一份计算机组成原理的笔记</p>
+<p>那就写呗</p>
+<p>为的是方便我个人的复习以及对读者进行启发</p>
+<p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
+<p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
+</blockquote>
+<h1 id="计算机组成原理（第七章）"><a href="#计算机组成原理（第七章）" class="headerlink" title="计算机组成原理（第七章）"></a>计算机组成原理（第七章）</h1><p>第七章主要是说明类的内容，这一章可以和第三章相提并论，第三章内容多，写了20页，这一章写了33页，但是中间有一部分内容是在划水摸鱼，所以两章实际内容我感觉量差不多</p>
+<p> 本章的第四节是指令格式举例，这部分可以理解为一个举例，并不是那么重要，这里我也就不写了</p>
+<p>那闲话不多说，直接开始第七章</p>
+<p>本章分为以下内容</p>
+<blockquote>
+<ol>
+<li>机器指令</li>
+<li>操作数和操作</li>
+<li>寻址方式</li>
+<li>RISC</li>
+</ol>
+</blockquote>
+<h2 id="机器指令"><a href="#机器指令" class="headerlink" title="机器指令"></a>机器指令</h2><p>机器指令在第一章就学过了，这里再学的是机器指令的一般形式。</p>
+<p>每一条指令都由两部分组成，操作码和地址码。操作码通过操作码的数值表示操作，地址码不仅仅是自己的地址，比如加减法数字的地址，结果的地址，下一操作的地址等等。</p>
+<p>操作码有扩展和不扩展两种设计方法，固定操作码或不扩展操作码是指操作码的长度是一个定值，扩展操作码是是指操作码可以伸长或者缩短，指令的长度是一个定值，那么扩展码的长度改变势必同时引起指令码的改变，我们按照地址码的长度对地址码起名，产生了零地址，一地址，二地址等等的说法。计算操作码的时候，在扩展操作码上面的计算会比较复杂。</p>
+<p>这里做一个假设，假设一个简单的扩展操作码，有两种操作码长度，4个字节长的操作码，伸长之后会成为6个字节长度。假设一个四个字节的操作码，他有一个操作码是0001，那么，他就不会进行扩展成为6字节的形式，比如000001这种情况，这两个操作码还要考虑是不是一个操作码，因此计算机在处理这种指令的时候，如果存在0001，那么无论XX0001的格式有什么，我们一概不将这种内容视为操作码。计算的时候留意就行了。</p>
+<p>地址码有多重长度之分，细节如下：</p>
+<blockquote>
+<p>四地址：包括两个操作数地址，一个结果地址，一个下一条指令地址，这就可以满足一个基本的二元运算符了，使用时访问四次存储器（操作数两个，操作符一个，结果一个）</p>
+<p>三地址：把上述的狭义指令地址删除，用PC实现，剩下的就是三地址，使用时依旧访问四次存储器</p>
+<p>二地址：操作数也是结果地址，a+=b; 节省了访问次数，使用时访问三次存储器</p>
+<p>一地址：把之前的那个操作数存放在ACC里了，ACC存放操作数和结果，第二操作数自己存储，使用时访问两次存储器</p>
+<p>零地址：全存在寄存器里了，就直接不用立省100%</p>
+</blockquote>
+<h2 id="操作数和操作"><a href="#操作数和操作" class="headerlink" title="操作数和操作"></a>操作数和操作</h2><p>操作数常见的有四种：地址，数字，字符，逻辑数据（这不是懂得都懂）</p>
+<p>数据的存放方式也有多重，常见的有字节，半字，字，双字，四字</p>
+<p>操作类型包括：数据传送，逻辑操作，移位，转移（可以粗略理解为goto语句），输入输出，其他</p>
+<p>转移又分为多种：无条件转移（goto语句），条件转移（if语句实现跳转），调用与返回，陷阱和陷阱指令（系统出现意外）</p>
+<h2 id="寻址方式"><a href="#寻址方式" class="headerlink" title="寻址方式"></a>寻址方式</h2><p>寻址方式是为了确定当前指令数据位置和下一条指令的位置，前者称为指令寻址，后者称为数据寻址。</p>
+<p>指令寻址相对简单，分为顺序寻址和跳跃寻址，顺序寻址就是一条一条指令顺序进行找到地址，跳跃就是goto语句跳转到下一条指令继续进行。</p>
+<p>数据寻址才是相对重要的内容，包括以下10种基本寻址方式</p>
+<p>这里先进行基本的介绍，数据存放的地址其实一般不是数据的真实地址，在C语言中，指针的地址，就是&amp;a得到的16进制码其实并不是数据在计算机中的真实地址，我们称这种地址为形式地址，记做A，真实地址称为有效地址，记做EA（不是某EA！！）</p>
+<p>我们在指令的地址部分中加入一个寻址特征，用来指定当前指令的寻址方式</p>
+<blockquote>
+<p>立即寻址：他的寻址特征一般用#来表示，他的地址就是操作数本身，每次访问这个操作数，直接进行加减就行。这是一种很基本的寻址方式</p>
+<p>直接寻址：直接寻址的地址是就是真实的地址，即A=EA。</p>
+<p>隐含寻址：隐含寻址是指令字中给定一个操作数的地址，另一个地址是在寄存器中的，比如累加操作中直接用ACC进行保存另一个操作数的地址</p>
+<p>间接寻址：可以理解为这个形式地址指向的是一个指针的地址，通过这个指针再次指向真正的地址，当然，这个指针可以是指针的指针。（他有两个优点，1,这种操作扩展了操作数的寻址范围，2，可以用于编程。1个缺点：由于一次寻址会访问很多的地址，会导致执行时间延长）</p>
+<p>寄存器寻址：一种广泛应用的寻址方式，这里的形式地址指定的就是一个寄存器的地址，直接调用寄存器北部的数据。优点有二：1， 寄存器的访问速度快。2， 寄存器的地址短，节省了形式地址的存储空间</p>
+<p>寄存器间接寻址：通过在寄存器中存储操作数的地址，指针型访问，这种方法可以让访问存储器的次数-1</p>
+<p>基址寻址：基址寻址可以理解为两者的简单相加，EA=A+BR，BR是基址，储存在基址寄存器中，基址本身分为显式和隐式两种，前者是用户必须自己明确指明在哪个寄存器中存储了内容，后者是由计算机自行分配</p>
+<p>变址寻址：变址寻址和基址寻址是差不多的意思，变址寻址给定的是一个可变的BR记为IX，可以理解为之前的BR扩展为一个数组，方便对多个数据进行寻址</p>
+<p>相对寻址：相对寻址和基址寻址其实理解上差不太多，差异在于 ，相对寻址可以理解为一次C语言的数组寻址，每次找到的是相对于a[0]位置进行偏移的元素</p>
+<p>堆栈寻址：堆栈寻址其实是使用堆栈的方法去找操作数</p>
+</blockquote>
+<h2 id="RISC"><a href="#RISC" class="headerlink" title="RISC"></a>RISC</h2><p>RISC其实我倒很早就接触了，RISC产生有一个说法：计算机中80%的语句仅仅使用了20%的指令。这句话其实表明，我们要实现的内容很多，但是他们都可以用一小部分基本的小指令组合构成。那么我们就可以使用少部分指令完成大部分工作。</p>
+<p>相对而言，和RISC对应的就是CISC。CISC就是没有脑子的直接存放所有指令的那种，称为复杂指令系统。</p>
+<p>两者相比，RISC有以下优点</p>
+<blockquote>
+<p>充分利用VLSI的面积</p>
+<p>提高计算机运算的速度</p>
+<p>降低成本，提高可靠性</p>
+<p>支持高级语言</p>
+</blockquote>
+<p>第七章内容到此结束。</p>
+<hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://algarth.github.io/2020/12/23/organization9/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://algarth.github.io/2020/12/23/organization9/";
+            const title         = "「计算机组成原理（第七章）」";
+            const excerpt       = `老规矩，上开头！！
+
+突然意识到该写一份计算机组成原理的笔记
+那就写呗
+为的是方便我个人的复习以及对读者进行启发
+目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-12-23</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 计算机组成原理（第六章）（下）" href="/2020/12/21/organization8/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理（第八章）" href="/2020/12/26/organization10/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%B8%83%E7%AB%A0%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第七章）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%BA%E5%99%A8%E6%8C%87%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">机器指令</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E6%95%B0%E5%92%8C%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">操作数和操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E5%9D%80%E6%96%B9%E5%BC%8F"><span class="toc-number">1.3.</span> <span class="toc-text">寻址方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#RISC"><span class="toc-number">1.4.</span> <span class="toc-text">RISC</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/projectpool/" style="font-size: 0.6em;">projectpool</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 0.6em;">竞赛</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/projectpool/"><i class="fa  fa-book"></i> 计划进程池设定</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/02/09/jingsai8/"><i class="fa  fa-book"></i> 算法竞赛从入门到进阶（8）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:algarth@163.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/ALgarth"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 ALgarth 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    </body>
+</html>

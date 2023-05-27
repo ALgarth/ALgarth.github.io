@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>计算机组成原理（第五章剩余内容） | ALgarth's blog</title>
+  <meta name="author" content="ALgarth" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="计算机组成原理" />
+  
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第五章剩余内容）本节内容相对而言不算太多，及时是第五章后面三节，内容其实不过如此，下面是这次的大纲   程序查询流程 程序中断">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理（第五章剩余内容）">
+<meta property="og:url" content="http://algarth.github.io/2020/12/09/organization6/index.html">
+<meta property="og:site_name" content="ALgarth&#39;s blog">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第五章剩余内容）本节内容相对而言不算太多，及时是第五章后面三节，内容其实不过如此，下面是这次的大纲   程序查询流程 程序中断">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://algarth.github.io/null">
+<meta property="article:published_time" content="2020-12-09T04:35:11.000Z">
+<meta property="article:modified_time" content="2020-12-20T02:12:37.986Z">
+<meta property="article:author" content="ALgarth">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://algarth.github.io/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="ALgarth's blog" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">计算机组成原理（第五章剩余内容）</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2020-12-09
+                        <i class="fa fa-folder"></i> 分类于 
+                        <i class="fa fa-user"></i> 作者 ALgarth
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.46K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%89%A9%E4%BD%99%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第五章剩余内容）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">程序查询流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">程序中断操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DMA"><span class="toc-number">1.3.</span> <span class="toc-text">DMA</span></a></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <p>老规矩，上开头！！</p>
+<blockquote>
+<p>突然意识到该写一份计算机组成原理的笔记</p>
+<p>那就写呗</p>
+<p>为的是方便我个人的复习以及对读者进行启发</p>
+<p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
+<p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
+</blockquote>
+<h1 id="计算机组成原理（第五章剩余内容）"><a href="#计算机组成原理（第五章剩余内容）" class="headerlink" title="计算机组成原理（第五章剩余内容）"></a>计算机组成原理（第五章剩余内容）</h1><p>本节内容相对而言不算太多，及时是第五章后面三节，内容其实不过如此，下面是这次的大纲</p>
+<blockquote>
+<ol>
+<li>程序查询流程</li>
+<li>程序中断操作</li>
+<li>DMA</li>
+</ol>
+</blockquote>
+<p>这次的图片内容比较多，希望各位以图片内容为主，毕竟这一章还是更偏重与理解。</p>
+<h2 id="程序查询流程"><a href="#程序查询流程" class="headerlink" title="程序查询流程"></a>程序查询流程</h2><p>程序进行流程查询，我们以单个程序进行查询为例</p>
+<p><img src="%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E7%9A%84%E7%A8%8B%E5%BA%8F%E6%B5%81%E7%A8%8B.jpg" alt="程序查询方式的程序流程"></p>
+<p>单个程序查询的方式如上图所示，每次在启动IO设备之后有一个循环，持续询问IO设备是否准备好，这个过程是整个数据交换的重点</p>
+<p>为了实现这种查询，我们定义了三种指令</p>
+<blockquote>
+<p>测试指令：进入询问过程之前的指令，用来查询IO设备是否准备就绪</p>
+<p>传送指令：询问后的一种情况对应的指令，指IO准备完成之后的传送指令，他会继续测试IO设备的状态</p>
+<p>转移指令：IO设备未准备就绪，继续跳转为测试指令进行询问IO设备状态</p>
+</blockquote>
+<p>这种查询也可以推广到多程序查询，如下图</p>
+<p><img src="%E5%A4%9A%E4%B8%AAIO%E8%AE%BE%E5%A4%87%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B.jpg" alt="多个IO设备的查询流程"></p>
+<p>当然还有几个内容要进行补充：</p>
+<blockquote>
+<ol>
+<li>传送数据的时候要占用CPU的寄存器，所以传送之前会先进行CPU的数据保存，保存之后再进行IO传输，IO结束后进行</li>
+<li>IO的准备好判定其实是进行数据寄存器是否空或者是满的判断，写入数据时，如果寄存器满，就进行传输，反之在读出数据的时候，刚好相反，判断数据寄存器是否为空</li>
+</ol>
+</blockquote>
+<p>这里补上之前的一张中断宏观示意图</p>
+<p><img src="%E4%B8%AD%E6%96%AD%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="中断示意图"></p>
+<p>接下来，我们展开之前的那个查询电路，得到了下面这张电路图，我们根据这张图来进行后续的说明</p>
+<p><img src="%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%96%B9%E5%BC%8F%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF.jpg" alt="程序查询方式接口电路"></p>
+<p>这张图中，B是工作触发器，D是完成触发器，一旦工作开始，那么B进行工作，D停止工作，开启右边的4号门。完成后，D执行，B休息，7号门执行。</p>
+<h2 id="程序中断操作"><a href="#程序中断操作" class="headerlink" title="程序中断操作"></a>程序中断操作</h2><p>我们现在简单看一下IO中断的产生过程</p>
+<p><img src="IO%E8%AE%BE%E5%A4%87%E6%8F%92%E5%85%A5%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg" alt="IO设备插入示意图"></p>
+<p>当打印机进行IO设备的访问时，先进行请求CPU，CPU接受了消息，之后接着忙手头的活动，等待打印机后续请求，之后一旦收到打印机的中断请求，就进行终端，传送计算机的数据，传输完毕后，继续执行主程序，等待打印机后续的请求</p>
+<p>接下来我们来看程序中断的接口电路</p>
+<p>电路我们先看其中的信号发生器</p>
+<p><img src="%E4%B8%AD%E6%96%AD%E6%9F%A5%E8%AF%A2%E9%83%A8%E5%88%86%E5%9B%BE.jpg" alt="中断查询部分图"></p>
+<p>这张图表示了INTR中断请求触发器和MASK中断屏蔽触发器</p>
+<p>这张图中，D还是上面那个完成触发器，一旦程序完成，而且屏蔽触发不进行工作，那么就进行中断请求触发器。否则。中断屏蔽触发器是用来中断当前信号发送的。</p>
+<p>INTR的信号向上传输就会到达排队器，进行信号排队</p>
+<p><img src="%E6%8E%92%E9%98%9F%E5%99%A8.jpg" alt="排队器"></p>
+<p>这个排队器是一个链式结构，只要有一个INTR工作，那么就进行中断处理，当前请求INTP前面的电路依然连通，后续的电路就会断开。</p>
+<p>通过排队器进行执行判断的过程称为<strong>中断判优</strong></p>
+<p>如果CPU统一了中断，称为<strong>中断响应</strong></p>
+<p>整个图片集合在一起就是下图</p>
+<p><img src="%E4%B8%AD%E6%96%AD%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E5%85%A8%E8%B2%8C.jpg" alt="中断接口电路全貌"></p>
+<p>中断服务也是有一定的流程的，且单重中断和多重中断的流程在细节上有所不同，话不多说，先上图</p>
+<p><img src="%E5%8D%95%E9%87%8D%E4%B8%AD%E6%96%AD%E5%92%8C%E5%A4%9A%E9%87%8D%E4%B8%AD%E6%96%AD.jpg" alt="单重中断和多重中断"></p>
+<p>先解释一下图片中中断周期后面的内容</p>
+<blockquote>
+<p>保护现场：1.保护程序的断点，2.保护程序寄存器的内容</p>
+<p>中断服务：就是IO设备去进行IO设备自己的内容</p>
+<p>恢复现场：取出当时保护现场得到的指令</p>
+<p>中断返回：重新进行主程序</p>
+</blockquote>
+<p>这里还有一个开中断的说法，开中断是指放开原来的中断请求，等待下一个中断请求的到来</p>
+<p>单重中断的时候等到处理完毕之后再进行开中断，多重中断为了快速处理新的中断内容，保护现场之后就要立即开中断</p>
+<h2 id="DMA"><a href="#DMA" class="headerlink" title="DMA"></a>DMA</h2><p>DMA方式是对某磁轭紧急IO设备采取的直接和主存相连的模式，他的调用和一般的IO设备不同，为的是解决某些紧急的IO设备急需访问CPU的情况。</p>
+<p>DMA和主存交换数据的时候一般有以下三种</p>
+<blockquote>
+<ol>
+<li>停止CPU访问主存：当DMA接口访问的时候，直接暂停CPU的工作，进行DMA接口的工作，没有什么规律可言，就是动态分配</li>
+<li>周期挪用：每次DMA进行请求的时候，主存结束当前周期之后，将新的1个或几个周期分配给DMA接口使用这种设计比较合理，因此被大多数设备采用</li>
+<li>DMA和CPU交替访问：直接将DMA和CPU的工作分开，一部分周期直接永久分配给DMA设备，两者的交替进行</li>
+</ol>
+</blockquote>
+<p>下面我们来看一下DMA的接口</p>
+<p><img src="DMA%E6%8E%A5%E5%8F%A3.jpg" alt="DMA接口"></p>
+<p>DMA接口内部就是由这六者组成的</p>
+<blockquote>
+<p>AR：（主存）地址寄存器，负责地址查找，传送开始的时候，CPU将地址传送给AR，AR接受了地址之后通过++运算，不断访问后续的地址位置</p>
+<p>WC：字计数器，就是记录要传送多少个字，传送数据够了就调用终止信号终止传送。</p>
+<p>DAR：（设备）地址寄存器，存储要调用设备哪一个位置的存储器</p>
+<p>BR：数据暂存寄存器</p>
+<p>DMA控制逻辑：就是直接进行DMA控制的，和CPU交换控制信号的元件</p>
+<p>中断机构：中断机构就是调用DMA上面的中断服务的机构，一旦WC计数器中的值归零后，这代表着数据传送完毕，中断机构就找CPU进行中断请求</p>
+</blockquote>
+<p>DMA接口的工作过程分为大致三个阶段</p>
+<blockquote>
+<p>预处理阶段：这个阶段主要进行预处理，包括CPU传送地址给DMA的AR，初始化WC的值等等</p>
+<p>数据传送：就是主要进程</p>
+<p>后处理：CPU处理最后的中断进程，终止和DMA接口的链接</p>
+</blockquote>
+<p>下面来看DMA的链接方式：</p>
+<p>DMA的链接方式分为DMA之间的链接和DMA与设备的链接</p>
+<p>DMA直接的链接包括</p>
+<blockquote>
+<p>具有公共请求线的链接：就是第三章总线那里的总线方式，省线材，但是具有设备具有优先顺序</p>
+<p>独立的DMA请求：第三章的独立请求，没有优先顺序，但是耗线材</p>
+</blockquote>
+<p>DMA和设备的链接</p>
+<blockquote>
+<p>选择型DMA接口：对于多个设备进行选择处理，选择一个设备进行链接，这种DMA的接口虽说是链接了很多的设备，但是其实在同一时间只能使用一个设备进行DMA的传输。</p>
+<p>多路型DMA接口：多路型的DMA接口实现了多个设备同时使用DMA进行传送的需求，只是设计复杂，稍微贵点儿</p>
+</blockquote>
+<p>那第五章到此结束</p>
+<hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://algarth.github.io/2020/12/09/organization6/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://algarth.github.io/2020/12/09/organization6/";
+            const title         = "「计算机组成原理（第五章剩余内容）」";
+            const excerpt       = `老规矩，上开头！！
+
+突然意识到该写一份计算机组成原理的笔记
+那就写呗
+为的是方便我个人的复习以及对读者进行启发
+目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-12-20</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 计算机组成原理（第四章下和第五章开头）" href="/2020/11/25/organization5/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理（第六章）（上）" href="/2020/12/20/organization7/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E4%BA%94%E7%AB%A0%E5%89%A9%E4%BD%99%E5%86%85%E5%AE%B9%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第五章剩余内容）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E6%9F%A5%E8%AF%A2%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">程序查询流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A8%8B%E5%BA%8F%E4%B8%AD%E6%96%AD%E6%93%8D%E4%BD%9C"><span class="toc-number">1.2.</span> <span class="toc-text">程序中断操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DMA"><span class="toc-number">1.3.</span> <span class="toc-text">DMA</span></a></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/projectpool/" style="font-size: 0.6em;">projectpool</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 0.6em;">竞赛</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/projectpool/"><i class="fa  fa-book"></i> 计划进程池设定</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/02/09/jingsai8/"><i class="fa  fa-book"></i> 算法竞赛从入门到进阶（8）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:algarth@163.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/ALgarth"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 ALgarth 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    </body>
+</html>

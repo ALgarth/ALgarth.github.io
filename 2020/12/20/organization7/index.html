@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+  <!-- 元数据 -->
+  <meta charset="utf-8">
+  <link rel="icon" href="">
+  <title>计算机组成原理（第六章）（上） | ALgarth's blog</title>
+  <meta name="author" content="ALgarth" />
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="robots" content="index,follow" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <meta name="format-detection" content="telphone=no, email=no" />
+  
+    <meta name="keywords" content="计算机组成原理" />
+  
+  <meta name="description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第六章）（上）本章主要讲解定点数和浮点数的四则运算，最后还要提一句ALU的介绍，为第七章节省篇章  有无符号数和定点浮点表示">
+<meta property="og:type" content="article">
+<meta property="og:title" content="计算机组成原理（第六章）（上）">
+<meta property="og:url" content="http://algarth.github.io/2020/12/20/organization7/index.html">
+<meta property="og:site_name" content="ALgarth&#39;s blog">
+<meta property="og:description" content="老规矩，上开头！！  突然意识到该写一份计算机组成原理的笔记 那就写呗 为的是方便我个人的复习以及对读者进行启发 目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的 内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC  计算机组成原理（第六章）（上）本章主要讲解定点数和浮点数的四则运算，最后还要提一句ALU的介绍，为第七章节省篇章  有无符号数和定点浮点表示">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://algarth.github.io/null">
+<meta property="article:published_time" content="2020-12-20T02:13:06.000Z">
+<meta property="article:modified_time" content="2020-12-23T05:25:24.429Z">
+<meta property="article:author" content="ALgarth">
+<meta property="article:tag" content="计算机组成原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://algarth.github.io/null">
+<meta name="twitter:site" content="@null">
+  
+  <!-- 站点验证相关 -->
+  
+    
+    
+    
+  
+  <!-- 样式表文件 -->
+  <link rel="stylesheet" id="kratos-css" href="/css/kratosr.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="highlight-css" href="/css/highlight.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="fontawe-css" href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" type="text/css" media="all">
+  <link rel="stylesheet" id="nprogress-css" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" type="text/css" media="all">
+  
+  
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css">
+  
+  
+    <link rel="stylesheet" id="darkmode-css" href="/css/kr-dark.min.css" type="text/css" media="all">
+  
+  <!-- 不得不预先加载的一些JS文件 -->
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+  
+    <script src="https://cdn.jsdelivr.net/npm/qrcode_js@1.0.0/qrcode.min.js"></script>
+  
+  
+<meta name="generator" content="Hexo 5.2.0"><link rel="alternate" href="/atom.xml" title="ALgarth's blog" type="application/atom+xml">
+</head>
+
+
+    <body class="custom-background">
+        <div id="kratos-wrapper">
+    <div id="kratos-page">
+        <div id="kratos-header">
+            <div class="nav-toggle"><a class="kratos-nav-toggle js-kratos-nav-toggle"><i></i></a></div>
+            <header id="kratos-header-section">
+                <div class="container">
+                    <div class="nav-header">
+                        <div class="color-logo"><a href="/">ALgarth&#39;s blog</a></div>
+                        <nav id="kratos-menu-wrap">
+                            <ul id="kratos-primary-menu" class="sf-menu">
+                                
+                                    
+                                        <li><a href="/"><i class="fa fa-home"></i>首页</a></li>
+                                    
+                                
+                                    
+                                        <li><a href="/archives/"><i class="fa fa-file"></i>档案馆</a></li>
+                                    
+                                
+                                    
+                                        <li>
+                                            <a><i class="fa fa-link"></i>链接</a>
+                                            <ul class="sub-menu">
+                                                
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://blog.csdn.net/algarth">作者博客</a></li>
+                                                    
+                                                
+                                                    
+                                                        <li><a target="_blank" rel="noopener" href="https://github.com/ALgarth">项目链接</a></li>
+                                                    
+                                                
+                                            </ul>
+                                        </li>
+                                    
+                                
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <div class="kratos-start kratos-hero-2">
+            <!-- <div class="kratos-overlay"></div> -->
+            <div class="kratos-cover kratos-cover-2 text-center">
+                <div class="desc desc2 animate-box">
+                    <a href="/">
+                        <h2>ALgarth&#39;s blog</h2> <br />
+                        <span>欢迎捞到摸鱼仙人的博客呢_(:3」∠)_</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="kratos-blog-post">
+            <div class="container">
+                <div class="row">
+                    
+        <div id="main">
+            <section class="col-md-8">
+    <article>
+        <div class="kratos-hentry kratos-post-inner clearfix">
+            <header class="kratos-entry-header">
+                <h1 class="kratos-entry-title text-center">计算机组成原理（第六章）（上）</h1>
+                
+                <div class="kratos-post-meta text-center">
+                    <span>
+                        <i class="fa fa-calendar"></i> 2020-12-20
+                        <i class="fa fa-folder"></i> 分类于 
+                        <i class="fa fa-user"></i> 作者 ALgarth
+                        <i class="fa fa-edit"></i> 
+                        
+                        
+                            ~2.06K
+                        
+                        字
+                        
+                    </span>
+                </div>
+            </header>
+            <div class="kratos-post-content">
+                
+                    <div class="kratos-post-inner-toc">
+                        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%89%EF%BC%88%E4%B8%8A%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第六章）（上）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E5%92%8C%E5%AE%9A%E7%82%B9%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">有无符号数和定点浮点表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.</span> <span class="toc-text">定点数的四则运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">移位运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E5%92%8C%E5%87%8F%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">加法和减法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%98%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">乘法</span></a></li></ol></li></ol></li></ol>
+                    </div>
+                
+                <hr />
+                <p>老规矩，上开头！！</p>
+<blockquote>
+<p>突然意识到该写一份计算机组成原理的笔记</p>
+<p>那就写呗</p>
+<p>为的是方便我个人的复习以及对读者进行启发</p>
+<p>目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的</p>
+<p>内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记，刘宏伟老师MOOC</p>
+</blockquote>
+<h1 id="计算机组成原理（第六章）（上）"><a href="#计算机组成原理（第六章）（上）" class="headerlink" title="计算机组成原理（第六章）（上）"></a>计算机组成原理（第六章）（上）</h1><p>本章主要讲解定点数和浮点数的四则运算，最后还要提一句ALU的介绍，为第七章节省篇章</p>
+<blockquote>
+<p>有无符号数和定点浮点表示</p>
+<p>定点数的四则运算</p>
+</blockquote>
+<p>这次理论的内容其实挺多，可惜的是课本上的图片不是很好理解，希望我能把课本的图片解释清楚</p>
+<h2 id="有无符号数和定点浮点表示"><a href="#有无符号数和定点浮点表示" class="headerlink" title="有无符号数和定点浮点表示"></a>有无符号数和定点浮点表示</h2><p>数字首先可以分为有无符号数，有无符号数C语言直接学过了，不打算多说了，总之无符号数可以扩展数据的上限，但是下限永远是0.</p>
+<p>在计算机中的数据一般用两种内容进行存放，整数和小数，小数进行存放的时候，我们假设是有符号数，一个有符号数进行小数存放，我们用0.xxx表示数据，我们大可以直接把小数点前的那一位作为一个符号位，如果是1表示是负数。对于整数而言，为了保持和小数的一致，我们用逗号进行表示，比如1,xxx表示一个负整数</p>
+<p>对于一个数据，我们使用原码，反码和补码进行保存数据，这个其实C语言讲的也很明白了，正数的原码=反码=补码，负数的原码=负反码=（补码-1）取反。我们用取反加一表示负数的补码</p>
+<p>这里还有一个常用公式，负补码=补码取反+1</p>
+<p>这里还有一种表示移码，移码的目的是为了便于数据比较，一个负数和一个正数进行比较的时候正常很难判定，还得用较为复杂的方式实现符号的判定，所以我们设计一种加法运算得到移码，比如1010，我们加上比他大一位的最小数10000得到11010，这样去进行比较，在负数的时候其实现实的就很明显了，负数和他相加会得到一个较小的数据从而方便比较数据的大小</p>
+<p>数据一般采用两种保存方式，定点表示和浮点表示，定点表示常用于int型，一个数符后面是数据，浮点数懂的都懂，有两个数符是用来保存正负号的</p>
+<p>浮点数存储的时候有一定的存储范围，可想而知，当阶码和数码一定的时候，数码取非0的最小，阶码也取最小，这样得到的数字是非0的最小值，他会趋近于0，但是并不是0，这个点到0之间的值是无法表示的，如果数字在这个区域，称为下溢，这里的值强行转换为0。同理，如果一个值大于浮点数的最大范围，称为上溢。</p>
+<p>浮点数表示的精确程度取决于给他的数码和阶码的长度，如果假设两者相同，其实可以让有效数值在可能的情况下数码左移，减少阶码，这样数码的右端可以存放更多的数据增大精度，再考虑原码反码补码，对于原码来说，有效的数值是1，全部左移之后，他的表示形式一定是x,1xxx这种形式。反码和补码刚好相反，表示形式是x,0xxx。</p>
+<p>定点数和浮点数相比，浮点数的精度和范围都比定点数要好，但是就是运算的时候会比定点数麻烦，编程的时候是两者都有的。</p>
+<h2 id="定点数的四则运算"><a href="#定点数的四则运算" class="headerlink" title="定点数的四则运算"></a>定点数的四则运算</h2><p>写在四则运算之前，我们先要看一看基本的移位运算，移位运算是后面乘法和除法的基础，而且其实没什么好说的，也比较简单</p>
+<h3 id="移位运算"><a href="#移位运算" class="headerlink" title="移位运算"></a>移位运算</h3><p>移位运算就是直接左移右移，他的重点在于补数，在正常一个正数中，他的原码反码补码一致，所以直接左移右移补0就可以。一个负数相对而言会比较复杂。</p>
+<p>负数的原码左右移动的时候直接补0，反码因为刚好和原码相反，所以左移右移的时候补1.补码运算的时候，是取反之后+1，所以如果左边要补，可以看成一个负数，补0.右边运算的时候，因为+1，所以补0。也就是说，左移补0，右移补1.</p>
+<p>移位运算的时候有算数移位和逻辑移位的区别。算数移位是把符号位和数值位看做一个整体，移位的时候一起移位，逻辑移位就是直接对数值位进行移位。算数移位其实在后续乘法和除法中用到，这也是他唯一的用途</p>
+<h3 id="加法和减法"><a href="#加法和减法" class="headerlink" title="加法和减法"></a>加法和减法</h3><p>加法其实和减法没有过大的区别，我们先来看加法的基本方法</p>
+<p>二进制的加法和十进制的加法相差不多，我们如果两个1相加的话，就直接进位一个1.由于数据在计算机中都是补码存放的，我们就直接对补码相加，就可以得到补码表示的结果。如果最后进位的时候在不存在的最高位进位了一个1，我们就直接丢掉这个进位。</p>
+<p>负数计算的时候，A的补码-B的补码=A的补码+（-B）的补码。上面的文章中我们提到，-B的补码就是B的补码加上符号位一起取反+1.后面和正常加法运算相同了。</p>
+<p>加减法计算的时候会存在溢出的情况，我们假设A和B，B是带符号的数，我们直接把减法统一转换为A+B。</p>
+<p>如果我们就采用正常的一位符号位判断，如果A和B符号不同，其实是不会溢出的。当A和B符号相同，但是运算结果和A，B符号不同的话，那么我们就判定，AB的运算出现了溢出。</p>
+<p>其实还有另一种符号保存方法，就是采用双符号位进行保存，双符号位表示正数的就是00，负数就是11，无论结果是否溢出，双符号位的第一位永远是最终正确的符号。如果运算之后，结果出现01或者10这样的符号位，就表示加减运算发生了溢出</p>
+<h3 id="乘法"><a href="#乘法" class="headerlink" title="乘法"></a>乘法</h3><hr>
+<p><em>我是ALgarth，如果有缘，我们下次再见。</em></p>
+<p><em>图片来自网络，侵删。</em></p>
+<p><em>本人拙笔草见，如果内容有误，请及时联系修改</em></p>
+
+            </div>
+            
+                <div class="kratos-copyright text-center clearfix">
+                    <h5>本作品采用 <a rel="license nofollow" target="_blank" href="http://creativecommons.org/licenses/by-sa/4.0/">知识共享署名-相同方式共享 4.0 国际许可协议</a> 进行许可</h5>
+                </div>
+            
+            <footer class="kratos-entry-footer clearfix">
+                
+                    <div class="post-like-donate text-center clearfix" id="post-like-donate">
+                    
+                        <a class="donate" href="javascript:;"><i class="fa fa-bitcoin"></i> 打赏</a>
+                    
+                    
+                        <a class="share" href="javascript:;"><i class="fa fa-share-alt"></i> 分享</a>
+                        <div class="share-wrap" style="display: none;">
+    <div class="share-group">
+        <a href="javascript:;" class="share-plain qq" onclick="share('qq');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-qq"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain qzone" onclick="share('qzone');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-star"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weixin pop style-plain" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weixin"></i>
+            </div>
+            <div class="share-int">
+                <div class="qrcode" id="wechat-qr"></div>
+                <p>打开微信“扫一扫”，打开网页后点击屏幕右上角分享按钮</p>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain weibo" onclick="share('weibo');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-weibo"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain facebook style-plain" onclick="share('facebook');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-facebook"></i>
+            </div>
+        </a>
+        <a href="javascript:;" class="share-plain twitter style-plain" onclick="share('twitter');" rel="nofollow">
+            <div class="icon-wrap">
+                <i class="fa fa-twitter"></i>
+            </div>
+        </a>
+    </div>
+    <script type="text/javascript">
+        $(()=>{
+            new QRCode("wechat-qr", {
+                text: "http://algarth.github.io/2020/12/20/organization7/",
+                width: 150,
+                height: 150,
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        });
+        function share(dest) {
+            const qqBase        = "https://connect.qq.com/widget/shareqq/index.html?";
+            const weiboBase     = "https://service.weibo.com/share/share.php?";
+            const qzoneBase     = "https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?";
+            const facebookBase  = "https://www.facebook.com/sharer/sharer.php?";
+            const twitterBase   = "https://twitter.com/intent/tweet?";
+            const hostUrl       = "http://algarth.github.io/2020/12/20/organization7/";
+            const title         = "「计算机组成原理（第六章）（上）」";
+            const excerpt       = `老规矩，上开头！！
+
+突然意识到该写一份计算机组成原理的笔记
+那就写呗
+为的是方便我个人的复习以及对读者进行启发
+目录根据《计算机组成原理（第二版）》唐朔飞奶奶的的那本书来的
+内容涵盖并结合书中内容，练习题，“林北不能忍了”学长的笔记...`;
+            let _URL;
+            switch (dest) {
+                case "qq"       : _URL = qqBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";     break;
+                case "weibo"    : _URL = weiboBase+"url="+hostUrl+"&title="+title+excerpt;                                 break;
+                case "qzone"    : _URL = qzoneBase+"url="+hostUrl+"&title="+title+"&desc=&summary="+excerpt+"&site=cxpy";  break;
+                case "facebook" : _URL = facebookBase+"u="+hostUrl;                                                        break;
+                case "twitter"  : _URL = twitterBase+"text="+title+excerpt+"&url="+hostUrl;                                break;
+            }
+            window.open(_URL);
+        };
+    </script>
+</div>
+                    
+                    </div>
+                
+                <div class="footer-tag clearfix">
+                    <div class="pull-left">
+                    <i class="fa fa-tags"></i>
+                        <a class="tag-none-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a>
+                    </div>
+                    <div class="pull-date">
+                    <span>最后编辑：2020-12-23</span>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        
+            <nav class="navigation post-navigation clearfix" role="navigation">
+                
+                <div class="nav-previous clearfix">
+                    <a title=" 计算机组成原理（第五章剩余内容）" href="/2020/12/09/organization6/">&lt; 上一篇</a>
+                </div>
+                
+                
+                <div class="nav-next clearfix">
+                    <a title=" 计算机组成原理（第六章）（下）" href="/2020/12/21/organization8/">下一篇 &gt;</a>
+                </div>
+                
+            </nav>
+        
+        
+    </article>
+</section>
+        </div>
+                
+            <section id="kratos-widget-area" class="col-md-4 hidden-xs hidden-sm">
+                
+                    <aside id="krw-about" class="widget widget-kratos-about clearfix">
+    
+    <div class="photo-background"></div>
+    <div class="photo-wrapper clearfix">
+        <div class="photo-wrapper-tip text-center">
+            <img class="about-photo" src="/images/avatar.webp" />
+        </div>
+    </div>
+    <div class="textwidget">
+        
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%EF%BC%88%E7%AC%AC%E5%85%AD%E7%AB%A0%EF%BC%89%EF%BC%88%E4%B8%8A%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">计算机组成原理（第六章）（上）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%89%E6%97%A0%E7%AC%A6%E5%8F%B7%E6%95%B0%E5%92%8C%E5%AE%9A%E7%82%B9%E6%B5%AE%E7%82%B9%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.</span> <span class="toc-text">有无符号数和定点浮点表示</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E7%82%B9%E6%95%B0%E7%9A%84%E5%9B%9B%E5%88%99%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.</span> <span class="toc-text">定点数的四则运算</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%BB%E4%BD%8D%E8%BF%90%E7%AE%97"><span class="toc-number">1.2.1.</span> <span class="toc-text">移位运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E6%B3%95%E5%92%8C%E5%87%8F%E6%B3%95"><span class="toc-number">1.2.2.</span> <span class="toc-text">加法和减法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%98%E6%B3%95"><span class="toc-number">1.2.3.</span> <span class="toc-text">乘法</span></a></li></ol></li></ol></li></ol>
+        
+    </div>
+</aside>
+                
+                    <!-- Moved to about.ejs -->
+                
+                    
+
+                
+                    
+  <aside id="krw-tags" class="widget widget-kratos-tags clearfix">
+    <h4 class="widget-title"><i class="fa fa-tags"></i>标签聚合</h4>
+      <div class="tag-clouds">
+        <a href="/tags/OS/" style="font-size: 0.6em;">OS</a> <a href="/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/" style="font-size: 0.7em;">c++从入门到不入门</a> <a href="/tags/dp/" style="font-size: 0.6em;">dp</a> <a href="/tags/marache/" style="font-size: 0.6em;">marache</a> <a href="/tags/priority-queue/" style="font-size: 0.6em;">priority_queue</a> <a href="/tags/projectpool/" style="font-size: 0.6em;">projectpool</a> <a href="/tags/tmp/" style="font-size: 0.6em;">tmp</a> <a href="/tags/trailer/" style="font-size: 0.7em;">trailer</a> <a href="/tags/update/" style="font-size: 0.6em;">update</a> <a href="/tags/%E5%89%8D%E8%A8%80/" style="font-size: 0.6em;">前言</a> <a href="/tags/%E7%AB%9E%E8%B5%9B/" style="font-size: 0.6em;">竞赛</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" style="font-size: 0.8em;">计算机组成原理</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E6%B1%87%E6%80%BB/" style="font-size: 0.6em;">计算机组成原理汇总</a> <a href="/tags/%E8%AE%A1%E7%BD%91/" style="font-size: 0.6em;">计网</a>
+      </div>
+  </aside>
+
+                
+                    
+  <aside id="krw-posts" class="widget widget-kratos-poststab">
+  <h4 class="widget-title"><i class="fa fa-file"></i>最新文章</h4>
+  <div class="tab-content">
+      <ul class="list-group">
+        
+        
+          
+          
+            <a class="list-group-item" href="/2021/12/23/tmp/"><i class="fa  fa-book"></i> 小范围开源期末材料</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/30/OS/"><i class="fa  fa-book"></i> OS第一章</a>
+            
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/23/cnet/"><i class="fa  fa-book"></i> 计网第一章</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/10/19/projectpool/"><i class="fa  fa-book"></i> 计划进程池设定</a>
+            
+          
+        
+          
+          
+        
+          
+          
+            <a class="list-group-item" href="/2021/02/09/jingsai8/"><i class="fa  fa-book"></i> 算法竞赛从入门到进阶（8）</a>
+            
+          
+        
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+          
+            
+      </ul>
+  </div>
+  </aside>
+
+                
+            </section>
+        
+        </div>
+    </div>
+</div>
+<footer>
+    <div id="footer">
+        <div class="kr-tool text-center">
+            <div class="tool">
+                
+                    <div class="box search-box">
+                        <a href="/search/">
+                            <span class="fa fa-search"></span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="box theme-box" id="darkmode-switch">
+                        <span class="fa fa-adjust"></span>
+                    </div>
+                
+                
+            </div>
+            <div class="box gotop-box">
+                <span class="fa fa-chevron-up"></span>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 footer-list text-center">
+                    <ul class="kratos-social-icons">
+                        
+                        <li><a href="mailto:algarth@163.com"><i class="fa fa-envelope"></i></a></li>
+                        
+                        
+                        
+                        
+                        
+                        <li><a target="_blank" rel="nofollow" href="https://github.com/ALgarth"><i class="fa fa-github"></i></a></li>
+                        
+                    </ul>
+                    <ul class="kratos-copyright">
+                        <div>
+                            <li>&copy; 2023 ALgarth 版权所有.</li>
+                            <li>本站已运行<span id="span_dt">Loading...</span></li>
+                        </div>
+                        <div>
+                            <li>Theme <a href="https://github.com/Candinya/Kratos-Rebirth" target="_blank">Kratos:Rebirth</a></li>
+                            <li>Made with&nbsp;<i class="fa fa-heart throb" style="color:#d43f57"></i>&nbsp;by <a href="https://candinya.com" target="_blank" rel="nofollow">Candinya</a>.</li>
+                        </div>
+                        <div>
+                            <li>Powered by <a href="https://hexo.io" target="_blank" rel="nofollow">Hexo</a></li>
+                            <li>Hosted on <a href="https://github.io" target="_blank">Github Pages</a></li>
+                        </div>
+                        <div>
+                            
+                            
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
+</div>
+
+        <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.4/dist/js/bootstrap.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.js"></script>
+<script>const notMobile = (!(navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)));</script>
+
+    <div>
+        <canvas id="snow"></canvas>
+        <script async type="text/javascript" src="/js/snow.min.js"></script>
+    </div>
+
+<script async src="/js/candy.min.js"></script>
+
+
+    <script defer src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js"></script>
+<script defer src="/js/kratosr.min.js"></script>
+<script defer src="/js/pjax.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/layui-src@2.5.5/dist/layui.all.js"></script>
+
+
+    <script defer src="/js/kr-dark.min.js"></script>
+
+
+    </body>
+</html>
