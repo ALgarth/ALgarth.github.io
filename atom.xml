@@ -6,7 +6,7 @@
   <link href="http://algarth.github.io/atom.xml" rel="self"/>
   
   <link href="http://algarth.github.io/"/>
-  <updated>2023-05-30T12:31:05.554Z</updated>
+  <updated>2023-07-03T06:00:20.275Z</updated>
   <id>http://algarth.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>【开源计划】考研复习内容整合（数学408）</title>
+    <link href="http://algarth.github.io/2023/07/03/blog-9/"/>
+    <id>http://algarth.github.io/2023/07/03/blog-9/</id>
+    <published>2023-07-03T05:43:21.000Z</published>
+    <updated>2023-07-03T06:00:20.275Z</updated>
+    
+    <content type="html"><![CDATA[<p>这部分内容属于小范围开源计划</p><blockquote><p>小范围开源计划：</p><p>某天AL突然意识到，等自己整理完所有笔记再开源会显得有点晚，而且本来也没多少人关注博客，所以开源就开源了，开源计划中总体上会展示个人对于学科内容的思考，一般开源的内容为AL自己的obsidian笔记，鉴于静态博客没有打开评论，如果有什么疏漏或者建议，请根据置顶中给出的联系方式联系我修订</p></blockquote><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><p>以下开源内容会随时间更新，如果需要确定内容是否进行更新，请查看当前blog下标的更新日期，遗憾的是，我并不想写更新目录。。</p><h1 id="数学："><a href="#数学：" class="headerlink" title="数学："></a>数学：</h1><div class="row">    <embed src="/pdf/01_高等数学.pdf" width="100%" height="550" type="application/pdf"></div><h1 id="408："><a href="#408：" class="headerlink" title="408："></a>408：</h1><h2 id="机组"><a href="#机组" class="headerlink" title="机组"></a>机组</h2><div class="row">    <embed src="/pdf/00_机组.pdf" width="100%" height="550" type="application/pdf"></div><h2 id="计网"><a href="#计网" class="headerlink" title="计网"></a>计网</h2><div class="row">    <embed src="/pdf/00_计网.pdf" width="100%" height="550" type="application/pdf"></div><h1 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h1><p>目前的每日规划存档</p><div class="row">    <embed src="/pdf/考研DayPlanner归档.pdf" width="100%" height="550" type="application/pdf"></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;这部分内容属于小范围开源计划&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;小范围开源计划：&lt;/p&gt;
+&lt;p&gt;某天AL突然意识到，等自己整理完所有笔记再开源会显得有点晚，而且本来也没多少人关注博客，所以开源就开源了，开源计划中总体上会展示个人对于学科内容的思考，一般开源的内容为AL</summary>
+      
+    
+    
+    
+    
+    <category term="开源计划" scheme="http://algarth.github.io/tags/%E5%BC%80%E6%BA%90%E8%AE%A1%E5%88%92/"/>
+    
+  </entry>
   
   <entry>
     <title>我的大学</title>
