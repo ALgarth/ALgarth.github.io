@@ -8,6 +8,7 @@ https://algarth.github.io/2020/10/11/blog/
 https://algarth.github.io/2020/10/11/blog-1/
 https://algarth.github.io/
 https://algarth.github.io/tags/c-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E4%B8%8D%E5%85%A5%E9%97%A8/
+https://algarth.github.io/tags/%E6%9C%AD%E8%AE%B0/
 https://algarth.github.io/tags/priority-queue/
 https://algarth.github.io/tags/trailer/
 https://algarth.github.io/tags/update/
